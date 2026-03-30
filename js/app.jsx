@@ -430,8 +430,7 @@ const eventPhotos = [
     icon: "fa-solid fa-tree",
     color: "#4CAF50",
     photos: [
-      "./party_cris.jpg",
-      "./navidad2024.html"
+      "./party_cris.jpg"
     ]
   },
   {
@@ -443,8 +442,7 @@ const eventPhotos = [
     photos: [
       "./face1.JPG",
       "./face2.JPG",
-      "./face3.JPG",
-      "./carnaval.html"
+      "./face3.JPG"
     ]
   }
 ];
@@ -1142,25 +1140,7 @@ const Footer = () => (
 
 const PhotoCarousel = ({ event }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const isHtml = event.photos[0] && event.photos[0].endsWith('.html');
-  
-  if (isHtml) {
-    return (
-      <article className="card" style={{ borderTop: `3px solid ${event.color}` }}>
-        <div style={{ 
-          padding: 'var(--space-xl)', 
-          textAlign: 'center',
-          background: `linear-gradient(135deg, ${event.color}10, ${event.color}20)`,
-          borderRadius: 'var(--radius-md)'
-        }}>
-          <i className={event.icon} style={{ fontSize: '48px', color: event.color, marginBottom: 'var(--space-md)' }}></i>
-          <h3>{event.title}</h3>
-          <p>{event.description}</p>
-          <a className="btn btn-primary" href={event.photos[0]}>Ver fotos</a>
-        </div>
-      </article>
-    );
-  }
+  const hasMultiplePhotos = event.photos.length > 1;
   
   const goToPrev = () => setCurrentIndex(prev => (prev === 0 ? event.photos.length - 1 : prev - 1));
   const goToNext = () => setCurrentIndex(prev => (prev === event.photos.length - 1 ? 0 : prev + 1));
@@ -1174,50 +1154,54 @@ const PhotoCarousel = ({ event }) => {
             alt={`${event.title} - Foto ${currentIndex + 1}`}
             style={{ width: '100%', height: '250px', objectFit: 'cover', borderRadius: 'var(--radius-md)' }}
           />
-          <button 
-            className="carousel-nav carousel-prev" 
-            onClick={goToPrev}
-            aria-label="Foto anterior"
-            style={{ 
-              position: 'absolute', 
-              left: '10px', 
-              top: '50%', 
-              transform: 'translateY(-50%)',
-              background: 'rgba(255,255,255,0.9)',
-              border: 'none',
-              borderRadius: '50%',
-              width: '36px',
-              height: '36px',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}
-          >
-            <i className="fa-solid fa-chevron-left"></i>
-          </button>
-          <button 
-            className="carousel-nav carousel-next" 
-            onClick={goToNext}
-            aria-label="Foto siguiente"
-            style={{ 
-              position: 'absolute', 
-              right: '10px', 
-              top: '50%', 
-              transform: 'translateY(-50%)',
-              background: 'rgba(255,255,255,0.9)',
-              border: 'none',
-              borderRadius: '50%',
-              width: '36px',
-              height: '36px',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}
-          >
-            <i className="fa-solid fa-chevron-right"></i>
-          </button>
+          {hasMultiplePhotos && (
+            <>
+              <button 
+                className="carousel-nav carousel-prev" 
+                onClick={goToPrev}
+                aria-label="Foto anterior"
+                style={{ 
+                  position: 'absolute', 
+                  left: '10px', 
+                  top: '50%', 
+                  transform: 'translateY(-50%)',
+                  background: 'rgba(255,255,255,0.9)',
+                  border: 'none',
+                  borderRadius: '50%',
+                  width: '36px',
+                  height: '36px',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
+              >
+                <i className="fa-solid fa-chevron-left"></i>
+              </button>
+              <button 
+                className="carousel-nav carousel-next" 
+                onClick={goToNext}
+                aria-label="Foto siguiente"
+                style={{ 
+                  position: 'absolute', 
+                  right: '10px', 
+                  top: '50%', 
+                  transform: 'translateY(-50%)',
+                  background: 'rgba(255,255,255,0.9)',
+                  border: 'none',
+                  borderRadius: '50%',
+                  width: '36px',
+                  height: '36px',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
+              >
+                <i className="fa-solid fa-chevron-right"></i>
+              </button>
+            </>
+          )}
         </div>
         <div className="photo-carousel-info" style={{ padding: 'var(--space-md) 0' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-sm)', marginBottom: 'var(--space-sm)' }}>
@@ -1225,24 +1209,26 @@ const PhotoCarousel = ({ event }) => {
             <h3 style={{ margin: 0 }}>{event.title}</h3>
           </div>
           <p style={{ margin: 0, fontSize: 'var(--font-size-sm)', color: 'var(--text-light)' }}>{event.description}</p>
-          <div className="photo-carousel-dots" style={{ display: 'flex', gap: '6px', marginTop: 'var(--space-sm)', justifyContent: 'center' }}>
-            {event.photos.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setCurrentIndex(idx)}
-                aria-label={`Ir a foto ${idx + 1}`}
-                style={{
-                  width: '8px',
-                  height: '8px',
-                  borderRadius: '50%',
-                  border: 'none',
-                  background: idx === currentIndex ? event.color : 'var(--border)',
-                  cursor: 'pointer',
-                  padding: 0
-                }}
-              />
-            ))}
-          </div>
+          {hasMultiplePhotos && (
+            <div className="photo-carousel-dots" style={{ display: 'flex', gap: '6px', marginTop: 'var(--space-sm)', justifyContent: 'center' }}>
+              {event.photos.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentIndex(idx)}
+                  aria-label={`Ir a foto ${idx + 1}`}
+                  style={{
+                    width: '8px',
+                    height: '8px',
+                    borderRadius: '50%',
+                    border: 'none',
+                    background: idx === currentIndex ? event.color : 'var(--border)',
+                    cursor: 'pointer',
+                    padding: 0
+                  }}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </article>
