@@ -426,7 +426,7 @@ const TopBar = () => (
   </div>
 );
 
-const NavDropdown = ({ label, dropdown = [] }) => {
+const NavDropdown = ({ label, dropdown = [], href }) => {
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -449,7 +449,10 @@ const NavDropdown = ({ label, dropdown = [] }) => {
     };
   }, []);
 
-  const toggleDropdown = () => setOpen(prev => !prev);
+  const toggleDropdown = (e) => {
+    e.preventDefault();
+    setOpen(prev => !prev);
+  };
 
   return (
     <div
@@ -457,7 +460,8 @@ const NavDropdown = ({ label, dropdown = [] }) => {
       ref={dropdownRef}
       onMouseEnter={() => setOpen(true)}
     >
-      <button
+      <a
+        href={href}
         className="nav-dropdown__toggle"
         aria-haspopup="true"
         aria-expanded={open}
@@ -472,7 +476,7 @@ const NavDropdown = ({ label, dropdown = [] }) => {
       >
         {label}
         <i className="fa-solid fa-chevron-down" aria-hidden="true"></i>
-      </button>
+      </a>
       {open && (
         <div className="nav-dropdown__panel" role="menu">
           {dropdown.map(item => (
@@ -532,7 +536,7 @@ const Header = () => (
             }
             if (link.dropdown) {
               return (
-                <NavDropdown key={index} label={link.label} dropdown={link.dropdown} />
+                <NavDropdown key={index} label={link.label} dropdown={link.dropdown} href={link.href} />
               );
             }
             return (
