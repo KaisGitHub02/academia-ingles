@@ -478,7 +478,7 @@ const NavDropdown = ({ label, dropdown = [], href }) => {
         <i className="fa-solid fa-chevron-down" aria-hidden="true"></i>
       </a>
       {open && (
-        <div className="nav-dropdown__panel" role="menu">
+        <div className="nav-dropdown-menu" role="menu">
           {dropdown.map(item => (
             <a key={item.href} href={item.href} role="menuitem">
               <span>{item.label}</span>
