@@ -279,6 +279,7 @@ const navLinks = [
   },
   { href: "examenes.html", label: "Exámenes" },
   {
+    href: "intensivos.html",
     label: "Intensivos",
     dropdown: [
       { href: "intensivos.html", label: "Intensivos 2025", description: "Rutas 4-8 semanas · cupos limitados" },
@@ -527,6 +528,11 @@ const Header = () => (
                     ))}
                   </div>
                 </li>
+              );
+            }
+            if (link.dropdown) {
+              return (
+                <NavDropdown key={index} label={link.label} dropdown={link.dropdown} />
               );
             }
             return (
