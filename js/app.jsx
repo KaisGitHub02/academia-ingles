@@ -82,7 +82,12 @@ const courseList = [
     mode: "Presencial",
     link: "course-kids.html",
     badge: "A1 - B1",
-    image: "assets/images/kids.jpg"
+    image: "assets/images/kids.jpg",
+    icon: "fa-solid fa-children",
+    color: "#4CAF50",
+    features: ["Historias interactivas", "Proyectos maker", "Micro-retos de vocabulario", "Mentores nativos"],
+    duration: "Curso escolar",
+    schedule: "Lunes a viernes · 16:00-20:00"
   },
   {
     id: "teens",
@@ -92,7 +97,12 @@ const courseList = [
     mode: "Híbrido",
     link: "course-ten.html",
     badge: "A2 - C1",
-    image: "assets/images/teenagers.jpg"
+    image: "assets/images/teenagers.jpg",
+    icon: "fa-solid fa-school",
+    color: "#2196F3",
+    features: ["Workshops STEAM", "Pitch nights", "Simulacros Cambridge", "Feedback individual"],
+    duration: "Curso escolar",
+    schedule: "Lunes a viernes · 16:30-20:30"
   },
   {
     id: "adults",
@@ -102,7 +112,12 @@ const courseList = [
     mode: "Online + Presencial",
     link: "course-adult.html",
     badge: "A1 - C2",
-    image: "assets/images/adult.jpg"
+    image: "assets/images/adult.jpg",
+    icon: "fa-solid fa-user-graduate",
+    color: "#9C27B0",
+    features: ["Clases flexibles", "Podcast guiados", "Sesiones express", "Seguimiento personalizado"],
+    duration: "Flexible",
+    schedule: "Mañana y tarde · disponibilidad"
   },
   {
     id: "business",
@@ -112,7 +127,12 @@ const courseList = [
     mode: "In-Company",
     link: "course-busi.html",
     badge: "Equipos",
-    image: "assets/images/bussiness.png"
+    image: "assets/images/bussiness.png",
+    icon: "fa-solid fa-briefcase",
+    color: "#FF9800",
+    features: ["Programas a medida", "Vocabulary profesional", "Presentaciones", "Reuniones en inglés"],
+    duration: "A convenir",
+    schedule: "Horario flexible"
   },
   {
     id: "private",
@@ -122,7 +142,12 @@ const courseList = [
     mode: "Personalizadas",
     link: "course-particulares.html",
     badge: "Agenda flexible",
-    image: "assets/images/particular.jpg"
+    image: "assets/images/particular.jpg",
+    icon: "fa-solid fa-person-chalkboard",
+    color: "#E91E63",
+    focus: ["Viajes", "Eraser", "Oposiciones", "Speaking coach"],
+    duration: "A tu ritmo",
+    schedule: "Agenda flexible"
   },
   {
     id: "intensive",
@@ -132,7 +157,12 @@ const courseList = [
     mode: "Híbrido",
     link: "intensivos.html",
     badge: "Cupos limitados",
-    image: "assets/images/Intensivos2025.jpg"
+    image: "assets/images/Intensivos2025.jpg",
+    icon: "fa-solid fa-rocket",
+    color: "#FF5722",
+    features: ["4-8 semanas", "Simulacros diarios", "Seguimiento WhatsApp", "Certificación"],
+    duration: "4-8 semanas",
+    schedule: "Lunes a viernes · 9:00-13:00"
   }
 ];
 
@@ -1302,10 +1332,11 @@ const AboutLayout = () => (
 
 const CourseDetailLayout = ({ courseId }) => {
   const course = courseList.find(c => c.id === courseId) || courseList[0];
+  
   return (
     <>
       <PageHero
-        eyebrow="Programa destacado"
+        eyebrow={course.mode}
         title={course.title}
         description={course.description}
         image={course.image}
@@ -1314,28 +1345,69 @@ const CourseDetailLayout = ({ courseId }) => {
           { label: "Ver intensivos", href: "intensivos.html", style: "secondary" }
         ]}
       />
-      <section aria-label="Detalle de curso">
-        <div className="course-grid">
-          <article className="card course-card highlight">
-            <img src={course.image} alt={course.title} loading="lazy" />
-            <span className="badge">
-              <i className="fa-solid fa-location-dot" aria-hidden="true"></i>
-              {course.mode}
-            </span>
-            <h3>{course.title}</h3>
-            <p>{course.description}</p>
-            <p style={{ color: "var(--muted)" }}>
-              <strong>Nivel:</strong> {course.badge}
-            </p>
-            <div className="hero-actions">
-              <a className="btn primary" href="contact-us.html">
-                Solicitar información
-              </a>
-              <a className="btn secondary" href="nivel.html">
-                Hacer prueba gratuita
-              </a>
-            </div>
-          </article>
+      <section aria-label="Detalle del curso" className="pillars-section">
+        <div className="container">
+          <div className="course-grid" style={{ maxWidth: '800px', margin: '0 auto' }}>
+            <article className="card" style={{ borderTop: `4px solid ${course.color}`, textAlign: 'center', padding: 'var(--space-xl)' }}>
+              <div style={{ 
+                width: '120px', 
+                height: '120px', 
+                borderRadius: '50%', 
+                background: `linear-gradient(135deg, ${course.color}15, ${course.color}30)`,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: '0 auto var(--space-lg)',
+                border: `3px solid ${course.color}`
+              }}>
+                <i className={course.icon} style={{ fontSize: '50px', color: course.color }}></i>
+              </div>
+              <span className="badge" style={{ backgroundColor: course.color, display: 'inline-block', marginBottom: 'var(--space-md)' }}>
+                <i className="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+                {course.badge}
+              </span>
+              <h3 style={{ fontSize: 'var(--font-size-xl)', marginBottom: 'var(--space-md)' }}>{course.title}</h3>
+              <p style={{ fontSize: 'var(--font-size-lg)', color: 'var(--text-light)', marginBottom: 'var(--space-lg)' }}>{course.description}</p>
+              
+              <div style={{ display: 'flex', justifyContent: 'center', gap: 'var(--space-xl)', marginBottom: 'var(--space-lg)', flexWrap: 'wrap' }}>
+                <div style={{ textAlign: 'center' }}>
+                  <i className="fa-solid fa-clock" style={{ color: course.color, fontSize: '24px', marginBottom: 'var(--space-xs)' }}></i>
+                  <p style={{ margin: 0, fontWeight: '600' }}>{course.duration}</p>
+                  <p style={{ margin: 0, fontSize: 'var(--font-size-sm)', color: 'var(--text-light)' }}>Duración</p>
+                </div>
+                <div style={{ textAlign: 'center' }}>
+                  <i className="fa-solid fa-calendar" style={{ color: course.color, fontSize: '24px', marginBottom: 'var(--space-xs)' }}></i>
+                  <p style={{ margin: 0, fontWeight: '600' }}>{course.schedule}</p>
+                  <p style={{ margin: 0, fontSize: 'var(--font-size-sm)', color: 'var(--text-light)' }}>Horario</p>
+                </div>
+              </div>
+              
+              {course.features && (
+                <ul className="intensive-features" style={{ textAlign: 'left', maxWidth: '400px', margin: '0 auto var(--space-lg)' }}>
+                  {course.features.map((feature, idx) => (
+                    <li key={idx}><i className="fa-solid fa-check" style={{ color: course.color }}></i> {feature}</li>
+                  ))}
+                </ul>
+              )}
+              
+              {course.focus && (
+                <ul className="intensive-features" style={{ textAlign: 'left', maxWidth: '400px', margin: '0 auto var(--space-lg)' }}>
+                  {course.focus.map((item, idx) => (
+                    <li key={idx}><i className="fa-solid fa-check" style={{ color: course.color }}></i> {item}</li>
+                  ))}
+                </ul>
+              )}
+              
+              <div className="hero-actions mt-lg" style={{ justifyContent: 'center' }}>
+                <a className="btn primary" href="contact-us.html">
+                  Solicitar información
+                </a>
+                <a className="btn secondary" href="nivel.html">
+                  Hacer prueba gratuita
+                </a>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
       <ImpactSection />
