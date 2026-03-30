@@ -281,11 +281,7 @@ const navLinks = [
   {
     href: "intensivos.html",
     label: "Intensivos",
-    dropdown: [
-      { href: "intensivos.html", label: "Intensivos 2025", description: "Rutas 4-8 semanas · cupos limitados" },
-      { href: "nivel.html", label: "Prueba de nivel", description: "Agenda gratuita en 15 minutos" },
-      { href: "blog.html", label: "Actividades familiares", description: "Calendario de clubs y eventos" }
-    ]
+    isIntensivos: true
   },
   { href: "blog.html", label: "Actividades" },
   { href: "contact-us.html", label: "Contacto" }
@@ -527,6 +523,47 @@ const Header = () => (
                         <div className="dropdown-item-info">
                           <h4>{course.title}</h4>
                           <p>{course.mode}</p>
+                        </div>
+                      </a>
+                    ))}
+                  </div>
+                </li>
+              );
+            }
+            if (link.isIntensivos) {
+              return (
+                <li className="nav-dropdown" key={index}>
+                  <a 
+                    href={link.href}
+                    className="nav-dropdown-toggle"
+                  >
+                    {link.label}
+                    <i className="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                  </a>
+                  <div className="nav-dropdown-menu">
+                    {intensivoCourses.map(item => (
+                      <a 
+                        key={item.id} 
+                        href="intensivos.html" 
+                        className="dropdown-item"
+                      >
+                        <div style={{ 
+                          width: '50px', 
+                          height: '50px', 
+                          borderRadius: '8px', 
+                          background: item.color,
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          color: 'white',
+                          fontWeight: 'bold',
+                          fontSize: '14px'
+                        }}>
+                          {item.level}
+                        </div>
+                        <div className="dropdown-item-info">
+                          <h4>Intensivo {item.level}</h4>
+                          <p>{item.duration}</p>
                         </div>
                       </a>
                     ))}
