@@ -890,8 +890,42 @@ img {
   .courses-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
+@media (max-width: 768px) {
+  .courses-grid {
+    grid-template-columns: 1fr;
+    padding: 0 var(--space-md);
+  }
+  .course-grid {
+    padding: 0 var(--space-md);
+  }
+}
+
 @media (max-width: 576px) {
   .courses-grid { grid-template-columns: 1fr; }
+  .course-grid article.card {
+    padding: var(--space-lg) var(--space-md) !important;
+  }
+  .course-grid article.card > div:first-of-type {
+    width: 80px !important;
+    height: 80px !important;
+  }
+  .course-grid article.card > div:first-of-type i {
+    font-size: 32px !important;
+  }
+  .course-grid article.card h3 {
+    font-size: var(--font-size-lg) !important;
+  }
+  .course-grid article.card p {
+    font-size: var(--font-size-sm) !important;
+  }
+  .hero-actions {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+  .hero-actions .btn {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 /* ---------- 16. TESTIMONIALS ---------- */
