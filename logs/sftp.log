@@ -1,0 +1,8 @@
+Mar 26 08:20:57 10.71.56.0 a2513555 Connection from 10.71.56.0 port 11984 on 82.165.90.105 port 22 rdomain ""
+Mar 26 08:20:57 10.71.56.0 a2513555 Accepted password for a2513555 from 10.71.56.0 port 11984 ssh2
+Mar 26 08:20:57 10.71.56.0 a2513555 Starting session: subsystem 'sftp' for a2513555 from 10.71.56.0 port 11984 id 0
+Mar 26 08:20:57 10.71.56.0 a2513555 session opened for local user a2513555 from [10.71.56.0]
+Mar 26 08:24:22 10.71.56.0 a3073596 Connection from 10.71.56.0 port 48012 on 82.165.90.105 port 22 rdomain ""
+Mar 26 08:24:22 10.71.56.0 a3073596 Accepted password for a3073596 from 10.71.56.0 port 48012 ssh2
+Mar 26 08:27:10 10.71.56.0 a2513555 mkdir name "/descargable" mode 0777
+Mar 26 08:27:10 10.71.56.0 a2513555 [10.71.56.0|mkdir|0|0|511|0|0|2f6465736361726761626c65|]
