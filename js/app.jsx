@@ -592,107 +592,130 @@ const NavDropdown = ({ label, dropdown = [], href }) => {
   );
 };
 
-const Header = () => (
-  <header className="site-header">
-    <TopBar />
-    <div className="header-inner">
-      <a className="site-logo" href="index.html">
-        <img src="assets/images/logo.png" alt="Be One English" loading="lazy" />
-        <strong>Be One English</strong>
-      </a>
-      <nav className="main-nav" aria-label="Navegación principal">
-        <ul className="nav-links">
-          {navLinks.map((link, index) => {
-            if (link.isCourseLink) {
+const Header = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  
+  const toggleMobileMenu = () => setMobileMenuOpen(prev => !prev);
+  const closeMobileMenu = () => setMobileMenuOpen(false);
+  
+  return (
+    <header className="site-header">
+      <TopBar />
+      <div className="header-inner">
+        <a className="site-logo" href="index.html">
+          <img src="assets/images/logo.png" alt="Be One English" loading="lazy" />
+          <strong className="hidden-mobile">Be One English</strong>
+        </a>
+        
+        <button 
+          className="mobile-menu-toggle" 
+          onClick={toggleMobileMenu}
+          aria-label={mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
+          aria-expanded={mobileMenuOpen}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        
+        <nav className={`main-nav ${mobileMenuOpen ? 'open' : ''}`} aria-label="Navegación principal">
+          <ul className="nav-links">
+            {navLinks.map((link, index) => {
+              if (link.isCourseLink) {
+                return (
+                  <li className="nav-dropdown" key={index}>
+                    <button 
+                      className="nav-dropdown-toggle"
+                      aria-haspopup="true"
+                      aria-expanded={false}
+                      onClick={() => closeMobileMenu()}
+                    >
+                      {link.label}
+                      <i className="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                    <div className="nav-dropdown-menu">
+                      {courseList.map(course => (
+                        <a 
+                          key={course.id} 
+                          href={course.link} 
+                          className="dropdown-item"
+                          onClick={closeMobileMenu}
+                        >
+                          <img 
+                            src={course.image} 
+                            alt={course.title} 
+                          />
+                          <div className="dropdown-item-info">
+                            <h4>{course.title}</h4>
+                            <p>{course.mode}</p>
+                          </div>
+                        </a>
+                      ))}
+                    </div>
+                  </li>
+                );
+              }
+              if (link.isIntensivos) {
+                return (
+                  <li className="nav-dropdown" key={index}>
+                    <a 
+                      href={link.href}
+                      className="nav-dropdown-toggle"
+                      onClick={closeMobileMenu}
+                    >
+                      {link.label}
+                      <i className="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                    </a>
+                    <div className="nav-dropdown-menu">
+                      {intensivoCourses.map(item => (
+                        <a 
+                          key={item.id} 
+                          href={item.link} 
+                          className="dropdown-item"
+                          onClick={closeMobileMenu}
+                        >
+                          <div style={{ 
+                            width: '40px', 
+                            height: '40px', 
+                            borderRadius: '50%', 
+                            background: `${item.color}20`,
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            border: `2px solid ${item.color}`
+                          }}>
+                            <i className={item.icon} style={{ color: item.color, fontSize: '16px' }}></i>
+                          </div>
+                          <div className="dropdown-item-info">
+                            <h4>Intensivo {item.level}</h4>
+                            <p>{item.duration}</p>
+                          </div>
+                        </a>
+                      ))}
+                    </div>
+                  </li>
+                );
+              }
+              if (link.dropdown) {
+                return (
+                  <NavDropdown key={index} label={link.label} dropdown={link.dropdown} href={link.href} />
+                );
+              }
               return (
-                <li className="nav-dropdown" key={index}>
-                  <button 
-                    className="nav-dropdown-toggle"
-                    aria-haspopup="true"
-                    aria-expanded={false}
-                  >
+                <li key={link.href}>
+                  <a href={link.href} className="nav-link" onClick={closeMobileMenu}>
                     {link.label}
-                    <i className="fa-solid fa-chevron-down" aria-hidden="true"></i>
-                  </button>
-                  <div className="nav-dropdown-menu">
-                    {courseList.map(course => (
-                      <a 
-                        key={course.id} 
-                        href={course.link} 
-                        className="dropdown-item"
-                      >
-                        <img 
-                          src={course.image} 
-                          alt={course.title} 
-                        />
-                        <div className="dropdown-item-info">
-                          <h4>{course.title}</h4>
-                          <p>{course.mode}</p>
-                        </div>
-                      </a>
-                    ))}
-                  </div>
-                </li>
-              );
-            }
-            if (link.isIntensivos) {
-              return (
-                <li className="nav-dropdown" key={index}>
-                  <a 
-                    href={link.href}
-                    className="nav-dropdown-toggle"
-                  >
-                    {link.label}
-                    <i className="fa-solid fa-chevron-down" aria-hidden="true"></i>
                   </a>
-                  <div className="nav-dropdown-menu">
-                    {intensivoCourses.map(item => (
-                      <a 
-                        key={item.id} 
-                        href={item.link} 
-                        className="dropdown-item"
-                      >
-                        <div style={{ 
-                          width: '40px', 
-                          height: '40px', 
-                          borderRadius: '50%', 
-                          background: `${item.color}20`,
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          border: `2px solid ${item.color}`
-                        }}>
-                          <i className={item.icon} style={{ color: item.color, fontSize: '16px' }}></i>
-                        </div>
-                        <div className="dropdown-item-info">
-                          <h4>Intensivo {item.level}</h4>
-                          <p>{item.duration}</p>
-                        </div>
-                      </a>
-                    ))}
-                  </div>
                 </li>
               );
-            }
-            if (link.dropdown) {
-              return (
-                <NavDropdown key={index} label={link.label} dropdown={link.dropdown} href={link.href} />
-              );
-            }
-            return (
-              <li key={link.href}>
-                <a href={link.href} className="nav-link">
-                  {link.label}
-                </a>
-              </li>
-            );
-          })}
-        </ul>
-        <a className="btn btn-primary" href="nivel.html">Prueba gratuita</a>
-      </nav>
-    </div>
-  </header>
-);
+            })}
+          </ul>
+          <a className="btn btn-primary" href="nivel.html" onClick={closeMobileMenu}>Prueba gratuita</a>
+        </nav>
+      </div>
+    </header>
+  );
+};
 
 const HeroSlider = ({ items = slides }) => {
   const [index, setIndex] = useAutoAdvance(items.length, 7000);
