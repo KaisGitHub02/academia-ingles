@@ -146,6 +146,7 @@ const intensivoCourses = [
     features: ["Simulacros de examen", "Materiales oficiales Cambridge", "Seguimiento por WhatsApp", "Certificación final"],
     level: "B1",
     color: "#4CAF50",
+    icon: "fa-solid fa-book-open",
     link: "intensivos.html"
   },
   {
@@ -157,6 +158,7 @@ const intensivoCourses = [
     features: ["Simulacros oficiales", "Writing corrections", "Speaking con nativos", "Examen simulacro incluido"],
     level: "B2",
     color: "#2196F3",
+    icon: "fa-solid fa-laptop-file",
     link: "intensivo-b2.html"
   },
   {
@@ -168,6 +170,7 @@ const intensivoCourses = [
     features: ["Grammar avanzada", "Vocabulario académico", "Speaking de nivel C1", "Materiales Cambridge originales"],
     level: "C1",
     color: "#9C27B0",
+    icon: "fa-solid fa-graduation-cap",
     link: "intensivo-c1.html"
   },
   {
@@ -179,6 +182,7 @@ const intensivoCourses = [
     features: ["Preparación CPE", "Simulacros oficiales", "Feedback experto", "Garantía de resultado"],
     level: "C2",
     color: "#FF5722",
+    icon: "fa-solid fa-crown",
     link: "intensivo-c2.html"
   }
 ];
@@ -376,6 +380,71 @@ const parentTips = [
   }
 ];
 
+const eventPhotos = [
+  {
+    id: "halloween",
+    title: "Halloween 2024",
+    description: "Fiesta de Halloween con disfraces, juegos y actividades terroríficas en inglés",
+    icon: "fa-solid fa-moon",
+    color: "#FF6B35",
+    photos: [
+      "./party_halloween.jpg",
+      "./party_halloween2.jpg",
+      "./party_halloween3.jpg",
+      "./party_halloween4.jpg",
+      "./party_halloween5.jpg",
+      "./party_halloween6.jpg",
+      "./party_halloween7.jpg"
+    ]
+  },
+  {
+    id: "sanvalentin",
+    title: "San Valentín 2025",
+    description: "Celebración del amor con actividades bilingües y manuellejes",
+    icon: "fa-solid fa-heart",
+    color: "#E91E63",
+    photos: [
+      "./party_valentin.jpg",
+      "./party_valentin2.jpg",
+      "./party_valentin3.jpg"
+    ]
+  },
+  {
+    id: "pancakes",
+    title: "Pancake Day",
+    description: "Día de los pancakes con receta en inglés y concurso de habilidades",
+    icon: "fa-solid fa-bread-slice",
+    color: "#FFC107",
+    photos: [
+      "./party_pancake.jpg",
+      "./party_pancake2.jpg",
+      "./party_pancake3.jpg",
+      "./party_pancake4.jpg",
+      "./party_pancake5.jpg"
+    ]
+  },
+  {
+    id: "navidad",
+    title: "Navidad 2024",
+    description: "Festas navideñas con villancicos, Papa Noel y regalos",
+    icon: "fa-solid fa-tree",
+    color: "#4CAF50",
+    photos: [
+      "navidad2024.html"
+    ]
+  },
+  {
+    id: "carnaval",
+    title: "Carnaval",
+    description: "Desfile de disfraces y fiesta de Carnaval",
+    icon: "fa-solid fa-mask",
+    color: "#9C27B0",
+    photos: [
+      "carnaval.html"
+    ]
+  }
+];
+
 const pageConfig = window.BEONE_PAGE_CONFIG || { page: "home" };
 const currentPage = (pageConfig.page || "home").toLowerCase();
 
@@ -552,18 +621,16 @@ const Header = () => (
                         className="dropdown-item"
                       >
                         <div style={{ 
-                          width: '50px', 
-                          height: '50px', 
-                          borderRadius: '8px', 
-                          background: item.color,
+                          width: '40px', 
+                          height: '40px', 
+                          borderRadius: '50%', 
+                          background: `${item.color}20`,
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
-                          color: 'white',
-                          fontWeight: 'bold',
-                          fontSize: '14px'
+                          border: `2px solid ${item.color}`
                         }}>
-                          {item.level}
+                          <i className={item.icon} style={{ color: item.color, fontSize: '16px' }}></i>
                         </div>
                         <div className="dropdown-item-info">
                           <h4>Intensivo {item.level}</h4>
@@ -1069,6 +1136,131 @@ const Footer = () => (
   </footer>
 );
 
+const PhotoCarousel = ({ event }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const isHtml = event.photos[0] && event.photos[0].endsWith('.html');
+  
+  if (isHtml) {
+    return (
+      <article className="card" style={{ borderTop: `3px solid ${event.color}` }}>
+        <div style={{ 
+          padding: 'var(--space-xl)', 
+          textAlign: 'center',
+          background: `linear-gradient(135deg, ${event.color}10, ${event.color}20)`,
+          borderRadius: 'var(--radius-md)'
+        }}>
+          <i className={event.icon} style={{ fontSize: '48px', color: event.color, marginBottom: 'var(--space-md)' }}></i>
+          <h3>{event.title}</h3>
+          <p>{event.description}</p>
+          <a className="btn btn-primary" href={event.photos[0]}>Ver fotos</a>
+        </div>
+      </article>
+    );
+  }
+  
+  const goToPrev = () => setCurrentIndex(prev => (prev === 0 ? event.photos.length - 1 : prev - 1));
+  const goToNext = () => setCurrentIndex(prev => (prev === event.photos.length - 1 ? 0 : prev + 1));
+  
+  return (
+    <article className="card photo-carousel-card" style={{ borderTop: `3px solid ${event.color}` }}>
+      <div className="photo-carousel">
+        <div className="photo-carousel-main">
+          <img 
+            src={event.photos[currentIndex]} 
+            alt={`${event.title} - Foto ${currentIndex + 1}`}
+            style={{ width: '100%', height: '250px', objectFit: 'cover', borderRadius: 'var(--radius-md)' }}
+          />
+          <button 
+            className="carousel-nav carousel-prev" 
+            onClick={goToPrev}
+            aria-label="Foto anterior"
+            style={{ 
+              position: 'absolute', 
+              left: '10px', 
+              top: '50%', 
+              transform: 'translateY(-50%)',
+              background: 'rgba(255,255,255,0.9)',
+              border: 'none',
+              borderRadius: '50%',
+              width: '36px',
+              height: '36px',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
+            <i className="fa-solid fa-chevron-left"></i>
+          </button>
+          <button 
+            className="carousel-nav carousel-next" 
+            onClick={goToNext}
+            aria-label="Foto siguiente"
+            style={{ 
+              position: 'absolute', 
+              right: '10px', 
+              top: '50%', 
+              transform: 'translateY(-50%)',
+              background: 'rgba(255,255,255,0.9)',
+              border: 'none',
+              borderRadius: '50%',
+              width: '36px',
+              height: '36px',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
+            <i className="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+        <div className="photo-carousel-info" style={{ padding: 'var(--space-md) 0' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-sm)', marginBottom: 'var(--space-sm)' }}>
+            <i className={event.icon} style={{ color: event.color }}></i>
+            <h3 style={{ margin: 0 }}>{event.title}</h3>
+          </div>
+          <p style={{ margin: 0, fontSize: 'var(--font-size-sm)', color: 'var(--text-light)' }}>{event.description}</p>
+          <div className="photo-carousel-dots" style={{ display: 'flex', gap: '6px', marginTop: 'var(--space-sm)', justifyContent: 'center' }}>
+            {event.photos.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrentIndex(idx)}
+                aria-label={`Ir a foto ${idx + 1}`}
+                style={{
+                  width: '8px',
+                  height: '8px',
+                  borderRadius: '50%',
+                  border: 'none',
+                  background: idx === currentIndex ? event.color : 'var(--border)',
+                  cursor: 'pointer',
+                  padding: 0
+                }}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </article>
+  );
+};
+
+const EventsGallery = () => (
+  <section id="eventos" className="pillars-section" aria-label="Galería de eventos">
+    <div className="container">
+      <div className="section-header">
+        <h2 className="section-title">Nuestros eventos</h2>
+        <p className="section-subtitle">Recuerda nuestras celebraciones y actividades especiales</p>
+      </div>
+      <div className="grid grid-3">
+        {eventPhotos.map(event => (
+          <PhotoCarousel key={event.id} event={event} />
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
 const WhatsAppButton = () => (
   <a
     className="floating-whatsapp"
@@ -1176,6 +1368,7 @@ const BlogLayout = () => (
         { label: "Recibir newsletter", href: "mailto:beoneenglish@gmail.com", style: "secondary" }
       ]}
     />
+    <EventsGallery />
     <ParentsResources />
     <CTASection />
     <Testimonials />
@@ -1254,20 +1447,32 @@ const IntensiveLayout = ({ courseId }) => {
         />
         <section aria-label="Detalle del curso">
           <div className="container">
-            <div className="course-grid">
-              <article className="card course-card highlight" style={{ borderTop: `4px solid ${course.color}` }}>
-                <img src="assets/images/Intensivos2025.jpg" alt={course.title} loading="lazy" />
-                <span className="badge" style={{ backgroundColor: course.color }}>
+            <div className="course-grid" style={{ maxWidth: '700px', margin: '0 auto' }}>
+              <article className="card course-card highlight" style={{ borderTop: `4px solid ${course.color}`, textAlign: 'center' }}>
+                <div style={{ 
+                  width: '100px', 
+                  height: '100px', 
+                  borderRadius: '50%', 
+                  background: `linear-gradient(135deg, ${course.color}20, ${course.color}40)`,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: '0 auto var(--space-lg)',
+                  border: `3px solid ${course.color}`
+                }}>
+                  <i className={course.icon} style={{ fontSize: '40px', color: course.color }}></i>
+                </div>
+                <span className="badge" style={{ backgroundColor: course.color, display: 'inline-block', marginBottom: 'var(--space-md)' }}>
                   <i className="fa-solid fa-graduation-cap" aria-hidden="true"></i>
-                  {course.level}
+                  Nivel {course.level}
                 </span>
                 <h3>{course.title}</h3>
                 <p>{course.description}</p>
-                <div className="course-meta">
+                <div className="course-meta" style={{ justifyContent: 'center' }}>
                   <i className="fa-solid fa-clock"></i>
                   <span>Duración: {course.duration}</span>
                 </div>
-                <div className="course-meta">
+                <div className="course-meta" style={{ justifyContent: 'center' }}>
                   <i className="fa-solid fa-calendar"></i>
                   <span>Horario: {course.schedule}</span>
                 </div>
@@ -1276,7 +1481,7 @@ const IntensiveLayout = ({ courseId }) => {
                     <li key={idx}><i className="fa-solid fa-check" style={{ color: course.color }}></i> {feature}</li>
                   ))}
                 </ul>
-                <div className="hero-actions mt-lg">
+                <div className="hero-actions mt-lg" style={{ justifyContent: 'center' }}>
                   <a className="btn primary" href="contact-us.html">
                     Solicitar información
                   </a>
@@ -1316,10 +1521,10 @@ const IntensiveLayout = ({ courseId }) => {
           <div className="courses-grid">
             {intensivoCourses.map(course => (
               <article className="course-card" key={course.id} style={{ borderTop: `4px solid ${course.color}` }}>
-                <div className="course-image">
-                  <img src="assets/images/Intensivos2025.jpg" alt={course.title} />
-                  <span className="course-badge" style={{ backgroundColor: course.color }}>{course.level}</span>
+                <div className="course-image" style={{ height: '120px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: `linear-gradient(135deg, ${course.color}15, ${course.color}30)` }}>
+                  <i className={course.icon} style={{ fontSize: '50px', color: course.color }}></i>
                 </div>
+                <span className="course-badge" style={{ backgroundColor: course.color }}>{course.level}</span>
                 <div className="course-content">
                   <h3 className="course-title">{course.title}</h3>
                   <p className="course-description">{course.description}</p>
