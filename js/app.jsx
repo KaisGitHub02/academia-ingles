@@ -430,7 +430,8 @@ const eventPhotos = [
     icon: "fa-solid fa-tree",
     color: "#4CAF50",
     photos: [
-      "navidad2024.html"
+      "./party_cris.jpg",
+      "./navidad2024.html"
     ]
   },
   {
@@ -440,7 +441,10 @@ const eventPhotos = [
     icon: "fa-solid fa-mask",
     color: "#9C27B0",
     photos: [
-      "carnaval.html"
+      "./face1.JPG",
+      "./face2.JPG",
+      "./face3.JPG",
+      "./carnaval.html"
     ]
   }
 ];
@@ -1557,6 +1561,36 @@ const IntensiveLayout = ({ courseId }) => {
   );
 };
 
+const EventGalleryLayout = ({ eventId }) => {
+  const event = eventPhotos.find(e => e.id === eventId);
+  const isHtml = event?.photos[0]?.endsWith('.html');
+  
+  if (!event || !isHtml) {
+    return <BlogLayout />;
+  }
+  
+  return (
+    <>
+      <section id="hero" className="hero" aria-label={event.title}>
+        <div className="hero-slider">
+          <article className="hero-slide" style={{ backgroundColor: `${event.color}20` }}>
+            <div className="hero-content">
+              <i className={event.icon} style={{ fontSize: '60px', color: event.color, marginBottom: 'var(--space-md)' }}></i>
+              <h1>{event.title}</h1>
+              <p>{event.description}</p>
+              <div className="hero-actions">
+                <a className="btn btn-primary" href="blog.html">Volver a actividades</a>
+                <a className="btn btn-secondary" href="contact-us.html">Próximo evento</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+      <ContactSection />
+    </>
+  );
+};
+
 const pageLayouts = {
   home: <HomeLayout />,
   about: <AboutLayout />,
@@ -1565,7 +1599,8 @@ const pageLayouts = {
   contact: <ContactLayout />,
   level: <LevelLayout />,
   exams: <ExamsLayout />,
-  intensivo: <IntensiveLayout courseId={pageConfig.courseId} />
+  intensivo: <IntensiveLayout courseId={pageConfig.courseId} />,
+  "event-gallery": <EventGalleryLayout eventId={pageConfig.eventId} />
 };
 
 const App = () => (
