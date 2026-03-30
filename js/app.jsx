@@ -138,44 +138,48 @@ const courseList = [
 
 const intensivoCourses = [
   {
-    id: "b1",
+    id: "intensivo-b1",
     title: "Intensivo B1 - Intermediate",
     description: "4 semanas intensivas para consolidar B1. Simulaciones diarias de Speaking y Writing con feedback personalizado.",
     duration: "4 semanas",
     schedule: "Lunes a viernes · 9:00-13:00",
     features: ["Simulacros de examen", "Materiales oficiales Cambridge", "Seguimiento por WhatsApp", "Certificación final"],
     level: "B1",
-    color: "#4CAF50"
+    color: "#4CAF50",
+    link: "intensivos.html"
   },
   {
-    id: "b2",
+    id: "intensivo-b2",
     title: "Intensivo B2 - Upper Intermediate",
     description: "6 semanas intensivas para alcanzar B2. Preparación completa para First Certificate con prácticas reales.",
     duration: "6 semanas",
     schedule: "Lunes a viernes · 9:00-13:00",
     features: ["Simulacros oficiales", "Writing corrections", "Speaking con nativos", "Examen simulacro incluido"],
     level: "B2",
-    color: "#2196F3"
+    color: "#2196F3",
+    link: "intensivo-b2.html"
   },
   {
-    id: "c1",
+    id: "intensivo-c1",
     title: "Intensivo C1 - Advanced",
     description: "8 semanas para dominar el C1. Grammar avanzada, vocabulario académico y preparación para Proficiency.",
     duration: "8 semanas",
     schedule: "Lunes a viernes · 9:00-13:00",
     features: ["Grammar avanzada", "Vocabulario académico", "Speaking de nivel C1", "Materiales Cambridge originales"],
     level: "C1",
-    color: "#9C27B0"
+    color: "#9C27B0",
+    link: "intensivo-c1.html"
   },
   {
-    id: "c2",
+    id: "intensivo-c2",
     title: "Intensivo C2 - Proficiency",
     description: "Programa elite para obtener C2. Preparación intensiva para el examen más avanzado de Cambridge.",
     duration: "8 semanas",
     schedule: "Lunes a viernes · 9:00-13:00",
     features: ["Preparación CPE", "Simulacros oficiales", "Feedback experto", "Garantía de resultado"],
     level: "C2",
-    color: "#FF5722"
+    color: "#FF5722",
+    link: "intensivo-c2.html"
   }
 ];
 
@@ -544,7 +548,7 @@ const Header = () => (
                     {intensivoCourses.map(item => (
                       <a 
                         key={item.id} 
-                        href="intensivos.html" 
+                        href={item.link} 
                         className="dropdown-item"
                       >
                         <div style={{ 
@@ -1232,58 +1236,121 @@ const ExamsLayout = () => (
   </>
 );
 
-const IntensiveLayout = () => (
-  <>
-    <PageHero
-      eyebrow="Cursos intensivos 2025"
-      title="Rutas de 4 a 8 semanas hacia tu certificación"
-      description="Domina el inglés con simulacros diarios, tutores nativos y seguimiento personalizado. De B1 a C2."
-      image="assets/images/Intensivos2025.jpg"
-      ctas={[
-        { label: "Reservar plaza", href: "nivel.html", style: "primary" },
-        { label: "Hablar con asesor", href: "contact-us.html", style: "secondary" }
-      ]}
-    />
-    <section className="courses-section" aria-label="Cursos intensivos">
-      <div className="container">
-        <div className="section-header">
-          <h2 className="section-title">Elige tu nivel intensivo</h2>
-          <p className="section-subtitle">Programa de inmersión total con simulacros diarios y soporte continuo.</p>
-        </div>
-        <div className="courses-grid">
-          {intensivoCourses.map(course => (
-            <article className="course-card" key={course.id} style={{ borderTop: `4px solid ${course.color}` }}>
-              <div className="course-image">
-                <img src="assets/images/Intensivos2025.jpg" alt={course.title} />
-                <span className="course-badge" style={{ backgroundColor: course.color }}>{course.level}</span>
-              </div>
-              <div className="course-content">
-                <h3 className="course-title">{course.title}</h3>
-                <p className="course-description">{course.description}</p>
+const IntensiveLayout = ({ courseId }) => {
+  const course = intensivoCourses.find(c => c.id === courseId);
+  
+  if (course) {
+    return (
+      <>
+        <PageHero
+          eyebrow={`Intensivo ${course.level}`}
+          title={course.title}
+          description={course.description}
+          image="assets/images/Intensivos2025.jpg"
+          ctas={[
+            { label: "Reservar plaza", href: "nivel.html", style: "primary" },
+            { label: "Ver todos los intensivos", href: "intensivos.html", style: "secondary" }
+          ]}
+        />
+        <section aria-label="Detalle del curso">
+          <div className="container">
+            <div className="course-grid">
+              <article className="card course-card highlight" style={{ borderTop: `4px solid ${course.color}` }}>
+                <img src="assets/images/Intensivos2025.jpg" alt={course.title} loading="lazy" />
+                <span className="badge" style={{ backgroundColor: course.color }}>
+                  <i className="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+                  {course.level}
+                </span>
+                <h3>{course.title}</h3>
+                <p>{course.description}</p>
                 <div className="course-meta">
                   <i className="fa-solid fa-clock"></i>
-                  <span>{course.duration}</span>
+                  <span>Duración: {course.duration}</span>
                 </div>
                 <div className="course-meta">
                   <i className="fa-solid fa-calendar"></i>
-                  <span>{course.schedule}</span>
+                  <span>Horario: {course.schedule}</span>
                 </div>
                 <ul className="intensive-features">
                   {course.features.map((feature, idx) => (
                     <li key={idx}><i className="fa-solid fa-check" style={{ color: course.color }}></i> {feature}</li>
                   ))}
                 </ul>
-              </div>
-            </article>
-          ))}
+                <div className="hero-actions mt-lg">
+                  <a className="btn primary" href="contact-us.html">
+                    Solicitar información
+                  </a>
+                  <a className="btn secondary" href="nivel.html">
+                    Hacer prueba gratuita
+                  </a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+        <CTASection />
+        <Testimonials />
+        <ContactSection />
+      </>
+    );
+  }
+  
+  return (
+    <>
+      <PageHero
+        eyebrow="Cursos intensivos 2025"
+        title="Rutas de 4 a 8 semanas hacia tu certificación"
+        description="Domina el inglés con simulacros diarios, tutores nativos y seguimiento personalizado. De B1 a C2."
+        image="assets/images/Intensivos2025.jpg"
+        ctas={[
+          { label: "Reservar plaza", href: "nivel.html", style: "primary" },
+          { label: "Hablar con asesor", href: "contact-us.html", style: "secondary" }
+        ]}
+      />
+      <section className="courses-section" aria-label="Cursos intensivos">
+        <div className="container">
+          <div className="section-header">
+            <h2 className="section-title">Elige tu nivel intensivo</h2>
+            <p className="section-subtitle">Programa de inmersión total con simulacros diarios y soporte continuo.</p>
+          </div>
+          <div className="courses-grid">
+            {intensivoCourses.map(course => (
+              <article className="course-card" key={course.id} style={{ borderTop: `4px solid ${course.color}` }}>
+                <div className="course-image">
+                  <img src="assets/images/Intensivos2025.jpg" alt={course.title} />
+                  <span className="course-badge" style={{ backgroundColor: course.color }}>{course.level}</span>
+                </div>
+                <div className="course-content">
+                  <h3 className="course-title">{course.title}</h3>
+                  <p className="course-description">{course.description}</p>
+                  <div className="course-meta">
+                    <i className="fa-solid fa-clock"></i>
+                    <span>{course.duration}</span>
+                  </div>
+                  <div className="course-meta">
+                    <i className="fa-solid fa-calendar"></i>
+                    <span>{course.schedule}</span>
+                  </div>
+                  <ul className="intensive-features">
+                    {course.features.map((feature, idx) => (
+                      <li key={idx}><i className="fa-solid fa-check" style={{ color: course.color }}></i> {feature}</li>
+                    ))}
+                  </ul>
+                  <div className="hero-actions mt-md">
+                    <a className="btn btn-primary" href={course.link}>Ver detalles</a>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
-    <CTASection />
-    <Testimonials />
-    <ContactSection />
-  </>
-);
+      </section>
+      <CTASection />
+      <Testimonials />
+      <ContactSection />
+    </>
+  );
+};
 
 const pageLayouts = {
   home: <HomeLayout />,
@@ -1293,7 +1360,7 @@ const pageLayouts = {
   contact: <ContactLayout />,
   level: <LevelLayout />,
   exams: <ExamsLayout />,
-  intensivo: <IntensiveLayout />
+  intensivo: <IntensiveLayout courseId={pageConfig.courseId} />
 };
 
 const App = () => (
