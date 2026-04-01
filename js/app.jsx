@@ -1684,15 +1684,89 @@ const pageLayouts = {
   "event-gallery": <EventGalleryLayout eventId={pageConfig.eventId} />
 };
 
-const App = () => (
-  <div className="app-wrapper">
-    <Header />
-    <main className="page-content animate-fade-in">
-      {pageLayouts[currentPage] || <HomeLayout />}
-    </main>
-    <Footer />
-    <WhatsAppButton />
-  </div>
-);
+const App = () => {
+  const appRef = useRef(null);
+  
+  useEffect(() => {
+    if (typeof gsap === 'undefined') return;
+    
+    const ctx = gsap.context(() => {
+      gsap.from('.hero-slide', {
+        opacity: 0,
+        y: 30,
+        duration: 1,
+        stagger: 0.3,
+        ease: 'power2.out'
+      });
+      
+      gsap.from('.course-card', {
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        stagger: 0.15,
+        scrollTrigger: {
+          trigger: '.courses-section',
+          start: 'top 80%'
+        }
+      });
+      
+      gsap.from('.pillar-card', {
+        opacity: 0,
+        y: 30,
+        duration: 0.6,
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: '.pillars-section',
+          start: 'top 75%'
+        }
+      });
+      
+      gsap.from('.stat-card', {
+        opacity: 0,
+        scale: 0.8,
+        duration: 0.5,
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: '.stats-section',
+          start: 'top 80%'
+        }
+      });
+      
+      gsap.from('.testimonial-slide', {
+        opacity: 0,
+        x: -50,
+        duration: 0.8,
+        scrollTrigger: {
+          trigger: '.testimonials-section',
+          start: 'top 70%'
+        }
+      });
+      
+      gsap.from('.footer-grid > div', {
+        opacity: 0,
+        y: 20,
+        duration: 0.6,
+        stagger: 0.15,
+        scrollTrigger: {
+          trigger: '.site-footer',
+          start: 'top 90%'
+        }
+      });
+    }, appRef);
+    
+    return () => ctx.revert();
+  }, []);
+  
+  return (
+    <div className="app-wrapper" ref={appRef}>
+      <Header />
+      <main className="page-content animate-fade-in">
+        {pageLayouts[currentPage] || <HomeLayout />}
+      </main>
+      <Footer />
+      <WhatsAppButton />
+    </div>
+  );
+};
 
 ReactDOM.createRoot(document.getElementById("root")).render(<App />);

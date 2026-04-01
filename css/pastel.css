@@ -1881,3 +1881,17 @@ img {
 .skip-link:focus {
   left: var(--space-sm);
 }
+
+/* GSAP animations */
+.hero-slide,
+.course-card,
+.pillar-card,
+.stat-card,
+.testimonial-slide {
+  will-change: transform, opacity;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
