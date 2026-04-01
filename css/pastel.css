@@ -798,6 +798,27 @@ img {
   border: 1px solid var(--stroke);
   overflow: hidden;
   transition: all var(--transition-base);
+  display: block;
+}
+
+.course-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--secondary);
+}
+
+.course-image {
+  position: relative;
+  height: 160px;
+  overflow: hidden;
+  display: block;
+}
+
+.course-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .course-card:hover {
