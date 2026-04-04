@@ -4,27 +4,27 @@ const { useState, useEffect, useRef } = React;
 const slides = [
   {
     id: 1,
-    eyebrow: "Familias en Granada",
-    title: "Inglés flexible para familias que buscan resultados",
+    eyebrow: "Academia de inglés en Granada",
+    title: "Aprende inglés de verdad, en un entorno que inspira",
     description:
-      "Clases con metodología activa, panel para familias y seguimiento semanal para que todos conozcan el progreso.",
+      "Clases dinámicas con mentores nativos, seguimiento personalizado y un panel exclusivo para que las familias vean cada avance.",
     image: "assets/images/slide1.jpg",
     ctas: [
-      { label: "Explorar cursos", href: "course-kids.html", style: "primary" },
-      { label: "Reservar prueba", href: "nivel.html", style: "secondary" }
+      { label: "Descubre nuestros cursos", href: "course-kids.html", style: "primary" },
+      { label: "Reserva tu clase gratis", href: "nivel.html", style: "secondary" }
     ]
   },
   {
     id: 2,
-    eyebrow: "Adolescentes conectados",
-    title: "Clubes creativos, pitch nights y preparación Cambridge",
+    eyebrow: "Adolescentes que hablan con confianza",
+    title: "Proyectos creativos, debates reales y preparación Cambridge",
     description:
-      "Mentores nativos, proyectos STEAM y simulacros reales para que los teens ganen confianza antes de sus metas académicas.",
+      "Mentores nativos, workshops STEAM y simulacros de examen para que los teens lleguen preparados y seguros a sus metas.",
     image: "assets/images/slide2.jpg",
     ctas: [
-      { label: "Teens Pro 12+", href: "course-ten.html", style: "primary" },
+      { label: "Programa Teens Pro 12+", href: "course-ten.html", style: "primary" },
       {
-        label: "Escribir por WhatsApp",
+        label: "Escríbenos por WhatsApp",
         href: "https://wa.me/34622854358?text=Quiero%20info%20para%20mi%20family%20en%20Be%20One",
         style: "secondary",
         external: true
@@ -33,15 +33,15 @@ const slides = [
   },
   {
     id: 3,
-    eyebrow: "Padres acompañados",
-    title: "Panel privado con tips, actividades en casa y eventos bilingües",
+    eyebrow: "Familias que aprenden juntas",
+    title: "Panel privado, actividades en casa y eventos bilingües para todos",
     description:
-      "Recibe actividades para el hogar, acceso al calendario familiar y charlas sobre cómo acompañar el aprendizaje.",
+      "Recibe recursos semanales, accede al calendario familiar y participa en charlas sobre cómo acompañar el aprendizaje sin estrés.",
     image: "assets/images/slide3.png",
     ctas: [
-      { label: "Calendario familiar", href: "blog.html", style: "secondary" },
+      { label: "Ver calendario familiar", href: "blog.html", style: "secondary" },
       {
-        label: "Hablar con asesor",
+        label: "Habla con nuestro equipo",
         href: "https://wa.me/34622854358?text=Quiero%20hablar%20con%20Be%20One",
         style: "primary",
         external: true
@@ -53,23 +53,23 @@ const slides = [
 const pillars = [
   {
     icon: "fa-solid fa-palette",
-    title: "Ambiente cuidado",
-    copy: "Aulas luminosas, materiales ilustrados y dashboards claros que inspiran a familias enteras."
+    title: "Espacios que inspiran",
+    copy: "Aulas luminosas, materiales visuales y dashboards claros que motivan a toda la familia."
   },
   {
     icon: "fa-solid fa-headset",
-    title: "Tutor familiar",
-    copy: "Mentor asignado con reuniones cortas para resolver dudas y ajustar el plan."
+    title: "Mentor personal",
+    copy: "Un tutor asignado que conoce a tu familia, resuelve dudas y ajusta el plan cada semana."
   },
   {
     icon: "fa-solid fa-heart",
-    title: "Wellbeing primero",
-    copy: "Dinámicas socioemocionales para mantener motivación y confianza en cada sesión."
+    title: "Bienestar primero",
+    copy: "Dinámicas socioemocionales que mantienen la motivación y la confianza en cada sesión."
   },
   {
     icon: "fa-solid fa-star",
-    title: "Resultados medibles",
-    copy: "Reportes interactivos y certificaciones Cambridge, Trinity, IELTS y TOEFL."
+    title: "Resultados que se ven",
+    copy: "Reportes visuales y certificaciones Cambridge, Trinity, IELTS y TOEFL con tasas de éxito del 98%."
   }
 ];
 
@@ -78,14 +78,14 @@ const courseList = [
     id: "kids",
     title: "Kids Club 4-12",
     description:
-      "Historias interactivas, proyectos maker y micro-retos para consolidar vocabulario y speaking.",
+      "Historias interactivas, proyectos creativos y micro-retos que consolidan vocabulario y speaking de forma natural.",
     mode: "Presencial",
     link: "course-kids.html",
     badge: "A1 - B1",
     image: "assets/images/kids.jpg",
     icon: "fa-solid fa-children",
     color: "#4CAF50",
-    features: ["Historias interactivas", "Proyectos maker", "Micro-retos de vocabulario", "Mentores nativos"],
+    features: ["Historias interactivas", "Proyectos creativos", "Micro-retos de vocabulario", "Mentores nativos"],
     duration: "Curso escolar",
     schedule: "Lunes a viernes · 16:00-20:00"
   },
@@ -93,14 +93,14 @@ const courseList = [
     id: "teens",
     title: "Teens Pro 12+",
     description:
-      "Workshops STEAM, pitch nights y feedback individual para preparar exámenes y entrevistas.",
+      "Workshops STEAM, debates y feedback individual para preparar exámenes oficiales y ganar confianza al hablar.",
     mode: "Híbrido",
     link: "course-ten.html",
     badge: "A2 - C1",
     image: "assets/images/teenagers.jpg",
     icon: "fa-solid fa-school",
     color: "#2196F3",
-    features: ["Workshops STEAM", "Pitch nights", "Simulacros Cambridge", "Feedback individual"],
+    features: ["Workshops STEAM", "Debates y pitch nights", "Simulacros Cambridge", "Feedback individual"],
     duration: "Curso escolar",
     schedule: "Lunes a viernes · 16:30-20:30"
   },
@@ -108,7 +108,7 @@ const courseList = [
     id: "adults",
     title: "Adult Boost A1-C2",
     description:
-      "Clases flexibles, podcast guiados y sesiones express para acompañar a los padres en paralelo.",
+      "Clases flexibles, podcast guiados y sesiones express diseñadas para padres que quieren avanzar a su ritmo.",
     mode: "Online + Presencial",
     link: "course-adult.html",
     badge: "A1 - C2",
@@ -123,7 +123,7 @@ const courseList = [
     id: "business",
     title: "Inglés Corporativo",
     description:
-      "Programas para empresas familiares y equipos que desean comunicarse con partners internacionales.",
+      "Programas a medida para equipos que necesitan comunicarse con confianza en entornos internacionales.",
     mode: "In-Company",
     link: "course-busi.html",
     badge: "Equipos",
@@ -138,29 +138,29 @@ const courseList = [
     id: "private",
     title: "Mentoring 1:1",
     description:
-      "Clases particulares para objetivos específicos como viajes, Erasmus, oposiciones o speaking coach.",
+      "Clases particulares para objetivos concretos: viajes, oposiciones, entrevistas o coaching de speaking.",
     mode: "Personalizadas",
     link: "course-particulares.html",
     badge: "Agenda flexible",
     image: "assets/images/particular.jpg",
     icon: "fa-solid fa-person-chalkboard",
     color: "#E91E63",
-    focus: ["Viajes", "Eraser", "Oposiciones", "Speaking coach"],
+    focus: ["Viajes", "Oposiciones", "Entrevistas", "Speaking coach"],
     duration: "A tu ritmo",
     schedule: "Agenda flexible"
   },
   {
     id: "intensive",
-    title: "Intensivos 2025",
+    title: "Intensivos 2026",
     description:
-      "Rutas de 4, 6 u 8 semanas con simulacros diarios y seguimiento por WhatsApp para toda la familia.",
+      "Rutas de 4 a 8 semanas con simulacros diarios, material oficial y seguimiento por WhatsApp para toda la familia.",
     mode: "Híbrido",
     link: "intensivos.html",
     badge: "Cupos limitados",
     image: "assets/images/Intensivos2025.jpg",
     icon: "fa-solid fa-rocket",
     color: "#FF5722",
-    features: ["4-8 semanas", "Simulacros diarios", "Seguimiento WhatsApp", "Certificación"],
+    features: ["4-8 semanas", "Simulacros diarios", "Seguimiento WhatsApp", "Certificación final"],
     duration: "4-8 semanas",
     schedule: "Lunes a viernes · 9:00-13:00"
   }
@@ -228,7 +228,7 @@ const testimonials = [
   {
     id: 1,
     quote:
-      "El panel para padres es súper claro. Mi hija comparte sus badges en casa y vemos exactamente cómo avanza.",
+      "El panel para padres es increíblemente claro. Mi hija comparte sus logros en casa y vemos exactamente cómo avanza semana a semana.",
     author: "Ana Belén",
     role: "Mamá de Sofía · Kids Club",
     image: "assets/images/review3.jpg"
@@ -236,7 +236,7 @@ const testimonials = [
   {
     id: 2,
     quote:
-      "El programa Teens Pro me ayudó a ganar fluidez y tranquilidad antes del B2. Las pitch nights molan.",
+      "El programa Teens Pro me ayudó a ganar fluidez y confianza antes del B2. Los pitch nights son geniales y aprendes un montón.",
     author: "Jorge Martínez",
     role: "B2 First · 17 años",
     image: "assets/images/review4.jpg"
@@ -244,7 +244,7 @@ const testimonials = [
   {
     id: 3,
     quote:
-      "En la empresa necesitábamos reporting en inglés. Be One diseñó sesiones a medida que dinamizaron al equipo.",
+      "Necesitábamos reporting en inglés para el equipo. Be One diseñó sesiones a medida que dinamizaron a todo el departamento.",
     author: "Lucía Ramos",
     role: "People Lead · Sector Tech",
     image: "assets/images/review5.jpg"
@@ -255,34 +255,34 @@ const faqs = [
   {
     id: "niveles",
     question: "¿Qué niveles cubrís?",
-    answer: "Desde A1 hasta C2 con itinerarios adaptados para niños, teens, adultos y empresas."
+    answer: "Desde A1 hasta C2 con itinerarios personalizados para niños, adolescentes, adultos y empresas."
   },
   {
     id: "familias",
     question: "¿Cómo implicáis a las familias?",
     answer:
-      "Panel privado, eventos bilingües mensuales y mini-retos para practicar en casa con la familia."
+      "Panel privado con seguimiento en tiempo real, eventos bilingües mensuales y mini-retos para practicar en casa juntos."
   },
   {
     id: "online",
     question: "¿Ofrecéis clases online?",
-    answer: "Sí, formato online en directo, híbrido y vídeos de refuerzo para repasar cuando quieras."
+    answer: "Sí, formato online en directo, híbrido y vídeos de refuerzo para repasar cuando quieras, donde estés."
   },
   {
     id: "certificaciones",
     question: "¿Preparáis exámenes oficiales?",
     answer:
-      "Especialistas Cambridge, Trinity, IELTS y TOEFL con simulacros reales y feedback puntual."
+      "Somos especialistas en Cambridge, Trinity, IELTS y TOEFL con simulacros reales y feedback puntual de mentores nativos."
   },
   {
     id: "horarios",
     question: "¿Qué horarios tenéis?",
-    answer: "Turnos de mañana, tarde y noche, además de clubs los sábados y campus en verano."
+    answer: "Turnos de mañana, tarde y noche, además de clubs los sábados y campus intensivos en verano."
   },
   {
     id: "pagos",
     question: "¿Hay facilidades de pago?",
-    answer: "Sí, cuotas mensuales sin intereses y descuentos para hermanos o empresas."
+    answer: "Sí, cuotas mensuales sin intereses y descuentos especiales para hermanos y empresas colaboradoras."
   }
 ];
 
@@ -483,13 +483,398 @@ const currentPage = (pageConfig.page || "home").toLowerCase();
 // ---------- Hooks + Shared Components ----------
 const useAutoAdvance = (length, delay = 6000) => {
   const [index, setIndex] = useState(0);
+  const [isUserPaused, setIsUserPaused] = useState(false);
+  const [isInteractionPaused, setIsInteractionPaused] = useState(false);
+  const isPaused = isUserPaused || isInteractionPaused;
+
   useEffect(() => {
+    if (isPaused || length <= 1) {
+      return undefined;
+    }
+
     const timer = setInterval(() => {
       setIndex(prev => (prev + 1) % length);
     }, delay);
     return () => clearInterval(timer);
-  }, [length, delay]);
-  return [index, setIndex];
+  }, [length, delay, isPaused]);
+
+  return {
+    index,
+    setIndex,
+    isPaused,
+    isUserPaused,
+    setIsUserPaused,
+    setIsInteractionPaused
+  };
+};
+
+const useSiteAnimations = scopeRef => {
+  useEffect(() => {
+    const root = scopeRef.current;
+    const gsap = window.gsap;
+    const interactionCleanups = [];
+    const mediaMatcher = gsap ? gsap.matchMedia() : null;
+
+    if (!root || !gsap) {
+      return undefined;
+    }
+
+    const prefersReducedMotion =
+      window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isCompactViewport =
+      window.matchMedia && window.matchMedia("(max-width: 768px)").matches;
+
+    if (prefersReducedMotion) {
+      return undefined;
+    }
+
+    const scrollPlugin = window.ScrollTrigger;
+    if (scrollPlugin) {
+      gsap.registerPlugin(scrollPlugin);
+    }
+
+    const ctx = gsap.context(() => {
+      const reveal = (selector, config = {}) => {
+        const targets = gsap.utils.toArray(selector);
+        if (!targets.length) {
+          return;
+        }
+
+        const animationOptions = {
+          y: config.y || 40,
+          opacity: 0,
+          duration: config.duration || 0.85,
+          ease: "power3.out",
+          stagger: config.stagger == null ? 0.1 : config.stagger,
+          clearProps: "transform,opacity"
+        };
+
+        if (scrollPlugin) {
+          animationOptions.scrollTrigger = {
+            trigger: config.trigger || targets[0],
+            start: config.start || "top 84%",
+            once: true
+          };
+        }
+
+        gsap.from(targets, animationOptions);
+      };
+
+      const introTimeline = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+      introTimeline
+        .from(".site-header", { y: -26, opacity: 0, duration: 0.7 })
+        .from(".site-logo", { x: -18, opacity: 0, duration: 0.45 }, "-=0.45")
+        .from(".main-nav .nav-link, .main-nav .btn", { y: -14, opacity: 0, duration: 0.42, stagger: 0.05 }, "-=0.35")
+        .from(".hero .hero-content", { y: 34, opacity: 0, duration: 0.72 }, "-=0.22")
+        .from(".hero .hero-eyebrow, .hero .eyebrow", { y: 16, opacity: 0, duration: 0.45 }, "-=0.48")
+        .from(".hero .hero-title, .hero h1", { y: 26, opacity: 0, duration: 0.7 }, "-=0.2")
+        .from(".hero .hero-description, .hero p", { y: 22, opacity: 0, duration: 0.6 }, "-=0.45")
+        .from(".hero .hero-actions .btn", { y: 18, opacity: 0, duration: 0.45, stagger: 0.1 }, "-=0.4")
+        .from(".hero-nav .hero-dot", { scale: 0.65, opacity: 0, stagger: 0.06, duration: 0.35 }, "-=0.3");
+
+      reveal(".section-header", { y: 28, stagger: 0.08 });
+      reveal(".pillars-grid .pillar-card");
+      reveal(".stats-grid .stat-card", { y: 30, stagger: 0.08 });
+      reveal(".grid .card", { y: 30, stagger: 0.08 });
+      reveal(".program-tabs, #journey .card", { y: 30, stagger: 0.08 });
+      reveal(".cta-content", { y: 24, stagger: 0 });
+      reveal(".footer-grid > div", { y: 24, stagger: 0.08, start: "top 92%" });
+      reveal(".testimonial-wrapper", { y: 24, stagger: 0 });
+
+      const courseCards = gsap.utils.toArray(".courses-grid .course-card");
+      courseCards.forEach((card, cardIndex) => {
+        const image = card.querySelector(".course-image img");
+        const badge = card.querySelector(".course-badge");
+        const title = card.querySelector(".course-title");
+        const description = card.querySelector(".course-description");
+        const metaItems = card.querySelectorAll(".course-meta, .intensive-features li, .hero-actions .btn");
+
+        const tl = gsap.timeline({
+          defaults: { ease: "power3.out" },
+          scrollTrigger: scrollPlugin
+            ? {
+                trigger: card,
+                start: "top 88%",
+                once: true
+              }
+            : undefined
+        });
+
+        tl.from(card, {
+          autoAlpha: 0,
+          y: isCompactViewport ? 32 : 54,
+          rotateX: isCompactViewport ? 0 : 8,
+          duration: isCompactViewport ? 0.62 : 0.75
+        });
+
+        if (image) {
+          tl.from(image, { scale: isCompactViewport ? 1.1 : 1.18, duration: 0.85 }, "<");
+        }
+
+        if (title) {
+          tl.from(title, { y: 16, autoAlpha: 0, duration: 0.35 }, "-=0.48");
+        }
+
+        if (description) {
+          tl.from(description, { y: 14, autoAlpha: 0, duration: 0.3 }, "-=0.24");
+        }
+
+        if (metaItems.length) {
+          tl.from(metaItems, { y: 12, autoAlpha: 0, duration: 0.25, stagger: 0.06 }, "-=0.16");
+        }
+
+        if (badge) {
+          tl.from(
+            badge,
+            {
+              scale: 0.68,
+              autoAlpha: 0,
+              transformOrigin: "center",
+              duration: 0.4,
+              ease: "back.out(1.8)"
+            },
+            "-=0.92"
+          );
+        }
+
+        if (image && !isCompactViewport && cardIndex % 2 === 0 && scrollPlugin) {
+          gsap.to(image, {
+            yPercent: -8,
+            ease: "none",
+            scrollTrigger: {
+              trigger: card,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true
+            }
+          });
+        }
+      });
+
+      const intensiveLists = gsap.utils.toArray(".intensive-features");
+      intensiveLists.forEach(list => {
+        const items = list.querySelectorAll("li");
+        if (!items.length) {
+          return;
+        }
+
+        gsap.from(items, {
+          x: -16,
+          autoAlpha: 0,
+          duration: 0.35,
+          stagger: 0.08,
+          ease: "power2.out",
+          scrollTrigger: scrollPlugin
+            ? {
+                trigger: list,
+                start: "top 88%",
+                once: true
+              }
+            : undefined
+        });
+      });
+
+      const intensiveDetailCards = gsap.utils.toArray(".course-grid .course-card");
+      intensiveDetailCards.forEach(card => {
+        const badge = card.querySelector(".badge, .course-badge");
+        const meta = card.querySelectorAll(".course-meta");
+        const actionButtons = card.querySelectorAll(".hero-actions .btn");
+
+        const tl = gsap.timeline({
+          defaults: { ease: "power3.out" },
+          scrollTrigger: scrollPlugin
+            ? {
+                trigger: card,
+                start: "top 86%",
+                once: true
+              }
+            : undefined
+        });
+
+        tl.from(card, { autoAlpha: 0, y: 48, duration: 0.72 });
+
+        if (badge) {
+          tl.from(
+            badge,
+            { autoAlpha: 0, scale: 0.72, duration: 0.38, ease: "back.out(1.7)" },
+            "-=0.46"
+          );
+        }
+
+        if (meta.length) {
+          tl.from(meta, { y: 12, autoAlpha: 0, duration: 0.26, stagger: 0.07 }, "-=0.34");
+        }
+
+        if (actionButtons.length) {
+          tl.from(actionButtons, { y: 14, autoAlpha: 0, duration: 0.28, stagger: 0.08 }, "-=0.26");
+        }
+      });
+
+      const activityCards = gsap.utils.toArray(".photo-carousel-card");
+      activityCards.forEach(card => {
+        const image = card.querySelector(".photo-carousel-image");
+        const info = card.querySelectorAll(".photo-carousel-info > *");
+
+        const tl = gsap.timeline({
+          defaults: { ease: "power3.out" },
+          scrollTrigger: scrollPlugin
+            ? {
+                trigger: card,
+                start: "top 88%",
+                once: true
+              }
+            : undefined
+        });
+
+        tl.from(card, { autoAlpha: 0, y: 34, duration: 0.65 });
+
+        if (image) {
+          tl.from(image, { autoAlpha: 0, scale: 1.12, duration: 0.7 }, "<0.06");
+        }
+
+        if (info.length) {
+          tl.from(info, { y: 10, autoAlpha: 0, duration: 0.3, stagger: 0.05 }, "-=0.3");
+        }
+      });
+
+      gsap.to(".floating-whatsapp", {
+        y: -9,
+        duration: 1.8,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
+      });
+
+      if (mediaMatcher) {
+        mediaMatcher.add("(min-width: 769px)", () => {
+          if (scrollPlugin) {
+            gsap.utils.toArray(".hero").forEach(hero => {
+              const heroContent = hero.querySelector(".hero-content");
+              if (!heroContent) {
+                return;
+              }
+
+              gsap.to(heroContent, {
+                yPercent: -8,
+                ease: "none",
+                scrollTrigger: {
+                  trigger: hero,
+                  start: "top bottom",
+                  end: "bottom top",
+                  scrub: true
+                }
+              });
+            });
+
+            gsap.utils.toArray(".hero-slide").forEach(slide => {
+              gsap.to(slide, {
+                scale: 1.05,
+                ease: "none",
+                scrollTrigger: {
+                  trigger: slide,
+                  start: "top top",
+                  end: "bottom top",
+                  scrub: true
+                }
+              });
+            });
+          }
+
+          const interactiveCards = gsap.utils.toArray(".pillar-card, .course-card, .stat-card, .testimonial-wrapper, .card");
+          interactiveCards.forEach(card => {
+            const onEnter = () => {
+              gsap.to(card, {
+                y: -8,
+                scale: 1.01,
+                duration: 0.28,
+                ease: "power2.out",
+                overwrite: "auto"
+              });
+            };
+            const onLeave = () => {
+              gsap.to(card, {
+                y: 0,
+                scale: 1,
+                duration: 0.35,
+                ease: "power2.out",
+                overwrite: "auto"
+              });
+            };
+
+            card.addEventListener("mouseenter", onEnter);
+            card.addEventListener("mouseleave", onLeave);
+            card.addEventListener("focusin", onEnter);
+            card.addEventListener("focusout", onLeave);
+
+            interactionCleanups.push(() => {
+              card.removeEventListener("mouseenter", onEnter);
+              card.removeEventListener("mouseleave", onLeave);
+              card.removeEventListener("focusin", onEnter);
+              card.removeEventListener("focusout", onLeave);
+            });
+          });
+
+          const interactiveButtons = gsap.utils.toArray(".btn, .hero-dot");
+          interactiveButtons.forEach(button => {
+            const touchOptions = { passive: true };
+            const onPressIn = () => {
+              gsap.to(button, { scale: 0.96, duration: 0.12, ease: "power2.out", overwrite: "auto" });
+            };
+            const onPressOut = () => {
+              gsap.to(button, { scale: 1, duration: 0.2, ease: "power2.out", overwrite: "auto" });
+            };
+
+            button.addEventListener("mousedown", onPressIn);
+            button.addEventListener("mouseup", onPressOut);
+            button.addEventListener("mouseleave", onPressOut);
+            button.addEventListener("touchstart", onPressIn, touchOptions);
+            button.addEventListener("touchend", onPressOut);
+            button.addEventListener("focus", onPressOut);
+
+            interactionCleanups.push(() => {
+              button.removeEventListener("mousedown", onPressIn);
+              button.removeEventListener("mouseup", onPressOut);
+              button.removeEventListener("mouseleave", onPressOut);
+              button.removeEventListener("touchstart", onPressIn, touchOptions);
+              button.removeEventListener("touchend", onPressOut);
+              button.removeEventListener("focus", onPressOut);
+            });
+          });
+        });
+
+        mediaMatcher.add("(max-width: 768px)", () => {
+          if (scrollPlugin) {
+            gsap.utils.toArray(".hero").forEach(hero => {
+              const heroContent = hero.querySelector(".hero-content");
+              if (!heroContent) {
+                return;
+              }
+
+              gsap.to(heroContent, {
+                yPercent: -4,
+                ease: "none",
+                scrollTrigger: {
+                  trigger: hero,
+                  start: "top bottom",
+                  end: "bottom top",
+                  scrub: true
+                }
+              });
+            });
+          }
+        });
+      }
+    }, root);
+
+    return () => {
+      if (mediaMatcher) {
+        mediaMatcher.revert();
+      }
+      interactionCleanups.forEach(fn => fn());
+      ctx.revert();
+    };
+  }, [scopeRef]);
 };
 
 const TopBar = () => (
@@ -718,9 +1103,84 @@ const Header = () => {
 };
 
 const HeroSlider = ({ items = slides }) => {
-  const [index, setIndex] = useAutoAdvance(items.length, 7000);
+  const {
+    index,
+    setIndex,
+    isPaused,
+    isUserPaused,
+    setIsUserPaused,
+    setIsInteractionPaused
+  } = useAutoAdvance(items.length, 7000);
+  const sliderRef = useRef(null);
+  const pauseOnInteraction = () => setIsInteractionPaused(true);
+  const resumeOnPointerLeave = () => setIsInteractionPaused(false);
+  const resumeOnBlur = event => {
+    if (!event.currentTarget.contains(event.relatedTarget)) {
+      setIsInteractionPaused(false);
+    }
+  };
+
+  useEffect(() => {
+    const gsap = window.gsap;
+    if (!gsap || !sliderRef.current) {
+      return undefined;
+    }
+
+    const prefersReducedMotion =
+      window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (prefersReducedMotion) {
+      return undefined;
+    }
+
+    const ctx = gsap.context(() => {
+      const activeSlide = gsap.utils.toArray(".hero-slide.active")[0];
+      if (!activeSlide) {
+        return;
+      }
+
+      const activeContent = activeSlide.querySelectorAll(
+        ".hero-eyebrow, .hero-title, .hero-description, .hero-actions .btn"
+      );
+      const activeDot = gsap.utils.toArray(".hero-dot")[index];
+
+      gsap.fromTo(
+        activeContent,
+        { opacity: 0, y: 24 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.65,
+          stagger: 0.08,
+          ease: "power3.out"
+        }
+      );
+
+      if (activeDot) {
+        gsap.fromTo(
+          activeDot,
+          { scale: 0.7, opacity: 0.5 },
+          { scale: 1.2, opacity: 1, duration: 0.35, ease: "back.out(2)" }
+        );
+      }
+    }, sliderRef);
+
+    return () => {
+      ctx.revert();
+    };
+  }, [index]);
+
   return (
-    <section id="hero" className="hero" aria-label="Hero">
+    <section
+      id="hero"
+      className="hero"
+      aria-label="Hero"
+      ref={sliderRef}
+      onMouseEnter={pauseOnInteraction}
+      onMouseLeave={resumeOnPointerLeave}
+      onFocusCapture={pauseOnInteraction}
+      onBlurCapture={resumeOnBlur}
+    >
       <div className="hero-slider">
         {items.map((slide, slideIndex) => (
           <article
@@ -729,9 +1189,13 @@ const HeroSlider = ({ items = slides }) => {
             style={{
               backgroundImage: `url('${slide.image}')`,
               opacity: slideIndex === index ? 1 : 0,
-              transition: 'opacity 0.5s ease'
+              visibility: slideIndex === index ? "visible" : "hidden",
+              pointerEvents: slideIndex === index ? "auto" : "none",
+              zIndex: slideIndex === index ? 3 : 1,
+              transition: "opacity 0.8s ease, visibility 0.8s ease"
             }}
             aria-label={slide.title}
+            aria-hidden={slideIndex !== index}
           >
             <div className="hero-content">
               <span className="hero-eyebrow">{slide.eyebrow}</span>
@@ -745,6 +1209,7 @@ const HeroSlider = ({ items = slides }) => {
                     href={cta.href}
                     target={cta.external ? "_blank" : "_self"}
                     rel={cta.external ? "noreferrer" : undefined}
+                    tabIndex={slideIndex === index ? 0 : -1}
                   >
                     {cta.label}
                   </a>
@@ -763,6 +1228,15 @@ const HeroSlider = ({ items = slides }) => {
               onClick={() => setIndex(dotIndex)}
             />
           ))}
+          <button
+            type="button"
+            className="hero-autoplay-toggle btn btn-secondary"
+            aria-pressed={isUserPaused}
+            aria-label={isPaused ? "Reanudar carrusel principal" : "Pausar carrusel principal"}
+            onClick={() => setIsUserPaused(prev => !prev)}
+          >
+            {isPaused ? "Reanudar" : "Pausar"}
+          </button>
         </div>
       </div>
     </section>
@@ -773,11 +1247,15 @@ const PageHero = ({ eyebrow, title, description, image, ctas = [] }) => (
   <section id="hero" className="hero" aria-label={title}>
     <div className="hero-slider">
       <article
-        className="hero-slide"
+        className="hero-slide active"
         style={{
           backgroundImage: `url('${image}')`,
           backgroundSize: "cover",
-          backgroundPosition: "center"
+          backgroundPosition: "center",
+          opacity: 1,
+          visibility: "visible",
+          pointerEvents: "auto",
+          zIndex: 3
         }}
         aria-label={title}
       >
@@ -790,7 +1268,7 @@ const PageHero = ({ eyebrow, title, description, image, ctas = [] }) => (
               {ctas.map(cta => (
                 <a
                   key={cta.label}
-                  className={`btn ${cta.style}`}
+                  className={`btn ${cta.style === "primary" ? "btn-primary" : "btn-secondary"}`}
                   href={cta.href}
                   target={cta.external ? "_blank" : "_self"}
                   rel={cta.external ? "noreferrer" : undefined}
@@ -810,9 +1288,9 @@ const Pillars = () => (
   <section className="pillars-section" aria-label="Pilares de experiencia">
     <div className="container">
       <div className="section-header">
-        <h2 className="section-title">Experiencia diseñada para teens, peques y padres</h2>
+        <h2 className="section-title">¿Por qué las familias eligen Be One English?</h2>
         <p className="section-subtitle">
-          Diseñamos experiencias acogedoras, seguimiento real y actividades colaborativas que unen a toda la familia.
+          Porque no somos solo una academia. Somos el equipo que acompaña a tu familia en cada paso del camino hacia el inglés.
         </p>
       </div>
       <div className="pillars-grid">
@@ -837,8 +1315,8 @@ const ProgramTabs = () => {
     <section id="programas" className="pillars-section" aria-label="Programas por audiencia">
       <div className="container">
         <div className="section-header">
-          <h2 className="section-title">Programas sensibles para cada etapa</h2>
-          <p className="section-subtitle">Selecciona el perfil para ver objetivos, dinámicas y cómo acompañamos.</p>
+          <h2 className="section-title">Un programa pensado para cada etapa</h2>
+          <p className="section-subtitle">Selecciona el perfil para ver objetivos, dinámicas y cómo acompañamos a cada familia.</p>
         </div>
         <div className="program-tabs card">
           <div className="tab-list flex gap-sm" role="tablist">
@@ -903,8 +1381,8 @@ const CourseGrid = () => {
     <section className="courses-section" id="courses" aria-label="Cursos destacados">
       <div className="container">
         <div className="section-header">
-          <h2 className="section-title">Cursos claros para niños, teens y familias</h2>
-          <p className="section-subtitle">Rutas con itinerarios flexibles, clubs creativos y certificaciones oficiales.</p>
+          <h2 className="section-title">Nuestros cursos para cada edad y objetivo</h2>
+          <p className="section-subtitle">Elige el programa que mejor se adapte a tu familia. Todos incluyen mentor nativo y seguimiento personalizado.</p>
         </div>
         <div className="courses-grid">
           {courseList.map(course => (
@@ -963,12 +1441,12 @@ const CounterCard = ({ value, suffix, label }) => {
   }, [value, hasAnimated]);
 
   return (
-    <article className="card stat-card" ref={ref}>
-      <h3>
+    <article className="stat-card" ref={ref}>
+      <div className="stat-value">
         {count}
         {suffix}
-      </h3>
-      <p>{label}</p>
+      </div>
+      <div className="stat-label">{label}</div>
     </article>
   );
 };
@@ -977,15 +1455,17 @@ const ImpactSection = () => (
   <section className="stats-section" aria-label="Impacto medible">
     <div className="container">
       <div className="section-header">
-        <h2 className="section-title">Datos claros para familias seguras</h2>
-        <p className="section-subtitle">Medimos participación, confianza y certificaciones para que todo el mundo conocer el progreso.</p>
+        <h2 className="section-title">Nuestros números hablan por nosotros</h2>
+        <p className="section-subtitle">Más de una década formando familias en Granada con resultados reales y medibles.</p>
       </div>
       <div className="stats-grid">
-        {stats.map((stat, index) => (
-          <div key={stat.id} className="stat-card">
-            <div className="stat-value">{stat.value}{stat.suffix}</div>
-            <div className="stat-label">{stat.label}</div>
-          </div>
+        {stats.map(stat => (
+          <CounterCard
+            key={stat.id}
+            value={stat.value}
+            suffix={stat.suffix}
+            label={stat.label}
+          />
         ))}
       </div>
     </div>
@@ -996,13 +1476,13 @@ const CTASection = () => (
   <section className="cta-section" aria-label="Llamada a la acción">
     <div className="container">
       <div className="cta-content">
-        <h2 className="cta-title">Reserva tu sesión de descubrimiento en 15 minutos</h2>
+        <h2 className="cta-title">¿Listo para dar el paso?</h2>
         <p className="cta-description">
-          Incluye prueba de nivel gratuita, recomendaciones prácticas para casa y acceso al calendario familiar.
+          Reserva una sesión de descubrimiento gratuita. Incluye prueba de nivel, recomendaciones personalizadas y acceso a nuestro calendario familiar.
         </p>
         <div className="hero-actions">
           <a className="btn btn-primary" href="contact-us.html">
-            Agendar llamada
+            <i className="fa-solid fa-calendar-check"></i> Agendar llamada gratuita
           </a>
           <a
             className="btn btn-secondary"
@@ -1010,7 +1490,7 @@ const CTASection = () => (
             target="_blank"
             rel="noreferrer"
           >
-            Hablar por WhatsApp
+            <i className="fa-brands fa-whatsapp"></i> Escríbenos por WhatsApp
           </a>
         </div>
       </div>
@@ -1019,36 +1499,102 @@ const CTASection = () => (
 );
 
 const Testimonials = () => {
-  const [index, setIndex] = useAutoAdvance(testimonials.length, 9000);
+  const {
+    index,
+    setIndex,
+    isPaused,
+    isUserPaused,
+    setIsUserPaused,
+    setIsInteractionPaused
+  } = useAutoAdvance(testimonials.length, 9000);
+  const testimonialsRef = useRef(null);
+  const pauseOnInteraction = () => setIsInteractionPaused(true);
+  const resumeOnPointerLeave = () => setIsInteractionPaused(false);
+  const resumeOnBlur = event => {
+    if (!event.currentTarget.contains(event.relatedTarget)) {
+      setIsInteractionPaused(false);
+    }
+  };
+
+  useEffect(() => {
+    const gsap = window.gsap;
+    if (!gsap || !testimonialsRef.current) {
+      return undefined;
+    }
+
+    const prefersReducedMotion =
+      window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (prefersReducedMotion) {
+      return undefined;
+    }
+
+    const ctx = gsap.context(() => {
+      const activeSlide = gsap.utils.toArray(".testimonial-slide")[index];
+      if (!activeSlide) {
+        return;
+      }
+      const activeContent = activeSlide.querySelectorAll(
+        ".testimonial-quote, .testimonial-author, .testimonial-info > p"
+      );
+
+      gsap.fromTo(
+        activeContent,
+        { opacity: 0, y: 16 },
+        { opacity: 1, y: 0, duration: 0.45, stagger: 0.08, ease: "power2.out" }
+      );
+    }, testimonialsRef);
+
+    return () => {
+      ctx.revert();
+    };
+  }, [index]);
+
   return (
-    <section className="testimonials-section" aria-label="Testimonios">
+    <section
+      className="testimonials-section"
+      aria-label="Testimonios"
+      ref={testimonialsRef}
+      onMouseEnter={pauseOnInteraction}
+      onMouseLeave={resumeOnPointerLeave}
+      onFocusCapture={pauseOnInteraction}
+      onBlurCapture={resumeOnBlur}
+    >
       <div className="container">
         <div className="section-header">
-          <h2 className="section-title">Voces de familias y teens</h2>
-          <p className="section-subtitle">Historias reales de quienes ya viven la experiencia Be One.</p>
+          <h2 className="section-title">Lo que dicen nuestras familias</h2>
+          <p className="section-subtitle">Opiniones reales de quienes ya forman parte de la comunidad Be One English.</p>
         </div>
         <div className="testimonial-wrapper">
-          {testimonials.map((item, itemIndex) => (
-            <article 
-              className="testimonial-slide" 
-              key={item.id}
-              style={{ display: itemIndex === index ? 'block' : 'none' }}
-            >
-              <blockquote className="testimonial-quote">{item.quote}</blockquote>
-              <div className="testimonial-author">
-                <img
-                  src={item.image}
-                  alt={`Testimonio de ${item.author}`}
-                  loading="lazy"
-                  className="testimonial-avatar"
-                />
-                <div className="testimonial-info">
-                  <p className="testimonial-name">{item.author}</p>
-                  <p className="testimonial-role">{item.role}</p>
+          <div className="testimonial-stage">
+            {testimonials.map((item, itemIndex) => (
+              <article
+                className={`testimonial-slide ${itemIndex === index ? "active" : ""}`}
+                key={item.id}
+                style={{
+                  opacity: itemIndex === index ? 1 : 0,
+                  pointerEvents: itemIndex === index ? "auto" : "none",
+                  position: itemIndex === index ? "relative" : "absolute",
+                  inset: 0,
+                  transition: "opacity 0.5s ease"
+                }}
+              >
+                <blockquote className="testimonial-quote">{item.quote}</blockquote>
+                <div className="testimonial-author">
+                  <img
+                    src={item.image}
+                    alt={`Testimonio de ${item.author}`}
+                    loading="lazy"
+                    className="testimonial-avatar"
+                  />
+                  <div className="testimonial-info">
+                    <p className="testimonial-name">{item.author}</p>
+                    <p className="testimonial-role">{item.role}</p>
+                  </div>
                 </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            ))}
+          </div>
           <div className="testimonial-nav">
             {testimonials.map((item, dotIndex) => (
               <button
@@ -1058,6 +1604,15 @@ const Testimonials = () => {
                 onClick={() => setIndex(dotIndex)}
               />
             ))}
+            <button
+              type="button"
+              className="testimonial-autoplay-toggle btn btn-secondary"
+              aria-pressed={isUserPaused}
+              aria-label={isPaused ? "Reanudar testimonios" : "Pausar testimonios"}
+              onClick={() => setIsUserPaused(prev => !prev)}
+            >
+              {isPaused ? "Reanudar" : "Pausar"}
+            </button>
           </div>
         </div>
       </div>
@@ -1156,7 +1711,7 @@ const Footer = () => (
             <strong>Be One English</strong>
           </div>
           <p className="footer-description">
-            Centro con itinerarios para niños, adolescentes, familias y empresas en Granada.
+            Tu academia de inglés en Granada. Programas para niños, adolescentes, adultos y empresas con mentores nativos y seguimiento personalizado.
           </p>
           <div className="footer-social">
             {socialLinks.map(link => (
@@ -1170,9 +1725,19 @@ const Footer = () => (
           <h4 className="footer-title">Accesos rápidos</h4>
           <ul className="footer-links">
             <li><a href="about-us.html">Sobre nosotros</a></li>
-            <li><a href="nivel.html">Prueba de nivel</a></li>
-            <li><a href="blog.html">Calendario familiar</a></li>
-            <li><a href="contact-us.html">Soporte</a></li>
+            <li><a href="nivel.html">Prueba de nivel gratuita</a></li>
+            <li><a href="examenes.html">Exámenes oficiales</a></li>
+            <li><a href="blog.html">Actividades y eventos</a></li>
+            <li><a href="contact-us.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 className="footer-title">Cursos</h4>
+          <ul className="footer-links">
+            <li><a href="course-kids.html">Kids Club 4-12</a></li>
+            <li><a href="course-ten.html">Teens Pro 12+</a></li>
+            <li><a href="course-adult.html">Adult Boost A1-C2</a></li>
+            <li><a href="intensivos.html">Cursos intensivos</a></li>
           </ul>
         </div>
         <div>
@@ -1185,7 +1750,7 @@ const Footer = () => (
         </div>
       </div>
       <div className="footer-bottom">
-        <p>© {new Date().getFullYear()} Be One English. Todos los derechos reservados.</p>
+        <p>© {new Date().getFullYear()} Be One English Language Centre. Todos los derechos reservados.</p>
       </div>
     </div>
   </footer>
@@ -1193,19 +1758,79 @@ const Footer = () => (
 
 const PhotoCarousel = ({ event }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const carouselRef = useRef(null);
   const hasMultiplePhotos = event.photos.length > 1;
   
   const goToPrev = () => setCurrentIndex(prev => (prev === 0 ? event.photos.length - 1 : prev - 1));
   const goToNext = () => setCurrentIndex(prev => (prev === event.photos.length - 1 ? 0 : prev + 1));
+
+  useEffect(() => {
+    const gsap = window.gsap;
+    if (!gsap || !carouselRef.current) {
+      return undefined;
+    }
+
+    const prefersReducedMotion =
+      window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (prefersReducedMotion) {
+      return undefined;
+    }
+
+    const ctx = gsap.context(() => {
+      const image = carouselRef.current.querySelector(".photo-carousel-image");
+      const infoItems = carouselRef.current.querySelectorAll(".photo-carousel-info > *");
+      const dots = carouselRef.current.querySelectorAll(".photo-carousel-dots button");
+      const activeDot = dots[currentIndex];
+
+      if (image) {
+        gsap.fromTo(
+          image,
+          { autoAlpha: 0, scale: 1.08, filter: "blur(5px)" },
+          {
+            autoAlpha: 1,
+            scale: 1,
+            filter: "blur(0px)",
+            duration: 0.55,
+            ease: "power2.out"
+          }
+        );
+      }
+
+      if (infoItems.length) {
+        gsap.fromTo(
+          infoItems,
+          { y: 12, autoAlpha: 0 },
+          { y: 0, autoAlpha: 1, duration: 0.32, stagger: 0.05, ease: "power2.out" }
+        );
+      }
+
+      if (activeDot) {
+        gsap.fromTo(
+          activeDot,
+          { scale: 0.7 },
+          { scale: 1.2, duration: 0.3, ease: "back.out(2)" }
+        );
+      }
+    }, carouselRef);
+
+    return () => {
+      ctx.revert();
+    };
+  }, [currentIndex, event.id]);
   
   return (
-    <article className="card photo-carousel-card" style={{ borderTop: `3px solid ${event.color}` }}>
+    <article
+      className="card photo-carousel-card"
+      ref={carouselRef}
+      style={{ "--event-color": event.color }}
+    >
       <div className="photo-carousel">
         <div className="photo-carousel-main">
           <img 
             src={event.photos[currentIndex]} 
             alt={`${event.title} - Foto ${currentIndex + 1}`}
-            style={{ width: '100%', height: '250px', objectFit: 'cover', borderRadius: 'var(--radius-md)' }}
+            className="photo-carousel-image"
           />
           {hasMultiplePhotos && (
             <>
@@ -1213,21 +1838,6 @@ const PhotoCarousel = ({ event }) => {
                 className="carousel-nav carousel-prev" 
                 onClick={goToPrev}
                 aria-label="Foto anterior"
-                style={{ 
-                  position: 'absolute', 
-                  left: '10px', 
-                  top: '50%', 
-                  transform: 'translateY(-50%)',
-                  background: 'rgba(255,255,255,0.9)',
-                  border: 'none',
-                  borderRadius: '50%',
-                  width: '36px',
-                  height: '36px',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}
               >
                 <i className="fa-solid fa-chevron-left"></i>
               </button>
@@ -1235,49 +1845,26 @@ const PhotoCarousel = ({ event }) => {
                 className="carousel-nav carousel-next" 
                 onClick={goToNext}
                 aria-label="Foto siguiente"
-                style={{ 
-                  position: 'absolute', 
-                  right: '10px', 
-                  top: '50%', 
-                  transform: 'translateY(-50%)',
-                  background: 'rgba(255,255,255,0.9)',
-                  border: 'none',
-                  borderRadius: '50%',
-                  width: '36px',
-                  height: '36px',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}
               >
                 <i className="fa-solid fa-chevron-right"></i>
               </button>
             </>
           )}
         </div>
-        <div className="photo-carousel-info" style={{ padding: 'var(--space-md) 0' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-sm)', marginBottom: 'var(--space-sm)' }}>
-            <i className={event.icon} style={{ color: event.color }}></i>
-            <h3 style={{ margin: 0 }}>{event.title}</h3>
+        <div className="photo-carousel-info">
+          <div className="photo-carousel-header">
+            <i className={`${event.icon} photo-carousel-event-icon`}></i>
+            <h3 className="photo-carousel-title">{event.title}</h3>
           </div>
-          <p style={{ margin: 0, fontSize: 'var(--font-size-sm)', color: 'var(--text-light)' }}>{event.description}</p>
+          <p className="photo-carousel-description">{event.description}</p>
           {hasMultiplePhotos && (
-            <div className="photo-carousel-dots" style={{ display: 'flex', gap: '6px', marginTop: 'var(--space-sm)', justifyContent: 'center' }}>
+            <div className="photo-carousel-dots">
               {event.photos.map((_, idx) => (
                 <button
                   key={idx}
+                  className={`photo-carousel-dot ${idx === currentIndex ? "active" : ""}`}
                   onClick={() => setCurrentIndex(idx)}
                   aria-label={`Ir a foto ${idx + 1}`}
-                  style={{
-                    width: '8px',
-                    height: '8px',
-                    borderRadius: '50%',
-                    border: 'none',
-                    background: idx === currentIndex ? event.color : 'var(--border)',
-                    cursor: 'pointer',
-                    padding: 0
-                  }}
                 />
               ))}
             </div>
@@ -1336,13 +1923,13 @@ const HomeLayout = () => (
 const AboutLayout = () => (
   <>
     <PageHero
-      eyebrow="Quiénes somos"
-      title="Mentores apasionados, metodología propia"
-      description="Somos un equipo de profesores nativos y certificados que combinan pedagogía sensible, clubs familiares y tecnología para que cada alumno avance con ilusión."
+      eyebrow="Sobre nosotros"
+      title="Un equipo que inspira, una metodología que funciona"
+      description="Somos profesores nativos y certificados que combinan pedagogía innovadora, clubs familiares y tecnología para que cada alumno avance con confianza y motivación."
       image="assets/images/slide2.jpg"
       ctas={[
-        { label: "Conoce los cursos", href: "course-kids.html", style: "primary" },
-        { label: "Visitar blog familiar", href: "blog.html", style: "secondary" }
+        { label: "Descubre nuestros cursos", href: "course-kids.html", style: "primary" },
+        { label: "Ver actividades familiares", href: "blog.html", style: "secondary" }
       ]}
     />
     <Pillars />
@@ -1422,10 +2009,10 @@ const CourseDetailLayout = ({ courseId }) => {
               )}
               
               <div className="hero-actions mt-lg" style={{ justifyContent: 'center' }}>
-                <a className="btn primary" href="contact-us.html">
+                <a className="btn btn-primary" href="contact-us.html">
                   Solicitar información
                 </a>
-                <a className="btn secondary" href="nivel.html">
+                <a className="btn btn-secondary" href="nivel.html">
                   Hacer prueba gratuita
                 </a>
               </div>
@@ -1444,13 +2031,13 @@ const CourseDetailLayout = ({ courseId }) => {
 const BlogLayout = () => (
   <>
     <PageHero
-      eyebrow="Calendario familiar"
-      title="Actividades bilingües y clubs creativos"
-      description="Book picnics, escape rooms, meetups culinarios y retos para practicar inglés en familia toda la semana."
+      eyebrow="Actividades y eventos"
+      title="Más que clases: experiencias que unen a la familia"
+      description="Book picnics, escape rooms, meetups culinarios y retos semanales para practicar inglés de forma divertida y en comunidad."
       image="assets/images/slide3.png"
       ctas={[
-        { label: "Unirme al próximo evento", href: "contact-us.html", style: "primary" },
-        { label: "Recibir newsletter", href: "mailto:beoneenglish@gmail.com", style: "secondary" }
+        { label: "Apúntate al próximo evento", href: "contact-us.html", style: "primary" },
+        { label: "Suscríbete al boletín", href: "mailto:beoneenglish@gmail.com", style: "secondary" }
       ]}
     />
     <EventsGallery />
@@ -1464,9 +2051,9 @@ const BlogLayout = () => (
 const ContactLayout = () => (
   <>
     <PageHero
-      eyebrow="Estamos cerca"
-      title="Contacta con el equipo Be One English"
-      description="Respuesta media en menos de 2 horas. Podemos hablar por email, teléfono o WhatsApp."
+      eyebrow="Contacto"
+      title="Hablemos sobre tu próximo paso en inglés"
+      description="Nuestro equipo responde en menos de 2 horas. Elige el canal que prefieras: email, teléfono o WhatsApp."
       image="assets/images/slide1.jpg"
       ctas={[
         { label: "Enviar email", href: "mailto:beoneenglish@gmail.com", style: "primary" },
@@ -1481,13 +2068,13 @@ const ContactLayout = () => (
 const LevelLayout = () => (
   <>
     <PageHero
-      eyebrow="Prueba gratuita"
-      title="Descubre tu nivel y plan personalizado"
-      description="En una sesión de 15 minutos definimos tus objetivos y recibes un roadmap adaptado a tu ritmo."
+      eyebrow="Prueba de nivel gratuita"
+      title="Descubre tu nivel y recibe un plan a tu medida"
+      description="En solo 15 minutos evaluamos tu punto de partida, definimos tus objetivos y te entregamos un itinerario personalizado."
       image="assets/images/slide2.jpg"
       ctas={[
-        { label: "Agendar llamada", href: "contact-us.html", style: "primary" },
-        { label: "Cursos disponibles", href: "course-kids.html", style: "secondary" }
+        { label: "Agendar llamada gratuita", href: "contact-us.html", style: "primary" },
+        { label: "Ver todos los cursos", href: "course-kids.html", style: "secondary" }
       ]}
     />
     <JourneyTimeline />
@@ -1499,13 +2086,13 @@ const LevelLayout = () => (
 const ExamsLayout = () => (
   <>
     <PageHero
-      eyebrow="Certificaciones"
-      title="Cambridge, Trinity, IELTS y TOEFL con acompañamiento experto"
-      description="Simulacros reales, feedback semanal y tutores especializados para asegurar tu certificación."
+      eyebrow="Exámenes oficiales"
+      title="Tu certificación Cambridge, Trinity, IELTS o TOEFL empieza aquí"
+      description="Simulacros reales, feedback semanal y tutores especializados que te acompañan hasta el día del examen con confianza."
       image="assets/images/slide2.jpg"
       ctas={[
-        { label: "Ver Teen Pro", href: "course-ten.html", style: "primary" },
-        { label: "Preparar Adult Boost", href: "course-adult.html", style: "secondary" }
+        { label: "Programa Teens Pro", href: "course-ten.html", style: "primary" },
+        { label: "Programa Adult Boost", href: "course-adult.html", style: "secondary" }
       ]}
     />
     <CourseGrid />
@@ -1567,10 +2154,10 @@ const IntensiveLayout = ({ courseId }) => {
                   ))}
                 </ul>
                 <div className="hero-actions mt-lg" style={{ justifyContent: 'center' }}>
-                  <a className="btn primary" href="contact-us.html">
+                  <a className="btn btn-primary" href="contact-us.html">
                     Solicitar información
                   </a>
-                  <a className="btn secondary" href="nivel.html">
+                  <a className="btn btn-secondary" href="nivel.html">
                     Hacer prueba gratuita
                   </a>
                 </div>
@@ -1588,13 +2175,13 @@ const IntensiveLayout = ({ courseId }) => {
   return (
     <>
       <PageHero
-        eyebrow="Cursos intensivos 2025"
-        title="Rutas de 4 a 8 semanas hacia tu certificación"
-        description="Domina el inglés con simulacros diarios, tutores nativos y seguimiento personalizado. De B1 a C2."
+        eyebrow="Cursos intensivos 2026"
+        title="De 4 a 8 semanas hacia tu certificación"
+        description="Domina el inglés con simulacros diarios, tutores nativos y seguimiento personalizado. De B1 a C2, elige tu ritmo."
         image="assets/images/Intensivos2025.jpg"
         ctas={[
           { label: "Reservar plaza", href: "nivel.html", style: "primary" },
-          { label: "Hablar con asesor", href: "contact-us.html", style: "secondary" }
+          { label: "Hablar con un asesor", href: "contact-us.html", style: "secondary" }
         ]}
       />
       <section className="courses-section" aria-label="Cursos intensivos">
@@ -1686,8 +2273,9 @@ const pageLayouts = {
 
 const App = () => {
   const appRef = useRef(null);
-  
-  // No GSAP animations for now - just render the app
+
+  useSiteAnimations(appRef);
+
   return (
     <div className="app-wrapper" ref={appRef}>
       <Header />
