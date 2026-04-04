@@ -2070,27 +2070,57 @@ const WhatsAppButton = () => {
 
 const AdminStatsPanel = ({ visible, onClose }) => {
   const [stats, setStats] = useState(null);
+  const [localStats, setLocalStats] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (!visible) return;
+
     const loadData = () => {
       const data = JSON.parse(localStorage.getItem('beone_analytics') || '{}');
-      setStats(data);
+      setLocalStats(data);
     };
     loadData();
+
+    if (window.FirebaseTracker && window.FirebaseTracker.initialized) {
+      window.FirebaseTracker.listenToStats(data => {
+        setStats(data);
+        setLoading(false);
+      });
+    } else {
+      const checkFirebase = setInterval(() => {
+        if (window.FirebaseTracker && window.FirebaseTracker.initialized) {
+          clearInterval(checkFirebase);
+          window.FirebaseTracker.listenToStats(data => {
+            setStats(data);
+            setLoading(false);
+          });
+        }
+      }, 500);
+      setTimeout(() => { clearInterval(checkFirebase); setLoading(false); }, 5000);
+    }
+
     const interval = setInterval(loadData, 3000);
     return () => clearInterval(interval);
   }, [visible]);
 
-  const clearStats = () => {
+  const clearLocalStats = () => {
     localStorage.removeItem('beone_analytics');
-    setStats(null);
+    setLocalStats(null);
+  };
+
+  const clearFirebaseStats = () => {
+    if (window.FirebaseTracker) {
+      window.FirebaseTracker.resetStats();
+    }
   };
 
   if (!visible) return null;
 
   const clicks = stats?.clicks || {};
   const totalClicks = Object.values(clicks).reduce((a, b) => a + b, 0);
+  const localClicks = localStats?.clicks || {};
+  const localTotalClicks = Object.values(localClicks).reduce((a, b) => a + b, 0);
 
   const clickItems = [
     { key: 'whatsapp', label: 'WhatsApp', icon: 'fa-brands fa-whatsapp', color: '#25D366' },
@@ -2099,6 +2129,12 @@ const AdminStatsPanel = ({ visible, onClose }) => {
     { key: 'facebook', label: 'Facebook', icon: 'fa-brands fa-facebook-f', color: '#1877F2' },
     { key: 'map', label: 'Mapa / Dirección', icon: 'fa-solid fa-map-location-dot', color: '#9C27B0' }
   ];
+
+  const dailyVisits = stats?.dailyVisits || {};
+  const sortedDays = Object.entries(dailyVisits).sort((a, b) => b[0].localeCompare(a[0])).slice(0, 7);
+
+  const pageVisits = stats?.pageVisits || {};
+  const sortedPages = Object.entries(pageVisits).sort((a, b) => b[1] - a[1]).slice(0, 10);
 
   return (
     <div className="admin-stats-panel">
@@ -2114,50 +2150,152 @@ const AdminStatsPanel = ({ visible, onClose }) => {
         </div>
       </div>
       <div className="admin-stats-body">
-        <div className="admin-stat-card admin-stat-card--primary">
-          <div className="admin-stat-icon">
-            <i className="fa-solid fa-eye"></i>
+        {loading ? (
+          <div className="admin-loading">
+            <i className="fa-solid fa-spinner fa-spin"></i>
+            <p>Cargando estadísticas...</p>
           </div>
-          <div className="admin-stat-info">
-            <span className="admin-stat-value">{stats?.totalVisits || 0}</span>
-            <span className="admin-stat-label">Visitas totales</span>
-          </div>
-        </div>
-
-        <div className="admin-stat-card admin-stat-card--total">
-          <div className="admin-stat-icon">
-            <i className="fa-solid fa-hand-pointer"></i>
-          </div>
-          <div className="admin-stat-info">
-            <span className="admin-stat-value">{totalClicks}</span>
-            <span className="admin-stat-label">Clics totales</span>
-          </div>
-        </div>
-
-        {clickItems.map(item => (
-          <div className="admin-stat-card" key={item.key}>
-            <div className="admin-stat-icon" style={{ color: item.color }}>
-              <i className={item.icon}></i>
+        ) : stats ? (
+          <>
+            <div className="admin-section-title">
+              <i className="fa-solid fa-globe"></i>
+              <span>Estadísticas Globales (todos los visitantes)</span>
             </div>
-            <div className="admin-stat-info">
-              <span className="admin-stat-value">{clicks[item.key] || 0}</span>
-              <span className="admin-stat-label">{item.label}</span>
-            </div>
-          </div>
-        ))}
 
-        {stats?.firstVisit && (
-          <div className="admin-stat-dates">
-            <p><strong>Primera visita:</strong> {new Date(stats.firstVisit).toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' })}</p>
-            {stats?.lastVisit && (
-              <p><strong>Última visita:</strong> {new Date(stats.lastVisit).toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' })}</p>
+            <div className="admin-stat-card admin-stat-card--primary">
+              <div className="admin-stat-icon">
+                <i className="fa-solid fa-eye"></i>
+              </div>
+              <div className="admin-stat-info">
+                <span className="admin-stat-value">{stats.totalVisits || 0}</span>
+                <span className="admin-stat-label">Visitas totales</span>
+              </div>
+            </div>
+
+            <div className="admin-stat-card admin-stat-card--secondary">
+              <div className="admin-stat-icon">
+                <i className="fa-solid fa-users"></i>
+              </div>
+              <div className="admin-stat-info">
+                <span className="admin-stat-value">{stats.uniqueVisitors || 0}</span>
+                <span className="admin-stat-label">Visitantes únicos</span>
+              </div>
+            </div>
+
+            <div className="admin-stat-card admin-stat-card--total">
+              <div className="admin-stat-icon">
+                <i className="fa-solid fa-hand-pointer"></i>
+              </div>
+              <div className="admin-stat-info">
+                <span className="admin-stat-value">{totalClicks}</span>
+                <span className="admin-stat-label">Clics totales (global)</span>
+              </div>
+            </div>
+
+            {clickItems.map(item => (
+              <div className="admin-stat-card" key={item.key}>
+                <div className="admin-stat-icon" style={{ color: item.color }}>
+                  <i className={item.icon}></i>
+                </div>
+                <div className="admin-stat-info">
+                  <span className="admin-stat-value">{clicks[item.key] || 0}</span>
+                  <span className="admin-stat-label">{item.label}</span>
+                </div>
+              </div>
+            ))}
+
+            {sortedDays.length > 0 && (
+              <div className="admin-chart-section">
+                <h4 className="admin-subtitle">
+                  <i className="fa-solid fa-calendar-week"></i>
+                  Últimos 7 días
+                </h4>
+                <div className="admin-bar-chart">
+                  {sortedDays.map(([date, count]) => {
+                    const maxCount = Math.max(...sortedDays.map(([, c]) => c));
+                    const pct = maxCount > 0 ? (count / maxCount) * 100 : 0;
+                    const dayLabel = new Date(date + 'T12:00:00').toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric' });
+                    return (
+                      <div className="admin-bar-item" key={date}>
+                        <span className="admin-bar-label">{dayLabel}</span>
+                        <div className="admin-bar-track">
+                          <div className="admin-bar-fill" style={{ width: `${pct}%`, background: `linear-gradient(90deg, var(--primary), var(--secondary))` }}></div>
+                        </div>
+                        <span className="admin-bar-value">{count}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
             )}
+
+            {sortedPages.length > 0 && (
+              <div className="admin-chart-section">
+                <h4 className="admin-subtitle">
+                  <i className="fa-solid fa-file-lines"></i>
+                  Páginas más visitadas
+                </h4>
+                <div className="admin-page-list">
+                  {sortedPages.map(([page, count]) => (
+                    <div className="admin-page-item" key={page}>
+                      <span className="admin-page-name">{page || 'index'}</span>
+                      <span className="admin-page-count">{count}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {stats.lastVisit && (
+              <div className="admin-stat-dates">
+                <p><strong>Última visita:</strong> {new Date(stats.lastVisit).toLocaleDateString('es-ES', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' })}</p>
+                {stats.lastVisitor?.page && (
+                  <p><strong>Página:</strong> {stats.lastVisitor.page}</p>
+                )}
+              </div>
+            )}
+
+            <div className="admin-section-title" style={{ marginTop: 'var(--space-lg)' }}>
+              <i className="fa-solid fa-laptop"></i>
+              <span>Estadísticas Locales (este navegador)</span>
+            </div>
+
+            <div className="admin-stat-card admin-stat-card--primary">
+              <div className="admin-stat-icon">
+                <i className="fa-solid fa-eye"></i>
+              </div>
+              <div className="admin-stat-info">
+                <span className="admin-stat-value">{localStats?.totalVisits || 0}</span>
+                <span className="admin-stat-label">Visitas (local)</span>
+              </div>
+            </div>
+
+            <div className="admin-stat-card admin-stat-card--total">
+              <div className="admin-stat-icon">
+                <i className="fa-solid fa-hand-pointer"></i>
+              </div>
+              <div className="admin-stat-info">
+                <span className="admin-stat-value">{localTotalClicks}</span>
+                <span className="admin-stat-label">Clics (local)</span>
+              </div>
+            </div>
+
+            <div className="admin-actions-row">
+              <button className="btn btn-secondary btn-sm" onClick={clearLocalStats}>
+                <i className="fa-solid fa-trash"></i> Limpiar local
+              </button>
+              <button className="btn btn-secondary btn-sm btn-danger" onClick={clearFirebaseStats}>
+                <i className="fa-solid fa-trash"></i> Limpiar global
+              </button>
+            </div>
+          </>
+        ) : (
+          <div className="admin-empty">
+            <i className="fa-solid fa-database"></i>
+            <p>No hay datos globales disponibles.</p>
+            <p className="admin-empty-hint">Asegúrate de configurar Firebase en <code>js/firebase-config.js</code></p>
           </div>
         )}
-
-        <button className="btn btn-secondary btn-sm btn-clear-stats" onClick={clearStats}>
-          <i className="fa-solid fa-trash"></i> Limpiar estadísticas
-        </button>
       </div>
     </div>
   );

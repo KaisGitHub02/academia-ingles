@@ -2468,6 +2468,11 @@ body {
   border-color: var(--secondary);
 }
 
+.admin-stat-card--secondary {
+  background: linear-gradient(135deg, rgba(142, 202, 230, 0.15), rgba(181, 227, 196, 0.15));
+  border-color: var(--accent);
+}
+
 .admin-stat-icon {
   width: 44px;
   height: 44px;
@@ -2541,6 +2546,192 @@ body {
   color: #e53935;
   border-color: #e53935;
   background: rgba(229, 57, 53, 0.05);
+}
+
+/* Admin Loading */
+.admin-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3xl) var(--space-md);
+  color: var(--text-light);
+}
+
+.admin-loading i {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: var(--space-md);
+}
+
+.admin-loading p {
+  font-size: var(--font-size-sm);
+}
+
+/* Admin Empty State */
+.admin-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3xl) var(--space-md);
+  text-align: center;
+  color: var(--text-light);
+}
+
+.admin-empty i {
+  font-size: 3rem;
+  color: var(--border);
+  margin-bottom: var(--space-md);
+}
+
+.admin-empty p {
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-xs);
+}
+
+.admin-empty-hint {
+  font-size: var(--font-size-xs) !important;
+  color: var(--muted);
+}
+
+.admin-empty-hint code {
+  background: var(--surface-alt);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: var(--font-size-xs);
+}
+
+/* Admin Section Title */
+.admin-section-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 2px solid var(--stroke);
+}
+
+.admin-section-title i {
+  color: var(--primary);
+}
+
+/* Admin Subtitle */
+.admin-subtitle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: var(--space-md);
+}
+
+.admin-subtitle i {
+  color: var(--secondary-dark);
+}
+
+/* Admin Bar Chart */
+.admin-chart-section {
+  margin-top: var(--space-lg);
+  padding: var(--space-md);
+  background: var(--surface-alt);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--stroke);
+}
+
+.admin-bar-chart {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.admin-bar-item {
+  display: grid;
+  grid-template-columns: 60px 1fr 30px;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.admin-bar-label {
+  font-size: var(--font-size-xs);
+  color: var(--text-light);
+  text-transform: capitalize;
+}
+
+.admin-bar-track {
+  height: 8px;
+  background: var(--stroke);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.admin-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.6s ease;
+  min-width: 4px;
+}
+
+.admin-bar-value {
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: var(--text);
+  text-align: right;
+}
+
+/* Admin Page List */
+.admin-page-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.admin-page-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--surface);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--stroke);
+}
+
+.admin-page-name {
+  font-size: var(--font-size-xs);
+  color: var(--text);
+  font-weight: 500;
+}
+
+.admin-page-count {
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: var(--primary);
+  background: var(--primary-soft);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+
+/* Admin Actions Row */
+.admin-actions-row {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+.admin-actions-row .btn-sm {
+  flex: 1;
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--font-size-xs);
+}
+
+.btn-danger:hover {
+  color: #e53935 !important;
+  border-color: #e53935 !important;
+  background: rgba(229, 57, 53, 0.08) !important;
 }
 
 @media (max-width: 576px) {
