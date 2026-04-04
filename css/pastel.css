@@ -1217,8 +1217,8 @@ img {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: var(--space-2xl);
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: var(--space-xl);
   margin-bottom: var(--space-2xl);
 }
 
@@ -1321,6 +1321,10 @@ img {
   text-align: center;
   font-size: var(--font-size-sm);
   color: rgba(255,255,255,0.45);
+}
+
+@media (max-width: 1200px) {
+  .footer-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 992px) {
@@ -2575,5 +2579,400 @@ body {
   .intensive-features li,
   .intensive-features li i {
     transition: none !important;
+  }
+}
+
+/* ========== NEW COMPONENTS ========== */
+
+/* Professors Section */
+.professors-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-2xl);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.professor-card {
+  text-align: center;
+  padding: var(--space-2xl);
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--stroke);
+  box-shadow: var(--shadow-xs);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.professor-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+.professor-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.professor-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-lg);
+  border: 3px solid;
+  transition: all var(--transition-base);
+}
+
+.professor-card:hover .professor-avatar {
+  transform: scale(1.08);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+}
+
+.professor-avatar i {
+  font-size: 3rem;
+}
+
+.professor-name {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+}
+
+.professor-level {
+  display: inline-block;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-full);
+  border: 1px solid;
+  margin-bottom: var(--space-md);
+}
+
+.professor-bio {
+  font-size: var(--font-size-sm);
+  color: var(--text-light);
+  line-height: 1.7;
+  margin-bottom: var(--space-md);
+}
+
+.professor-levels {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.level-badge {
+  display: inline-block;
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-full);
+  border: 1px solid;
+}
+
+@media (max-width: 768px) {
+  .professors-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+  
+  .professor-card {
+    padding: var(--space-xl);
+  }
+}
+
+/* Exams Section */
+.exams-section {
+  padding: var(--space-3xl) 0;
+  background: var(--surface-alt);
+}
+
+.exams-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
+}
+
+.exam-card {
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--stroke);
+  overflow: hidden;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-xs);
+}
+
+.exam-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.exam-image {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.exam-image i {
+  font-size: 4rem;
+  transition: all var(--transition-base);
+}
+
+.exam-card:hover .exam-image i {
+  transform: scale(1.15);
+}
+
+.exam-content {
+  padding: var(--space-lg);
+}
+
+.exam-badge {
+  display: inline-block;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: white;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-sm);
+  letter-spacing: 0.05em;
+}
+
+.exam-title {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+}
+
+.exam-description {
+  font-size: var(--font-size-sm);
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-bottom: var(--space-md);
+}
+
+.exam-levels {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--font-size-sm);
+  color: var(--text);
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--stroke);
+}
+
+.exam-levels i {
+  color: var(--primary);
+}
+
+.exam-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-lg);
+}
+
+.exam-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  font-size: var(--font-size-sm);
+  color: var(--text);
+  padding: var(--space-xs) 0;
+}
+
+.exam-features li i {
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 992px) {
+  .exams-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .exams-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .exam-image {
+    height: 120px;
+  }
+  
+  .exam-image i {
+    font-size: 3rem;
+  }
+}
+
+/* Class Modes Section */
+.class-modes-section {
+  padding: var(--space-3xl) 0;
+  background: linear-gradient(135deg, var(--primary-soft), var(--secondary-soft), var(--accent-soft));
+}
+
+.class-modes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.class-mode-card {
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--stroke);
+  padding: var(--space-2xl);
+  text-align: center;
+  box-shadow: var(--shadow-xs);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.class-mode-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.class-mode-card:hover::before {
+  opacity: 1;
+}
+
+.class-mode-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+}
+
+.mode-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-lg);
+  transition: all var(--transition-base);
+}
+
+.class-mode-card:hover .mode-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.mode-icon i {
+  font-size: 2rem;
+}
+
+.mode-title {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+}
+
+.mode-description {
+  font-size: var(--font-size-sm);
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-bottom: var(--space-md);
+}
+
+.mode-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-lg);
+  text-align: left;
+}
+
+.mode-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  font-size: var(--font-size-sm);
+  color: var(--text);
+  padding: var(--space-xs) 0;
+}
+
+.mode-features li i {
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.mode-duration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  font-size: var(--font-size-sm);
+  color: var(--text-light);
+  margin-bottom: var(--space-md);
+  padding: var(--space-sm);
+  background: var(--surface-alt);
+  border-radius: var(--radius-md);
+}
+
+.mode-duration i {
+  color: var(--primary);
+}
+
+@media (max-width: 992px) {
+  .class-modes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .class-modes-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .class-mode-card {
+    padding: var(--space-xl);
+  }
+}
+
+/* Map Section */
+.map-section {
+  padding: var(--space-3xl) 0;
+  background: var(--bg);
+}
+
+.map-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--stroke);
+}
+
+.map-wrapper iframe {
+  display: block;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .map-wrapper {
+    border-radius: var(--radius-lg);
+  }
+  
+  .map-wrapper iframe {
+    height: 300px !important;
   }
 }

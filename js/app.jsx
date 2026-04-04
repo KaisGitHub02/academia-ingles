@@ -5,27 +5,27 @@ const slides = [
   {
     id: 1,
     eyebrow: "Academia de inglés en Granada",
-    title: "Aprende inglés de verdad, en un entorno que inspira",
+    title: "Tu inglés, nuestro compromiso. Resultados reales desde el primer día",
     description:
-      "Clases dinámicas con mentores nativos, seguimiento personalizado y un panel exclusivo para que las familias vean cada avance.",
+      "Dos profesores expertos, Antonio y Jackeline, te acompañan de A1 a C2 con trato cercano, libros oficiales y el inglés que usas de verdad.",
     image: "assets/images/slide1.jpg",
     ctas: [
       { label: "Descubre nuestros cursos", href: "course-kids.html", style: "primary" },
-      { label: "Reserva tu clase gratis", href: "nivel.html", style: "secondary" }
+      { label: "Prueba de nivel gratis", href: "nivel.html", style: "secondary" }
     ]
   },
   {
     id: 2,
-    eyebrow: "Adolescentes que hablan con confianza",
-    title: "Proyectos creativos, debates reales y preparación Cambridge",
+    eyebrow: "99% de aprobados",
+    title: "Preparamos APTIS, Cambridge, Trinity, TOEFL y SIELE",
     description:
-      "Mentores nativos, workshops STEAM y simulacros de examen para que los teens lleguen preparados y seguros a sus metas.",
+      "Desde que abrimos, el 99% de nuestros alumnos han aprobado. Antonio te lleva de A1 a B2 y Jackeline de B2 a C2 con método y cercanía.",
     image: "assets/images/slide2.jpg",
     ctas: [
-      { label: "Programa Teens Pro 12+", href: "course-ten.html", style: "primary" },
+      { label: "Ver exámenes oficiales", href: "examenes.html", style: "primary" },
       {
         label: "Escríbenos por WhatsApp",
-        href: "https://wa.me/34622854358?text=Quiero%20info%20para%20mi%20family%20en%20Be%20One",
+        href: "https://wa.me/34622854358?text=Quiero%20info%20sobre%20preparaci%C3%B3n%20de%20ex%C3%A1menes",
         style: "secondary",
         external: true
       }
@@ -33,15 +33,15 @@ const slides = [
   },
   {
     id: 3,
-    eyebrow: "Familias que aprenden juntas",
-    title: "Panel privado, actividades en casa y eventos bilingües para todos",
+    eyebrow: "Libros oficiales + inglés del día a día",
+    title: "Aprende inglés para la vida, no solo para el examen",
     description:
-      "Recibe recursos semanales, accede al calendario familiar y participa en charlas sobre cómo acompañar el aprendizaje sin estrés.",
+      "Clases con trato cercano, ritmo a tu medida y modalidad flexible: preparación de examen, mensualidad continua o intensivos de verano.",
     image: "assets/images/slide3.png",
     ctas: [
-      { label: "Ver calendario familiar", href: "blog.html", style: "secondary" },
+      { label: "Cómo estudiar con nosotros", href: "#modalidades", style: "secondary" },
       {
-        label: "Habla con nuestro equipo",
+        label: "Habla con Antonio o Jackeline",
         href: "https://wa.me/34622854358?text=Quiero%20hablar%20con%20Be%20One",
         style: "primary",
         external: true
@@ -52,24 +52,24 @@ const slides = [
 
 const pillars = [
   {
-    icon: "fa-solid fa-palette",
-    title: "Espacios que inspiran",
-    copy: "Aulas luminosas, materiales visuales y dashboards claros que motivan a toda la familia."
-  },
-  {
-    icon: "fa-solid fa-headset",
-    title: "Mentor personal",
-    copy: "Un tutor asignado que conoce a tu familia, resuelve dudas y ajusta el plan cada semana."
+    icon: "fa-solid fa-book-open",
+    title: "Libros oficiales + inglés real",
+    copy: "Combinamos métodos certificados con situaciones del día a día: viajes, trabajo, series, conversaciones reales."
   },
   {
     icon: "fa-solid fa-heart",
-    title: "Bienestar primero",
-    copy: "Dinámicas socioemocionales que mantienen la motivación y la confianza en cada sesión."
+    title: "Trato cercano y personalizado",
+    copy: "Solo dos profesores que conocen a cada alumno por su nombre. Aquí no eres un número, eres familia."
   },
   {
-    icon: "fa-solid fa-star",
-    title: "Resultados que se ven",
-    copy: "Reportes visuales y certificaciones Cambridge, Trinity, IELTS y TOEFL con tasas de éxito del 98%."
+    icon: "fa-solid fa-graduation-cap",
+    title: "Dos niveles, dos expertos",
+    copy: "Antonio te lleva de A1 a B2 con paciencia. Jackeline te impulsa de B2 a C2 con excelencia."
+  },
+  {
+    icon: "fa-solid fa-trophy",
+    title: "99% de aprobados",
+    copy: "Desde que abrimos, el 99% de nuestros alumnos han aprobado el examen que se preparaban. Hablamos con resultados."
   }
 ];
 
@@ -219,9 +219,9 @@ const intensivoCourses = [
 
 const stats = [
   { id: "families", value: 320, suffix: "+", label: "Familias acompañadas cada año" },
-  { id: "mentors", value: 14, suffix: "", label: "Mentores certificados y nativos" },
-  { id: "events", value: 36, suffix: "", label: "Eventos bilingües familiares" },
-  { id: "success", value: 98, suffix: "%", label: "Éxito en certificaciones" }
+  { id: "mentors", value: 2, suffix: "", label: "Profesores expertos y dedicados" },
+  { id: "events", value: 36, suffix: "", label: "Eventos bilingües familiares al año" },
+  { id: "success", value: 99, suffix: "%", label: "Tasa de aprobados desde que abrimos" }
 ];
 
 const testimonials = [
@@ -272,7 +272,7 @@ const faqs = [
     id: "certificaciones",
     question: "¿Preparáis exámenes oficiales?",
     answer:
-      "Somos especialistas en Cambridge, Trinity, IELTS y TOEFL con simulacros reales y feedback puntual de mentores nativos."
+      "Somos especialistas en APTIS, Cambridge, Trinity, TOEFL y SIELE con simulacros reales y feedback puntual. Antonio prepara de A1 a B2 y Jackeline de B2 a C2."
   },
   {
     id: "horarios",
@@ -477,6 +477,121 @@ const eventPhotos = [
   }
 ];
 
+const professors = [
+  {
+    id: "antonio",
+    name: "Antonio",
+    role: "Profesor Principal · A1 a B2",
+    bio: "Especialista en llevar a los alumnos desde cero hasta un nivel intermedio-alto con paciencia, método y mucho trato cercano. Combina libros oficiales con situaciones reales del día a día.",
+    levels: "A1 - B2",
+    color: "#2196F3",
+    icon: "fa-solid fa-chalkboard-user"
+  },
+  {
+    id: "jackeline",
+    name: "Jackeline",
+    role: "Profesora Principal · B2 a C2",
+    bio: "Experta en niveles avanzados. Prepara a sus alumnos para alcanzar la excelencia en inglés académico y profesional, con un enfoque práctico y personalizado.",
+    levels: "B2 - C2",
+    color: "#E91E63",
+    icon: "fa-solid fa-user-graduate"
+  }
+];
+
+const examTypes = [
+  {
+    id: "aptis",
+    name: "APTIS",
+    fullName: "APTIS English Testing",
+    description: "Examen del British Council que evalúa las cuatro destrezas lingüísticas. Reconocido por instituciones públicas y empresas en todo el mundo.",
+    levels: "A1 - C2",
+    image: "assets/images/aptis.png",
+    icon: "fa-solid fa-certificate",
+    color: "#1565C0",
+    features: ["Reconocido por el British Council", "Resultados rápidos (48-72h)", "Flexible: elige qué skills examinar", "Válido para oposiciones y empleo público"]
+  },
+  {
+    id: "cambridge",
+    name: "CAMBRIDGE",
+    fullName: "Cambridge Assessment English",
+    description: "Las certificaciones más reconocidas internacionalmente. Desde Key (A2) hasta CPE (C2), con validez de por vida.",
+    levels: "A2 - C2",
+    image: "assets/images/cambridge.png",
+    icon: "fa-solid fa-award",
+    color: "#C62828",
+    features: ["Validez de por vida", "Reconocimiento mundial", "KET, PET, FCE, CAE, CPE", "Preparación completa de las 4 skills"]
+  },
+  {
+    id: "trinity",
+    name: "TRINITY",
+    fullName: "Trinity College London",
+    description: "Exámenes de speaking y habilidades integradas con examinadores nativos. Ideal para ganar confianza oral y obtener certificación oficial.",
+    levels: "A1 - C2",
+    image: "assets/images/trinity.png",
+    icon: "fa-solid fa-comments",
+    color: "#6A1B9A",
+    features: ["Enfoque en comunicación oral", "Examinadores nativos", "Graded Examinations (GESE)", "Integrated Skills in English (ISE)"]
+  },
+  {
+    id: "toefl",
+    name: "TOEFL",
+    fullName: "Test of English as a Foreign Language",
+    description: "El examen más aceptado por universidades de habla inglesa. Evalúa reading, listening, speaking y writing en contexto académico.",
+    levels: "B1 - C2",
+    image: "assets/images/TOEFL.png",
+    icon: "fa-solid fa-university",
+    color: "#00695C",
+    features: ["Aceptado por 11.000+ universidades", "Formato iBT online", "Ideal para estudios en el extranjero", "Preparación académica completa"]
+  },
+  {
+    id: "siele",
+    name: "SIELE",
+    fullName: "Servicio Internacional de Evaluación de la Lengua Española",
+    description: "Aunque evaluamos inglés, también informamos sobre SIELE para español. Certificación digital del Instituto Cervantes con validez internacional.",
+    levels: "A1 - C2",
+    image: "assets/images/siele.png",
+    icon: "fa-solid fa-globe",
+    color: "#F57F17",
+    features: ["Certificación digital del Instituto Cervantes", "Resultados en 3 semanas", "Válido 5 años", "Reconocido internacionalmente"]
+  }
+];
+
+const classModes = [
+  {
+    id: "exam-prep",
+    title: "Preparación de Exámenes",
+    description: "Programa intensivo enfocado en conseguir tu certificación. Simulacros reales, técnicas de examen y seguimiento semanal hasta el día D.",
+    icon: "fa-solid fa-file-circle-check",
+    color: "#E91E63",
+    features: ["Simulacros de examen reales", "Técnicas y estrategias de test", "Feedback personalizado semanal", "Material oficial incluido", "Garantía de preparación completa"],
+    duration: "Según nivel objetivo",
+    cta: "Preparar mi examen",
+    ctaHref: "examenes.html"
+  },
+  {
+    id: "monthly",
+    title: "Mensualidad Continua",
+    description: "Aprende inglés a tu ritmo con clases semanales, un trato cercano y progresión constante. Sin presiones, sin fechas límite: inglés para toda la vida.",
+    icon: "fa-solid fa-infinity",
+    color: "#2196F3",
+    features: ["Clases semanales regulares", "Ritmo personalizado", "Libros oficiales + inglés real", "Trato cercano y personalizado", "Seguimiento continuo del progreso"],
+    duration: "Mes a mes, sin permanencia",
+    cta: "Empezar ya",
+    ctaHref: "contact-us.html"
+  },
+  {
+    id: "summer",
+    title: "Intensivos de Verano",
+    description: "Inmersión total en inglés durante el verano. Programas de 2 a 8 semanas con horarios intensivos, actividades lúdicas y resultados garantizados.",
+    icon: "fa-solid fa-sun",
+    color: "#FF9800",
+    features: ["2 a 8 semanas de duración", "Horarios intensivos (mañana o tarde)", "Actividades lúdicas en inglés", "Grupos reducidos", "Resultados garantizados"],
+    duration: "Verano 2026",
+    cta: "Ver intensivos",
+    ctaHref: "intensivos.html"
+  }
+];
+
 const pageConfig = window.BEONE_PAGE_CONFIG || { page: "home" };
 const currentPage = (pageConfig.page || "home").toLowerCase();
 
@@ -575,12 +690,16 @@ const useSiteAnimations = scopeRef => {
 
       reveal(".section-header", { y: 28, stagger: 0.08 });
       reveal(".pillars-grid .pillar-card");
+      reveal(".professors-grid .professor-card");
+      reveal(".exams-grid .exam-card");
+      reveal(".class-modes-grid .class-mode-card");
       reveal(".stats-grid .stat-card", { y: 30, stagger: 0.08 });
       reveal(".grid .card", { y: 30, stagger: 0.08 });
       reveal(".program-tabs, #journey .card", { y: 30, stagger: 0.08 });
       reveal(".cta-content", { y: 24, stagger: 0 });
       reveal(".footer-grid > div", { y: 24, stagger: 0.08, start: "top 92%" });
       reveal(".testimonial-wrapper", { y: 24, stagger: 0 });
+      reveal(".map-wrapper", { y: 24, stagger: 0 });
 
       const courseCards = gsap.utils.toArray(".courses-grid .course-card");
       courseCards.forEach((card, cardIndex) => {
@@ -781,7 +900,7 @@ const useSiteAnimations = scopeRef => {
             });
           }
 
-          const interactiveCards = gsap.utils.toArray(".pillar-card, .course-card, .stat-card, .testimonial-wrapper, .card");
+          const interactiveCards = gsap.utils.toArray(".pillar-card, .course-card, .stat-card, .testimonial-wrapper, .card, .professor-card, .exam-card, .class-mode-card");
           interactiveCards.forEach(card => {
             const onEnter = () => {
               gsap.to(card, {
@@ -1732,6 +1851,16 @@ const Footer = () => (
           </ul>
         </div>
         <div>
+          <h4 className="footer-title">Exámenes</h4>
+          <ul className="footer-links">
+            <li><a href="examenes.html">APTIS</a></li>
+            <li><a href="examenes.html">Cambridge</a></li>
+            <li><a href="examenes.html">Trinity</a></li>
+            <li><a href="examenes.html">TOEFL</a></li>
+            <li><a href="examenes.html">SIELE</a></li>
+          </ul>
+        </div>
+        <div>
           <h4 className="footer-title">Cursos</h4>
           <ul className="footer-links">
             <li><a href="course-kids.html">Kids Club 4-12</a></li>
@@ -1903,15 +2032,153 @@ const WhatsAppButton = () => (
   </a>
 );
 
+const ProfessorsSection = () => (
+  <section className="pillars-section" aria-label="Nuestro equipo" id="equipo">
+    <div className="container">
+      <div className="section-header">
+        <h2 className="section-title">Dos profesores, un objetivo: tu éxito</h2>
+        <p className="section-subtitle">
+          Antonio te lleva de A1 a B2 con paciencia y método. Jackeline te impulsa de B2 a C2 con excelencia y dedicación. Trato cercano, personalizado y con resultados.
+        </p>
+      </div>
+      <div className="professors-grid">
+        {professors.map(prof => (
+          <article className="professor-card" key={prof.id}>
+            <div className="professor-avatar" style={{ background: `linear-gradient(135deg, ${prof.color}20, ${prof.color}40)`, borderColor: prof.color }}>
+              <i className={prof.icon} style={{ color: prof.color }}></i>
+            </div>
+            <h3 className="professor-name">{prof.name}</h3>
+            <span className="professor-level" style={{ color: prof.color, borderColor: prof.color }}>{prof.role}</span>
+            <p className="professor-bio">{prof.bio}</p>
+            <div className="professor-levels">
+              <span className="level-badge" style={{ background: `${prof.color}15`, color: prof.color, borderColor: prof.color }}>
+                {prof.levels}
+              </span>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+const ExamsGrid = () => (
+  <section className="exams-section" aria-label="Exámenes oficiales" id="examenes">
+    <div className="container">
+      <div className="section-header">
+        <h2 className="section-title">Preparamos los exámenes más reconocidos del mundo</h2>
+        <p className="section-subtitle">
+          APTIS, Cambridge, Trinity, TOEFL y SIELE. Antonio prepara de A1 a B2 y Jackeline de B2 a C2. El 99% de nuestros alumnos aprueba.
+        </p>
+      </div>
+      <div className="exams-grid">
+        {examTypes.map(exam => (
+          <article className="exam-card" key={exam.id}>
+            <div className="exam-image" style={{ background: `linear-gradient(135deg, ${exam.color}15, ${exam.color}30)` }}>
+              <i className={exam.icon} style={{ color: exam.color }}></i>
+            </div>
+            <div className="exam-content">
+              <span className="exam-badge" style={{ background: exam.color }}>{exam.name}</span>
+              <h3 className="exam-title">{exam.fullName}</h3>
+              <p className="exam-description">{exam.description}</p>
+              <div className="exam-levels">
+                <i className="fa-solid fa-layer-group"></i>
+                <span>Niveles: {exam.levels}</span>
+              </div>
+              <ul className="exam-features">
+                {exam.features.map((feature, idx) => (
+                  <li key={idx}>
+                    <i className="fa-solid fa-check" style={{ color: exam.color }}></i>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <a className="btn btn-primary" href="contact-us.html" style={{ width: '100%' }}>
+                Más información
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+const ClassModesSection = () => (
+  <section className="class-modes-section" aria-label="Modalidades de clase" id="modalidades">
+    <div className="container">
+      <div className="section-header">
+        <h2 className="section-title">Elige cómo quieres estudiar</h2>
+        <p className="section-subtitle">
+          Tres modalidades pensadas para adaptarse a tu ritmo, tus objetivos y tu vida.
+        </p>
+      </div>
+      <div className="class-modes-grid">
+        {classModes.map(mode => (
+          <article className="class-mode-card" key={mode.id}>
+            <div className="mode-icon" style={{ background: `linear-gradient(135deg, ${mode.color}15, ${mode.color}30)` }}>
+              <i className={mode.icon} style={{ color: mode.color }}></i>
+            </div>
+            <h3 className="mode-title">{mode.title}</h3>
+            <p className="mode-description">{mode.description}</p>
+            <ul className="mode-features">
+              {mode.features.map((feature, idx) => (
+                <li key={idx}>
+                  <i className="fa-solid fa-check" style={{ color: mode.color }}></i>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+            <div className="mode-duration">
+              <i className="fa-solid fa-clock"></i>
+              <span>{mode.duration}</span>
+            </div>
+            <a className="btn btn-primary" href={mode.ctaHref} style={{ width: '100%' }}>
+              {mode.cta}
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+const AcademyMap = () => (
+  <section className="map-section" aria-label="Ubicación de la academia">
+    <div className="container">
+      <div className="section-header">
+        <h2 className="section-title">Encuéntranos en Granada</h2>
+        <p className="section-subtitle">
+          Ctra. de Málaga, 44 · Chana · 18015 Granada. Fácil acceso y parking cercano.
+        </p>
+      </div>
+      <div className="map-wrapper">
+        <iframe
+          title="Ubicación Be One English"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3198.5!2d-3.6191813!3d37.1890551!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd71fce62d32b5c7%3A0x4b0e2e3e5e5e5e5e!2sCtra.%20de%20M%C3%A1laga%2C%2044%2C%2018015%20Granada!5e0!3m2!1ses!2ses!4v1700000000000!5m2!1ses!2ses"
+          width="100%"
+          height="450"
+          style={{ border: 0, borderRadius: 'var(--radius-xl)' }}
+          allowFullScreen=""
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+);
+
 // ---------- Page Layouts ----------
 const HomeLayout = () => (
   <>
     <HeroSlider />
     <Pillars />
-    <ProgramTabs />
-    <JourneyTimeline />
+    <ProfessorsSection />
+    <ClassModesSection />
     <CourseGrid />
     <ImpactSection />
+    <ExamsGrid />
+    <AcademyMap />
     <CTASection />
     <Testimonials />
     <ParentsResources />
@@ -1924,18 +2191,20 @@ const AboutLayout = () => (
   <>
     <PageHero
       eyebrow="Sobre nosotros"
-      title="Un equipo que inspira, una metodología que funciona"
-      description="Somos profesores nativos y certificados que combinan pedagogía innovadora, clubs familiares y tecnología para que cada alumno avance con confianza y motivación."
+      title="Dos profesores, una pasión: tu progreso"
+      description="Antonio y Jackeline forman el corazón de Be One English. Juntos cubren de A1 a C2 con trato cercano, libros oficiales y el inglés que usas en la vida real. Desde que abrimos, el 99% de nuestros alumnos ha aprobado su examen."
       image="assets/images/slide2.jpg"
       ctas={[
         { label: "Descubre nuestros cursos", href: "course-kids.html", style: "primary" },
-        { label: "Ver actividades familiares", href: "blog.html", style: "secondary" }
+        { label: "Ver exámenes oficiales", href: "examenes.html", style: "secondary" }
       ]}
     />
+    <ProfessorsSection />
     <Pillars />
-    <JourneyTimeline />
     <ImpactSection />
+    <ClassModesSection />
     <Testimonials />
+    <AcademyMap />
     <CTASection />
   </>
 );
@@ -2042,6 +2311,7 @@ const BlogLayout = () => (
     />
     <EventsGallery />
     <ParentsResources />
+    <AcademyMap />
     <CTASection />
     <Testimonials />
     <ContactSection />
@@ -2061,6 +2331,7 @@ const ContactLayout = () => (
       ]}
     />
     <ContactSection />
+    <AcademyMap />
     <CTASection />
   </>
 );
@@ -2070,14 +2341,14 @@ const LevelLayout = () => (
     <PageHero
       eyebrow="Prueba de nivel gratuita"
       title="Descubre tu nivel y recibe un plan a tu medida"
-      description="En solo 15 minutos evaluamos tu punto de partida, definimos tus objetivos y te entregamos un itinerario personalizado."
+      description="Antonio y Jackeline te evalúan en 15 minutos, definen tus objetivos y te entregan un itinerario personalizado. Sin compromiso."
       image="assets/images/slide2.jpg"
       ctas={[
         { label: "Agendar llamada gratuita", href: "contact-us.html", style: "primary" },
         { label: "Ver todos los cursos", href: "course-kids.html", style: "secondary" }
       ]}
     />
-    <JourneyTimeline />
+    <ClassModesSection />
     <CTASection />
     <Testimonials />
   </>
@@ -2087,16 +2358,18 @@ const ExamsLayout = () => (
   <>
     <PageHero
       eyebrow="Exámenes oficiales"
-      title="Tu certificación Cambridge, Trinity, IELTS o TOEFL empieza aquí"
-      description="Simulacros reales, feedback semanal y tutores especializados que te acompañan hasta el día del examen con confianza."
+      title="APTIS, Cambridge, Trinity, TOEFL y SIELE: elige tu meta"
+      description="Antonio te prepara de A1 a B2. Jackeline de B2 a C2. Simulacros reales, técnicas de examen y un 99% de aprobados desde que abrimos."
       image="assets/images/slide2.jpg"
       ctas={[
-        { label: "Programa Teens Pro", href: "course-ten.html", style: "primary" },
-        { label: "Programa Adult Boost", href: "course-adult.html", style: "secondary" }
+        { label: "Hablar con Antonio o Jackeline", href: "contact-us.html", style: "primary" },
+        { label: "Prueba de nivel gratis", href: "nivel.html", style: "secondary" }
       ]}
     />
-    <CourseGrid />
+    <ExamsGrid />
     <ImpactSection />
+    <ClassModesSection />
+    <AcademyMap />
     <CTASection />
   </>
 );
