@@ -557,6 +557,7 @@ img {
     opacity: 0;
     visibility: hidden;
     transition: all var(--transition-base);
+    z-index: 99999;
   }
   .main-nav.open {
     transform: translateY(0);
@@ -1547,13 +1548,39 @@ img {
     right: 0;
     bottom: 0;
     background: var(--surface);
-    z-index: 1000;
+    z-index: 99999;
     padding: var(--space-xl);
     overflow-y: auto;
+    padding-top: 60px;
   }
   
   .main-nav.open {
     display: block;
+  }
+
+  .mobile-menu-close {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: var(--primary-soft);
+    color: var(--primary-dark);
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+    z-index: 10;
+  }
+
+  .mobile-menu-close:hover {
+    background: var(--primary);
+    color: white;
+    transform: rotate(90deg);
   }
   
   .nav-links {
