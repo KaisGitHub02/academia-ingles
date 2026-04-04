@@ -1123,9 +1123,6 @@ const Header = () => {
         </button>
         
         <nav className={`main-nav ${mobileMenuOpen ? 'open' : ''}`} aria-label="Navegación principal">
-          <button className="mobile-menu-close" onClick={closeMobileMenu} aria-label="Cerrar menú">
-            <i className="fa-solid fa-times"></i>
-          </button>
           <ul className="nav-links">
             {navLinks.map((link, index) => {
               if (link.isCourseLink) {

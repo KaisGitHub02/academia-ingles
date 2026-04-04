@@ -1379,24 +1379,45 @@ img {
     left: 0;
     right: 0;
     bottom: 0;
-    background: var(--surface);
-    z-index: 1000;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(12px);
+    z-index: 99999;
     padding: var(--space-xl);
     overflow-y: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-lg);
   }
   
   .main-nav.open {
-    display: block;
+    display: flex;
   }
   
   .nav-links {
     flex-direction: column;
     gap: var(--space-md);
+    align-items: center;
+    width: 100%;
   }
   
   .nav-links li {
     padding: var(--space-sm) 0;
     border-bottom: 1px solid var(--border);
+    width: 100%;
+    text-align: center;
+  }
+  
+  .nav-link {
+    font-size: var(--font-size-lg);
+    display: block;
+    padding: var(--space-md);
+  }
+  
+  .main-nav .btn {
+    margin-top: var(--space-md);
+    font-size: var(--font-size-lg);
+    padding: var(--space-md) var(--space-2xl);
   }
   
   .mobile-menu-toggle {
@@ -1919,18 +1940,27 @@ html {
 
 /* ========== MOBILE MENU FIX ========== */
 @media (max-width: 992px) {
-  .main-nav { z-index: 99999; padding-top: 60px; }
-  .mobile-menu-close {
-    position: absolute; top: var(--space-md); right: var(--space-md);
-    width: 40px; height: 40px; border-radius: 50%; border: none;
-    background: var(--primary-soft); color: var(--primary-dark);
-    font-size: 1.2rem; cursor: pointer; display: flex;
-    align-items: center; justify-content: center;
-    transition: all var(--transition-fast); z-index: 10;
+  .main-nav {
+    z-index: 99999;
+    padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-lg);
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(12px);
   }
-  .mobile-menu-close:hover { background: var(--primary); color: white; transform: rotate(90deg); }
+  .main-nav.open {
+    display: flex;
+  }
+  .main-nav .btn {
+    margin-top: var(--space-md);
+  }
 }
-@media (max-width: 768px) { .main-nav { z-index: 99999; } }
+@media (max-width: 768px) {
+  .main-nav { z-index: 99999; }
+}
 
 /* ========== PROFESSORS ========== */
 .professors-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-2xl); max-width: 900px; margin: 0 auto; }
