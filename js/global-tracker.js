@@ -1,15 +1,16 @@
 // ============================================
 // GLOBAL TRACKER - Sin base de datos
-// Usa CountAPI (countapi.xyz) - API gratuita sin registro
+// Usa Abacus (abacus.jasoncameron.dev) - gratuita, sin registro, sin API key
 // ============================================
 
-const NAMESPACE = 'beoneenglish-com';
+const NAMESPACE = 'beoneenglish';
+const API_BASE = 'https://abacus.jasoncameron.dev/hit';
 
 const GlobalTracker = {
   // Track a page visit
   trackVisit(page) {
     const p = page || window.location.pathname.split('/').pop() || 'index';
-    this._hit('visits');
+    this._hit(`visits`);
     this._hit(`visits_${p}`);
   },
 
@@ -18,15 +19,15 @@ const GlobalTracker = {
     this._hit(`click_${type}`);
   },
 
-  // Increment a counter via CountAPI
+  // Increment a counter
   _hit(key) {
-    fetch(`https://api.countapi.xyz/hit/${NAMESPACE}/${key}`)
+    fetch(`${API_BASE}/${NAMESPACE}/${key}`)
       .catch(() => {});
   },
 
   // Get a counter value
   _get(key) {
-    return fetch(`https://api.countapi.xyz/get/${NAMESPACE}/${key}`)
+    return fetch(`${API_BASE}/${NAMESPACE}/${key}`)
       .then(r => r.json())
       .then(d => d.value || 0)
       .catch(() => 0);
