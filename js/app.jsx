@@ -1003,27 +1003,27 @@ const TopBar = () => (
         <li>
           <i className="fa-solid fa-map-pin" aria-hidden="true"></i>
           &nbsp;
-          <a href="https://maps.app.goo.gl/u9SaZUoZXQ5nfoiaA" target="_blank" rel="noreferrer">
+          <TrackedLink href="https://maps.app.goo.gl/u9SaZUoZXQ5nfoiaA" trackType="map" target="_blank" rel="noreferrer">
             Ctra. de Málaga, 44 · Granada
-          </a>
+          </TrackedLink>
         </li>
         <li>
           <i className="fa-regular fa-envelope" aria-hidden="true"></i>
           &nbsp;
-          <a href="mailto:beoneenglish@gmail.com">beoneenglish@gmail.com</a>
+          <TrackedLink href="mailto:beoneenglish@gmail.com" trackType="email">beoneenglish@gmail.com</TrackedLink>
         </li>
         <li>
           <i className="fa-solid fa-phone" aria-hidden="true"></i>
           &nbsp;
-          <a href="tel:+34622854358">+34 622 854 358</a>
+          <TrackedLink href="tel:+34622854358" trackType="phone">+34 622 854 358</TrackedLink>
         </li>
       </ul>
       <ul className="social-links">
         {socialLinks.map(item => (
           <li key={item.href}>
-            <a href={item.href} target="_blank" rel="noreferrer">
+            <TrackedLink href={item.href} trackType={item.icon.includes('facebook') ? 'facebook' : item.icon.includes('whatsapp') ? 'whatsapp' : 'map'} target="_blank" rel="noreferrer">
               <i className={item.icon} aria-hidden="true"></i>
-            </a>
+            </TrackedLink>
           </li>
         ))}
       </ul>
@@ -1805,14 +1805,15 @@ const ContactSection = () => (
             <i className={channel.icon} style={{ fontSize: '2rem', color: 'var(--primary)', marginBottom: 'var(--space-md)' }}></i>
             <h3>{channel.label}</h3>
             <p>{channel.value}</p>
-            <a
+            <TrackedLink
               className="btn btn-primary"
               href={channel.href}
+              trackType={channel.label === 'Email' ? 'email' : channel.label === 'Teléfono' ? 'phone' : 'map'}
               target={channel.external ? "_blank" : "_self"}
               rel={channel.external ? "noreferrer" : undefined}
             >
               Contactar
-            </a>
+            </TrackedLink>
           </article>
         ))}
       </div>
@@ -1834,9 +1835,9 @@ const Footer = () => (
           </p>
           <div className="footer-social">
             {socialLinks.map(link => (
-              <a key={link.href} href={link.href} className="social-link" target="_blank" rel="noreferrer">
+              <TrackedLink key={link.href} href={link.href} trackType={link.icon.includes('facebook') ? 'facebook' : link.icon.includes('whatsapp') ? 'whatsapp' : 'map'} className="social-link" target="_blank" rel="noreferrer">
                 <i className={link.icon} aria-hidden="true"></i>
-              </a>
+              </TrackedLink>
             ))}
           </div>
         </div>
@@ -2020,16 +2021,152 @@ const EventsGallery = () => (
   </section>
 );
 
-const WhatsAppButton = () => (
-  <a
-    className="floating-whatsapp"
-    href="https://wa.me/34622854358?text=Hola%2C%20Busco%20ingl%C3%A9s%20para%20mi%20familia"
-    target="_blank"
-    rel="noreferrer"
-  >
-    <i className="fa-brands fa-whatsapp" aria-hidden="true"></i>
-    WhatsApp 24/7
-  </a>
+const useTracker = () => {
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem('beone_analytics') || '{}');
+    data.totalVisits = (data.totalVisits || 0) + 1;
+    data.lastVisit = new Date().toISOString();
+    if (!data.firstVisit) data.firstVisit = new Date().toISOString();
+    localStorage.setItem('beone_analytics', JSON.stringify(data));
+  }, []);
+
+  const trackClick = (type) => {
+    const data = JSON.parse(localStorage.getItem('beone_analytics') || '{}');
+    if (!data.clicks) data.clicks = {};
+    data.clicks[type] = (data.clicks[type] || 0) + 1;
+    data.lastClick = { type, at: new Date().toISOString() };
+    localStorage.setItem('beone_analytics', JSON.stringify(data));
+  };
+
+  return { trackClick };
+};
+
+const TrackedLink = ({ href, trackType, children, ...props }) => {
+  const { trackClick } = useTracker();
+  const handleClick = () => trackClick(trackType);
+  return (
+    <a href={href} onClick={handleClick} {...props}>
+      {children}
+    </a>
+  );
+};
+
+const WhatsAppButton = () => {
+  const { trackClick } = useTracker();
+  return (
+    <a
+      className="floating-whatsapp"
+      href="https://wa.me/34622854358?text=Hola%2C%20Busco%20ingl%C3%A9s%20para%20mi%20familia"
+      target="_blank"
+      rel="noreferrer"
+      onClick={() => trackClick('whatsapp')}
+    >
+      <span className="whatsapp-pulse"></span>
+      <i className="fa-brands fa-whatsapp" aria-hidden="true"></i>
+      <span className="whatsapp-label">WhatsApp</span>
+    </a>
+  );
+};
+
+const AdminStatsPanel = ({ visible, onClose }) => {
+  const [stats, setStats] = useState(null);
+
+  useEffect(() => {
+    if (!visible) return;
+    const loadData = () => {
+      const data = JSON.parse(localStorage.getItem('beone_analytics') || '{}');
+      setStats(data);
+    };
+    loadData();
+    const interval = setInterval(loadData, 3000);
+    return () => clearInterval(interval);
+  }, [visible]);
+
+  const clearStats = () => {
+    localStorage.removeItem('beone_analytics');
+    setStats(null);
+  };
+
+  if (!visible) return null;
+
+  const clicks = stats?.clicks || {};
+  const totalClicks = Object.values(clicks).reduce((a, b) => a + b, 0);
+
+  const clickItems = [
+    { key: 'whatsapp', label: 'WhatsApp', icon: 'fa-brands fa-whatsapp', color: '#25D366' },
+    { key: 'phone', label: 'Teléfono', icon: 'fa-solid fa-phone', color: '#2196F3' },
+    { key: 'email', label: 'Email', icon: 'fa-regular fa-envelope', color: '#FF9800' },
+    { key: 'facebook', label: 'Facebook', icon: 'fa-brands fa-facebook-f', color: '#1877F2' },
+    { key: 'map', label: 'Mapa / Dirección', icon: 'fa-solid fa-map-location-dot', color: '#9C27B0' }
+  ];
+
+  return (
+    <div className="admin-stats-panel">
+      <div className="admin-stats-header">
+        <div className="admin-stats-title">
+          <i className="fa-solid fa-chart-line"></i>
+          <span>Panel de Estadísticas</span>
+        </div>
+        <div className="admin-stats-actions">
+          <button className="btn btn-secondary btn-sm" onClick={onClose}>
+            <i className="fa-solid fa-times"></i>
+          </button>
+        </div>
+      </div>
+      <div className="admin-stats-body">
+        <div className="admin-stat-card admin-stat-card--primary">
+          <div className="admin-stat-icon">
+            <i className="fa-solid fa-eye"></i>
+          </div>
+          <div className="admin-stat-info">
+            <span className="admin-stat-value">{stats?.totalVisits || 0}</span>
+            <span className="admin-stat-label">Visitas totales</span>
+          </div>
+        </div>
+
+        <div className="admin-stat-card admin-stat-card--total">
+          <div className="admin-stat-icon">
+            <i className="fa-solid fa-hand-pointer"></i>
+          </div>
+          <div className="admin-stat-info">
+            <span className="admin-stat-value">{totalClicks}</span>
+            <span className="admin-stat-label">Clics totales</span>
+          </div>
+        </div>
+
+        {clickItems.map(item => (
+          <div className="admin-stat-card" key={item.key}>
+            <div className="admin-stat-icon" style={{ color: item.color }}>
+              <i className={item.icon}></i>
+            </div>
+            <div className="admin-stat-info">
+              <span className="admin-stat-value">{clicks[item.key] || 0}</span>
+              <span className="admin-stat-label">{item.label}</span>
+            </div>
+          </div>
+        ))}
+
+        {stats?.firstVisit && (
+          <div className="admin-stat-dates">
+            <p><strong>Primera visita:</strong> {new Date(stats.firstVisit).toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' })}</p>
+            {stats?.lastVisit && (
+              <p><strong>Última visita:</strong> {new Date(stats.lastVisit).toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' })}</p>
+            )}
+          </div>
+        )}
+
+        <button className="btn btn-secondary btn-sm btn-clear-stats" onClick={clearStats}>
+          <i className="fa-solid fa-trash"></i> Limpiar estadísticas
+        </button>
+      </div>
+    </div>
+  );
+};
+
+const AdminToggle = ({ onToggle }) => (
+  <button className="admin-toggle-btn" onClick={onToggle} title="Panel de estadísticas">
+    <i className="fa-solid fa-chart-line"></i>
+  </button>
 );
 
 const ProfessorsSection = () => (
@@ -2546,6 +2683,7 @@ const pageLayouts = {
 
 const App = () => {
   const appRef = useRef(null);
+  const [adminOpen, setAdminOpen] = useState(false);
 
   useSiteAnimations(appRef);
 
@@ -2557,6 +2695,8 @@ const App = () => {
       </main>
       <Footer />
       <WhatsAppButton />
+      <AdminToggle onToggle={() => setAdminOpen(true)} />
+      <AdminStatsPanel visible={adminOpen} onClose={() => setAdminOpen(false)} />
     </div>
   );
 };
