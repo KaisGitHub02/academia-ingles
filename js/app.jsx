@@ -598,29 +598,19 @@ const currentPage = (pageConfig.page || "home").toLowerCase();
 // ---------- Hooks + Shared Components ----------
 const useAutoAdvance = (length, delay = 6000) => {
   const [index, setIndex] = useState(0);
-  const [isUserPaused, setIsUserPaused] = useState(false);
   const [isInteractionPaused, setIsInteractionPaused] = useState(false);
-  const isPaused = isUserPaused || isInteractionPaused;
 
   useEffect(() => {
-    if (isPaused || length <= 1) {
+    if (isInteractionPaused || length <= 1) {
       return undefined;
     }
-
     const timer = setInterval(() => {
       setIndex(prev => (prev + 1) % length);
     }, delay);
     return () => clearInterval(timer);
-  }, [length, delay, isPaused]);
+  }, [length, delay, isInteractionPaused]);
 
-  return {
-    index,
-    setIndex,
-    isPaused,
-    isUserPaused,
-    setIsUserPaused,
-    setIsInteractionPaused
-  };
+  return { index, setIndex, setIsInteractionPaused };
 };
 
 const useSiteAnimations = scopeRef => {
@@ -1224,14 +1214,7 @@ const Header = () => {
 };
 
 const HeroSlider = ({ items = slides }) => {
-  const {
-    index,
-    setIndex,
-    isPaused,
-    isUserPaused,
-    setIsUserPaused,
-    setIsInteractionPaused
-  } = useAutoAdvance(items.length, 7000);
+  const { index, setIndex, setIsInteractionPaused } = useAutoAdvance(items.length, 7000);
   const sliderRef = useRef(null);
   const pauseOnInteraction = () => setIsInteractionPaused(true);
   const resumeOnPointerLeave = () => setIsInteractionPaused(false);
@@ -1349,15 +1332,6 @@ const HeroSlider = ({ items = slides }) => {
               onClick={() => setIndex(dotIndex)}
             />
           ))}
-          <button
-            type="button"
-            className="hero-autoplay-toggle btn btn-secondary"
-            aria-pressed={isUserPaused}
-            aria-label={isPaused ? "Reanudar carrusel principal" : "Pausar carrusel principal"}
-            onClick={() => setIsUserPaused(prev => !prev)}
-          >
-            {isPaused ? "Reanudar" : "Pausar"}
-          </button>
         </div>
       </div>
     </section>
@@ -1621,13 +1595,7 @@ const CTASection = () => (
 
 const Testimonials = () => {
   const {
-    index,
-    setIndex,
-    isPaused,
-    isUserPaused,
-    setIsUserPaused,
-    setIsInteractionPaused
-  } = useAutoAdvance(testimonials.length, 9000);
+  const { index, setIndex, setIsInteractionPaused } = useAutoAdvance(testimonials.length, 9000);
   const testimonialsRef = useRef(null);
   const pauseOnInteraction = () => setIsInteractionPaused(true);
   const resumeOnPointerLeave = () => setIsInteractionPaused(false);
@@ -1725,15 +1693,6 @@ const Testimonials = () => {
                 onClick={() => setIndex(dotIndex)}
               />
             ))}
-            <button
-              type="button"
-              className="testimonial-autoplay-toggle btn btn-secondary"
-              aria-pressed={isUserPaused}
-              aria-label={isPaused ? "Reanudar testimonios" : "Pausar testimonios"}
-              onClick={() => setIsUserPaused(prev => !prev)}
-            >
-              {isPaused ? "Reanudar" : "Pausar"}
-            </button>
           </div>
         </div>
       </div>
