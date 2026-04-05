@@ -1093,29 +1093,15 @@ const Header = () => {
   const closeMobileMenu = () => setMobileMenuOpen(false);
   
   return (
-    <>
-      <header className="site-header">
-        <TopBar />
-        <div className="header-inner">
-          <a className="site-logo" href="index.html">
-            <img src="assets/images/logo.png" alt="Be One English" loading="lazy" />
-            <strong className="hidden-mobile">Be One English</strong>
-          </a>
-          
-          <button 
-            className="mobile-menu-toggle" 
-            onClick={toggleMobileMenu}
-            aria-label={mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
-            aria-expanded={mobileMenuOpen}
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-        </div>
-      </header>
-      
-      <nav className={`main-nav ${mobileMenuOpen ? 'open' : ''}`} aria-label="Navegación principal">
+    <header className="site-header">
+      <TopBar />
+      <div className="header-inner">
+        <a className="site-logo" href="index.html">
+          <img src="assets/images/logo.png" alt="Be One English" loading="lazy" />
+          <strong className="hidden-mobile">Be One English</strong>
+        </a>
+        
+        <nav className={`main-nav ${mobileMenuOpen ? 'open' : ''}`} aria-label="Navegación principal">
           <ul className="nav-links">
             {navLinks.map((link, index) => {
               if (link.isCourseLink) {
@@ -1209,8 +1195,20 @@ const Header = () => {
           </ul>
           <a className="btn btn-primary" href="nivel.html" onClick={closeMobileMenu}>Prueba gratuita</a>
         </nav>
-      </>
-    );
+        
+        <button 
+          className="mobile-menu-toggle" 
+          onClick={toggleMobileMenu}
+          aria-label={mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
+          aria-expanded={mobileMenuOpen}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+  );
 };
 
 const HeroSlider = ({ items = slides }) => {
@@ -1594,7 +1592,6 @@ const CTASection = () => (
 );
 
 const Testimonials = () => {
-  const {
   const { index, setIndex, setIsInteractionPaused } = useAutoAdvance(testimonials.length, 9000);
   const testimonialsRef = useRef(null);
   const pauseOnInteraction = () => setIsInteractionPaused(true);
