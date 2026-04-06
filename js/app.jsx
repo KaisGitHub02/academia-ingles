@@ -1963,21 +1963,56 @@ const PhotoCarousel = ({ event }) => {
   );
 };
 
-const EventsGallery = () => (
-  <section id="eventos" className="pillars-section" aria-label="Galería de eventos">
-    <div className="container">
-      <div className="section-header">
-        <h2 className="section-title">Nuestros eventos</h2>
-        <p className="section-subtitle">Recuerda nuestras celebraciones y actividades especiales</p>
+const EventsGallery = () => {
+  const eventLinks = {
+    halloween: "halloween2024.html",
+    sanvalentin: "sanvalentin2025.html",
+    pancakes: "blog.html",
+    navidad: "navidad2024.html",
+    carnaval: "carnaval.html"
+  };
+
+  return (
+    <section id="eventos" className="events-section" aria-label="Galería de eventos">
+      <div className="container">
+        <div className="section-header">
+          <h2 className="section-title">Nuestros eventos</h2>
+          <p className="section-subtitle">Recuerda nuestras celebraciones y actividades especiales</p>
+        </div>
+        <div className="grid grid-3">
+          {eventPhotos.map((event, index) => {
+            const link = eventLinks[event.id] || "blog.html";
+            const mainPhoto = event.photos[0];
+            return (
+              <article className="event-card" key={event.id}>
+                <div className="event-image-wrapper">
+                  <img 
+                    src={mainPhoto} 
+                    alt={event.title}
+                  />
+                  <span 
+                    className="event-badge"
+                    style={{ background: event.color }}
+                  >
+                    <i className={event.icon}></i>
+                    {event.title}
+                  </span>
+                </div>
+                <div className="event-content">
+                  <h3 className="event-title">{event.title}</h3>
+                  <p className="event-description">{event.description}</p>
+                  <a href={link} className="event-link">
+                    Ver más <i className="fa-solid fa-arrow-right"></i>
+                  </a>
+                </div>
+              </article>
+            );
+          })}
+        </div>
       </div>
-      <div className="grid grid-3">
-        {eventPhotos.map(event => (
-          <PhotoCarousel key={event.id} event={event} />
-        ))}
-      </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 const useTracker = () => {
   useEffect(() => {
