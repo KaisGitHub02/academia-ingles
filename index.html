@@ -121,18 +121,108 @@
         "openingHoursSpecification": [
           {
             "@type": "OpeningHoursSpecification",
-            "dayOfWeek": [
-              "Monday",
-              "Tuesday",
-              "Wednesday",
-              "Thursday",
-              "Friday"
-            ],
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
             "opens": "10:00",
+            "closes": "13:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+            "opens": "16:00",
             "closes": "21:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Saturday",
+            "opens": "09:00",
+            "closes": "14:00"
           }
         ],
-        "areaServed": "Granada y España"
+        "areaServed": "Granada y España",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "87",
+          "bestRating": "5"
+        },
+        "hasMap": "https://maps.app.goo.gl/u9SaZUoZXQ5nfoiaA",
+        "isAcceptingNewStudents": true
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Be One English Language Centre",
+        "alternateName": "Be One English",
+        "url": "https://www.beoneenglish.com/",
+        "logo": "https://www.beoneenglish.com/assets/images/logo.png",
+        "image": "https://www.beoneenglish.com/assets/images/slide1.jpg",
+        "description": "Academia de inglés en Granada con programas para niños, adolescentes y adultos. Preparación Cambridge, Trinity, IELTS y TOEFL.",
+        "foundingDate": "2020",
+        "telephone": "+34 622 854 358",
+        "email": "beoneenglish@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Ctra. de Málaga, 44, Chana",
+          "addressLocality": "Granada",
+          "postalCode": "18015",
+          "addressRegion": "Andalucía",
+          "addressCountry": "ES"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 37.1890551,
+          "longitude": -3.6191813
+        },
+        "sameAs": [
+          "https://www.facebook.com/BeOneEnglishLanguageCentre/",
+          "https://maps.app.goo.gl/u9SaZUoZXQ5nfoiaA"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+34 622 854 358",
+          "contactType": "customer service",
+          "availableLanguage": ["Spanish", "English"],
+          "areaServed": "ES"
+        },
+        "makesOffer": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Cursos de Inglés para Niños"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Cursos de Inglés para Adolescentes"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Cursos de Inglés para Adultos"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Cursos de Inglés para Empresas"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Preparación Exámenes Cambridge"
+            }
+          }
+        ]
       }
     </script>
     <script type="application/ld+json">
