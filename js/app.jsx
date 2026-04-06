@@ -1964,13 +1964,10 @@ const PhotoCarousel = ({ event }) => {
 };
 
 const EventsGallery = () => {
-  const eventLinks = {
-    halloween: "halloween2024.html",
-    sanvalentin: "sanvalentin2025.html",
-    pancakes: "blog.html",
-    navidad: "navidad2024.html",
-    carnaval: "carnaval.html"
-  };
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const goPrev = () => setCurrentIndex(prev => (prev === 0 ? eventPhotos.length - 1 : prev - 1));
+  const goNext = () => setCurrentIndex(prev => (prev === eventPhotos.length - 1 ? 0 : prev + 1));
+  const current = eventPhotos[currentIndex];
 
   return (
     <section id="eventos" className="events-section" aria-label="Galería de eventos">
@@ -1979,35 +1976,35 @@ const EventsGallery = () => {
           <h2 className="section-title">Nuestros eventos</h2>
           <p className="section-subtitle">Recuerda nuestras celebraciones y actividades especiales</p>
         </div>
-        <div className="grid grid-3">
-          {eventPhotos.map((event, index) => {
-            const link = eventLinks[event.id] || "blog.html";
-            const mainPhoto = event.photos[0];
-            return (
-              <article className="event-card" key={event.id}>
-                <div className="event-image-wrapper">
-                  <img 
-                    src={mainPhoto} 
-                    alt={event.title}
+        <div className="event-carousel">
+          <button className="carousel-nav carousel-prev" onClick={goPrev} aria-label="Evento anterior">
+            <i className="fa-solid fa-chevron-left"></i>
+          </button>
+          <div className="event-carousel-slide">
+            <div className="event-carousel-image-wrapper">
+              <img src={current.photos[0]} alt={current.title} />
+              <span className="event-carousel-badge" style={{ background: current.color }}>
+                <i className={current.icon}></i> {current.title}
+              </span>
+            </div>
+            <div className="event-carousel-info">
+              <h3 className="event-carousel-title">{current.title}</h3>
+              <p className="event-carousel-desc">{current.description}</p>
+              <div className="event-carousel-dots">
+                {eventPhotos.map((_, idx) => (
+                  <button
+                    key={idx}
+                    className={`event-carousel-dot ${idx === currentIndex ? 'active' : ''}`}
+                    onClick={() => setCurrentIndex(idx)}
+                    aria-label={`Ir a ${eventPhotos[idx].title}`}
                   />
-                  <span 
-                    className="event-badge"
-                    style={{ background: event.color }}
-                  >
-                    <i className={event.icon}></i>
-                    {event.title}
-                  </span>
-                </div>
-                <div className="event-content">
-                  <h3 className="event-title">{event.title}</h3>
-                  <p className="event-description">{event.description}</p>
-                  <a href={link} className="event-link">
-                    Ver más <i className="fa-solid fa-arrow-right"></i>
-                  </a>
-                </div>
-              </article>
-            );
-          })}
+                ))}
+              </div>
+            </div>
+          </div>
+          <button className="carousel-nav carousel-next" onClick={goNext} aria-label="Evento siguiente">
+            <i className="fa-solid fa-chevron-right"></i>
+          </button>
         </div>
       </div>
     </section>
