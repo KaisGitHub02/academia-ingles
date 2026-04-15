@@ -1,34 +1,14 @@
-const { useState, useEffect, useRef } = React;
-
-// ---------- WhatsApp Links ----------
-const WA_BASE = 'https://wa.me/34622854358?text=';
-const waLink = (msg) => WA_BASE + encodeURIComponent(msg);
-const WA = {
-  general:    waLink('Hola, me gustaría recibir más información sobre Be One English.'),
-  prueba:     waLink('Hola, me interesa hacer la prueba de nivel gratuita. ¿Cuándo podría ser?'),
-  kids:       waLink('Hola, me interesa el curso Kids Club (4-12 años). ¿Podríais darme más información?'),
-  teens:      waLink('Hola, me interesa el curso Teens Pro para adolescentes. ¿Cómo funciona?'),
-  adults:     waLink('Hola, me interesa el curso para adultos. ¿Podéis contarme más?'),
-  intensive:  waLink('Hola, me interesa apuntarme a los Intensivos 2026. ¿Quedan plazas?'),
-  exams:      waLink('Hola, quiero preparar un examen oficial (APTIS/Cambridge/Trinity/TOEFL).'),
-  contact:    waLink('Hola, quiero hablar con Antonio o Jackeline para recibir información.'),
-  event:      waLink('Hola, me gustaría apuntarme al próximo evento de Be One English.'),
-  agendar:    waLink('Hola, me gustaría agendar una llamada gratuita para conocer Be One English.'),
-  moreInfo:   waLink('Hola, me gustaría recibir más información sobre los cursos de Be One English.'),
-  classModes: waLink('Hola, quiero saber más sobre las modalidades de clase disponibles.'),
-};
-
-
+﻿const { useState, useEffect, useRef } = React;
 
 // ---------- Data ----------
 const slides = [
   {
     id: 1,
-    eyebrow: "Academia de inglés en Granada",
-    title: "Tu inglés, nuestro compromiso. Resultados reales desde el primer día",
+    eyebrow: "Academia de ingl├®s en Granada",
+    title: "Tu ingl├®s, nuestro compromiso. Resultados reales desde el primer d├¡a",
     description:
-      "Dos profesores expertos, Antonio y Jackeline, te acompañan de A1 a C2 con trato cercano, libros oficiales y el inglés que usas de verdad.",
-    image: "assets/images/slide1.webp",
+      "Dos profesores expertos, Antonio y Jackeline, te acompa├▒an de A1 a C2 con trato cercano, libros oficiales y el ingl├®s que usas de verdad.",
+    image: "assets/images/slide1.jpg",
     ctas: [
       { label: "Descubre nuestros cursos", href: "course-kids.html", style: "primary" },
       { label: "Prueba de nivel gratis", href: "nivel.html", style: "secondary" }
@@ -39,12 +19,12 @@ const slides = [
     eyebrow: "99% de aprobados",
     title: "Preparamos APTIS, Cambridge, Trinity, TOEFL y SIELE",
     description:
-      "Desde que abrimos, el 99% de nuestros alumnos han aprobado. Antonio te lleva de A1 a B2 y Jackeline de B2 a C2 con método y cercanía.",
-    image: "assets/images/slide2.webp",
+      "Desde que abrimos, el 99% de nuestros alumnos han aprobado. Antonio te lleva de A1 a B2 y Jackeline de B2 a C2 con m├®todo y cercan├¡a.",
+    image: "assets/images/slide2.jpg",
     ctas: [
-      { label: "Ver exámenes oficiales", href: "examenes.html", style: "primary" },
+      { label: "Ver ex├ímenes oficiales", href: "examenes.html", style: "primary" },
       {
-        label: "Escríbenos por WhatsApp",
+        label: "Escr├¡benos por WhatsApp",
         href: "https://wa.me/34622854358?text=Quiero%20info%20sobre%20preparaci%C3%B3n%20de%20ex%C3%A1menes",
         style: "secondary",
         external: true
@@ -53,13 +33,13 @@ const slides = [
   },
   {
     id: 3,
-    eyebrow: "Libros oficiales + inglés del día a día",
-    title: "Aprende inglés para la vida, no solo para el examen",
+    eyebrow: "Libros oficiales + ingl├®s del d├¡a a d├¡a",
+    title: "Aprende ingl├®s para la vida, no solo para el examen",
     description:
-      "Clases con trato cercano, ritmo a tu medida y modalidad flexible: preparación de examen, mensualidad continua o intensivos de verano.",
-    image: "assets/images/slide3.webp",
+      "Clases con trato cercano, ritmo a tu medida y modalidad flexible: preparaci├│n de examen, mensualidad continua o intensivos de verano.",
+    image: "assets/images/slide3.png",
     ctas: [
-      { label: "Cómo estudiar con nosotros", href: "#modalidades", style: "secondary" },
+      { label: "C├│mo estudiar con nosotros", href: "#modalidades", style: "secondary" },
       {
         label: "Habla con Antonio o Jackeline",
         href: "https://wa.me/34622854358?text=Quiero%20hablar%20con%20Be%20One",
@@ -73,13 +53,13 @@ const slides = [
 const pillars = [
   {
     icon: "fa-solid fa-book-open",
-    title: "Libros oficiales + inglés real",
-    copy: "Combinamos métodos certificados con situaciones del día a día: viajes, trabajo, series, conversaciones reales."
+    title: "Libros oficiales + ingl├®s real",
+    copy: "Combinamos m├®todos certificados con situaciones del d├¡a a d├¡a: viajes, trabajo, series, conversaciones reales."
   },
   {
     icon: "fa-solid fa-heart",
     title: "Trato cercano y personalizado",
-    copy: "Solo dos profesores que conocen a cada alumno por su nombre. Aquí no eres un número, eres familia."
+    copy: "Solo dos profesores que conocen a cada alumno por su nombre. Aqu├¡ no eres un n├║mero, eres familia."
   },
   {
     icon: "fa-solid fa-graduation-cap",
@@ -107,14 +87,14 @@ const courseList = [
     color: "#4CAF50",
     features: ["Historias interactivas", "Proyectos creativos", "Micro-retos de vocabulario", "Mentores nativos"],
     duration: "Curso escolar",
-    schedule: "Lunes a viernes · 16:00-20:00"
+    schedule: "Lunes a viernes ┬À 16:00-20:00"
   },
   {
     id: "teens",
     title: "Teens Pro 12+",
     description:
-      "Workshops STEAM, debates y feedback individual para preparar exámenes oficiales y ganar confianza al hablar.",
-    mode: "Híbrido",
+      "Workshops STEAM, debates y feedback individual para preparar ex├ímenes oficiales y ganar confianza al hablar.",
+    mode: "H├¡brido",
     link: "course-ten.html",
     badge: "A2 - C1",
     image: "assets/images/teenagers.jpg",
@@ -122,13 +102,13 @@ const courseList = [
     color: "#2196F3",
     features: ["Workshops STEAM", "Debates y pitch nights", "Simulacros Cambridge", "Feedback individual"],
     duration: "Curso escolar",
-    schedule: "Lunes a viernes · 16:30-20:30"
+    schedule: "Lunes a viernes ┬À 16:30-20:30"
   },
   {
     id: "adults",
     title: "Adult Boost A1-C2",
     description:
-      "Clases flexibles, podcast guiados y sesiones express diseñadas para padres que quieren avanzar a su ritmo.",
+      "Clases flexibles, podcast guiados y sesiones express dise├▒adas para padres que quieren avanzar a su ritmo.",
     mode: "Online + Presencial",
     link: "course-adult.html",
     badge: "A1 - C2",
@@ -137,11 +117,11 @@ const courseList = [
     color: "#9C27B0",
     features: ["Clases flexibles", "Podcast guiados", "Sesiones express", "Seguimiento personalizado"],
     duration: "Flexible",
-    schedule: "Mañana y tarde · disponibilidad"
+    schedule: "Ma├▒ana y tarde ┬À disponibilidad"
   },
   {
     id: "business",
-    title: "Inglés Corporativo",
+    title: "Ingl├®s Corporativo",
     description:
       "Programas a medida para equipos que necesitan comunicarse con confianza en entornos internacionales.",
     mode: "In-Company",
@@ -150,7 +130,7 @@ const courseList = [
     image: "assets/images/bussiness.png",
     icon: "fa-solid fa-briefcase",
     color: "#FF9800",
-    features: ["Programas a medida", "Vocabulary profesional", "Presentaciones", "Reuniones en inglés"],
+    features: ["Programas a medida", "Vocabulary profesional", "Presentaciones", "Reuniones en ingl├®s"],
     duration: "A convenir",
     schedule: "Horario flexible"
   },
@@ -174,15 +154,15 @@ const courseList = [
     title: "Intensivos 2026",
     description:
       "Rutas de 4 a 8 semanas con simulacros diarios, material oficial y seguimiento por WhatsApp para toda la familia.",
-    mode: "Híbrido",
+    mode: "H├¡brido",
     link: "intensivos.html",
     badge: "Cupos limitados",
-    image: "assets/images/Intensivos2025.webp",
+    image: "assets/images/Intensivos2025.jpg",
     icon: "fa-solid fa-rocket",
     color: "#FF5722",
-    features: ["4-8 semanas", "Simulacros diarios", "Seguimiento WhatsApp", "Certificación final"],
+    features: ["4-8 semanas", "Simulacros diarios", "Seguimiento WhatsApp", "Certificaci├│n final"],
     duration: "4-8 semanas",
-    schedule: "Lunes a viernes · 9:00-13:00"
+    schedule: "Lunes a viernes ┬À 9:00-13:00"
   }
 ];
 
@@ -192,8 +172,8 @@ const intensivoCourses = [
     title: "Intensivo B1 - Intermediate",
     description: "4 semanas intensivas para consolidar B1. Simulaciones diarias de Speaking y Writing con feedback personalizado.",
     duration: "4 semanas",
-    schedule: "Lunes a viernes · 9:00-13:00",
-    features: ["Simulacros de examen", "Materiales oficiales Cambridge", "Seguimiento por WhatsApp", "Certificación final"],
+    schedule: "Lunes a viernes ┬À 9:00-13:00",
+    features: ["Simulacros de examen", "Materiales oficiales Cambridge", "Seguimiento por WhatsApp", "Certificaci├│n final"],
     level: "B1",
     color: "#4CAF50",
     icon: "fa-solid fa-book-open",
@@ -202,9 +182,9 @@ const intensivoCourses = [
   {
     id: "intensivo-b2",
     title: "Intensivo B2 - Upper Intermediate",
-    description: "6 semanas intensivas para alcanzar B2. Preparación completa para First Certificate con prácticas reales.",
+    description: "6 semanas intensivas para alcanzar B2. Preparaci├│n completa para First Certificate con pr├ícticas reales.",
     duration: "6 semanas",
-    schedule: "Lunes a viernes · 9:00-13:00",
+    schedule: "Lunes a viernes ┬À 9:00-13:00",
     features: ["Simulacros oficiales", "Writing corrections", "Speaking con nativos", "Examen simulacro incluido"],
     level: "B2",
     color: "#2196F3",
@@ -214,10 +194,10 @@ const intensivoCourses = [
   {
     id: "intensivo-c1",
     title: "Intensivo C1 - Advanced",
-    description: "8 semanas para dominar el C1. Grammar avanzada, vocabulario académico y preparación para Proficiency.",
+    description: "8 semanas para dominar el C1. Grammar avanzada, vocabulario acad├®mico y preparaci├│n para Proficiency.",
     duration: "8 semanas",
-    schedule: "Lunes a viernes · 9:00-13:00",
-    features: ["Grammar avanzada", "Vocabulario académico", "Speaking de nivel C1", "Materiales Cambridge originales"],
+    schedule: "Lunes a viernes ┬À 9:00-13:00",
+    features: ["Grammar avanzada", "Vocabulario acad├®mico", "Speaking de nivel C1", "Materiales Cambridge originales"],
     level: "C1",
     color: "#9C27B0",
     icon: "fa-solid fa-graduation-cap",
@@ -226,10 +206,10 @@ const intensivoCourses = [
   {
     id: "intensivo-c2",
     title: "Intensivo C2 - Proficiency",
-    description: "Programa elite para obtener C2. Preparación intensiva para el examen más avanzado de Cambridge.",
+    description: "Programa elite para obtener C2. Preparaci├│n intensiva para el examen m├ís avanzado de Cambridge.",
     duration: "8 semanas",
-    schedule: "Lunes a viernes · 9:00-13:00",
-    features: ["Preparación CPE", "Simulacros oficiales", "Feedback experto", "Garantía de resultado"],
+    schedule: "Lunes a viernes ┬À 9:00-13:00",
+    features: ["Preparaci├│n CPE", "Simulacros oficiales", "Feedback experto", "Garant├¡a de resultado"],
     level: "C2",
     color: "#FF5722",
     icon: "fa-solid fa-crown",
@@ -238,9 +218,9 @@ const intensivoCourses = [
 ];
 
 const stats = [
-  { id: "families", value: 320, suffix: "+", label: "Familias acompañadas cada año" },
+  { id: "families", value: 320, suffix: "+", label: "Familias acompa├▒adas cada a├▒o" },
   { id: "mentors", value: 2, suffix: "", label: "Profesores expertos y dedicados" },
-  { id: "events", value: 36, suffix: "", label: "Eventos bilingües familiares al año" },
+  { id: "events", value: 36, suffix: "", label: "Eventos biling├╝es familiares al a├▒o" },
   { id: "success", value: 99, suffix: "%", label: "Tasa de aprobados desde que abrimos" }
 ];
 
@@ -248,25 +228,25 @@ const testimonials = [
   {
     id: 1,
     quote:
-      "El panel para padres es increíblemente claro. Mi hija comparte sus logros en casa y vemos exactamente cómo avanza semana a semana.",
-    author: "Ana Belén",
-    role: "Mamá de Sofía · Kids Club",
+      "El panel para padres es incre├¡blemente claro. Mi hija comparte sus logros en casa y vemos exactamente c├│mo avanza semana a semana.",
+    author: "Ana Bel├®n",
+    role: "Mam├í de Sof├¡a ┬À Kids Club",
     image: "assets/images/review3.jpg"
   },
   {
     id: 2,
     quote:
-      "El programa Teens Pro me ayudó a ganar fluidez y confianza antes del B2. Los pitch nights son geniales y aprendes un montón.",
-    author: "Jorge Martínez",
-    role: "B2 First · 17 años",
+      "El programa Teens Pro me ayud├│ a ganar fluidez y confianza antes del B2. Los pitch nights son geniales y aprendes un mont├│n.",
+    author: "Jorge Mart├¡nez",
+    role: "B2 First ┬À 17 a├▒os",
     image: "assets/images/review4.jpg"
   },
   {
     id: 3,
     quote:
-      "Necesitábamos reporting en inglés para el equipo. Be One diseñó sesiones a medida que dinamizaron a todo el departamento.",
-    author: "Lucía Ramos",
-    role: "People Lead · Sector Tech",
+      "Necesit├íbamos reporting en ingl├®s para el equipo. Be One dise├▒├│ sesiones a medida que dinamizaron a todo el departamento.",
+    author: "Luc├¡a Ramos",
+    role: "People Lead ┬À Sector Tech",
     image: "assets/images/review5.jpg"
   }
 ];
@@ -274,35 +254,35 @@ const testimonials = [
 const faqs = [
   {
     id: "niveles",
-    question: "¿Qué niveles cubrís?",
-    answer: "Desde A1 hasta C2 con itinerarios personalizados para niños, adolescentes, adultos y empresas."
+    question: "┬┐Qu├® niveles cubr├¡s?",
+    answer: "Desde A1 hasta C2 con itinerarios personalizados para ni├▒os, adolescentes, adultos y empresas."
   },
   {
     id: "familias",
-    question: "¿Cómo implicáis a las familias?",
+    question: "┬┐C├│mo implic├íis a las familias?",
     answer:
-      "Panel privado con seguimiento en tiempo real, eventos bilingües mensuales y mini-retos para practicar en casa juntos."
+      "Panel privado con seguimiento en tiempo real, eventos biling├╝es mensuales y mini-retos para practicar en casa juntos."
   },
   {
     id: "online",
-    question: "¿Ofrecéis clases online?",
-    answer: "Sí, formato online en directo, híbrido y vídeos de refuerzo para repasar cuando quieras, donde estés."
+    question: "┬┐Ofrec├®is clases online?",
+    answer: "S├¡, formato online en directo, h├¡brido y v├¡deos de refuerzo para repasar cuando quieras, donde est├®s."
   },
   {
     id: "certificaciones",
-    question: "¿Preparáis exámenes oficiales?",
+    question: "┬┐Prepar├íis ex├ímenes oficiales?",
     answer:
       "Somos especialistas en APTIS, Cambridge, Trinity, TOEFL y SIELE con simulacros reales y feedback puntual. Antonio prepara de A1 a B2 y Jackeline de B2 a C2."
   },
   {
     id: "horarios",
-    question: "¿Qué horarios tenéis?",
-    answer: "Turnos de mañana, tarde y noche, además de clubs los sábados y campus intensivos en verano."
+    question: "┬┐Qu├® horarios ten├®is?",
+    answer: "Turnos de ma├▒ana, tarde y noche, adem├ís de clubs los s├íbados y campus intensivos en verano."
   },
   {
     id: "pagos",
-    question: "¿Hay facilidades de pago?",
-    answer: "Sí, cuotas mensuales sin intereses y descuentos especiales para hermanos y empresas colaboradoras."
+    question: "┬┐Hay facilidades de pago?",
+    answer: "S├¡, cuotas mensuales sin intereses y descuentos especiales para hermanos y empresas colaboradoras."
   }
 ];
 
@@ -314,14 +294,14 @@ const contactChannels = [
     icon: "fa-regular fa-envelope"
   },
   {
-    label: "Teléfono",
+    label: "Tel├®fono",
     value: "+34 622 854 358",
     href: "tel:+34622854358",
     icon: "fa-solid fa-phone"
   },
   {
-    label: "Dirección",
-    value: "Ctra. de Málaga, 44 · Chana · Granada",
+    label: "Direcci├│n",
+    value: "Ctra. de M├ílaga, 44 ┬À Chana ┬À Granada",
     href: "https://maps.app.goo.gl/u9SaZUoZXQ5nfoiaA",
     icon: "fa-solid fa-location-dot",
     external: true
@@ -335,14 +315,14 @@ const navLinks = [
     label: "Cursos",
     isCourseLink: true
   },
-  { href: "examenes.html", label: "Exámenes" },
+  { href: "examenes.html", label: "Ex├ímenes" },
   {
     href: "intensivos.html",
     label: "Intensivos",
     isIntensivos: true
   },
   { href: "blog.html", label: "Actividades" },
-  { href: WA.contact, label: "Contacto 💬", external: true }
+  { href: "contact-us.html", label: "Contacto" }
 ];
 
 const socialLinks = [
@@ -371,18 +351,18 @@ const audiencePrograms = [
     id: "teens",
     title: "Teens Pro (12-18)",
     goals: ["Pitch nights", "Portfolio STEAM", "Simulacros Cambridge"],
-    support: "Feedback individual + guía para padres sobre seguimiento emocional."
+    support: "Feedback individual + gu├¡a para padres sobre seguimiento emocional."
   },
   {
     id: "parents",
-    title: "Padres acompañados",
+    title: "Padres acompa├▒ados",
     goals: ["Charlas trimestrales", "Toolkit para estudiar juntos", "Clases express"],
-    support: "Atención directa por WhatsApp y biblioteca de recursos."
+    support: "Atenci├│n directa por WhatsApp y biblioteca de recursos."
   },
   {
     id: "family",
     title: "Experiencia familiar",
-    goals: ["Eventos bilingües", "Semana cultural", "Excursiones"],
+    goals: ["Eventos biling├╝es", "Semana cultural", "Excursiones"],
     support: "Calendario interactivo conectado con Google Calendar."
   }
 ];
@@ -391,17 +371,17 @@ const journeySteps = [
   {
     id: 1,
     title: "Prueba de nivel + charla familiar",
-    detail: "Diagnóstico gratuito, detección de metas escolares y estilo de aprendizaje."
+    detail: "Diagn├│stico gratuito, detecci├│n de metas escolares y estilo de aprendizaje."
   },
   {
     id: 2,
     title: "Itinerario a medida",
-    detail: "Definimos ritmo, materiales y tutor acompañante según edad, metas académicas y estilo de aprendizaje."
+    detail: "Definimos ritmo, materiales y tutor acompa├▒ante seg├║n edad, metas acad├®micas y estilo de aprendizaje."
   },
   {
     id: 3,
     title: "Aulas vivas + Clubs",
-    detail: "Clases híbridas, clubs creativos y retos donde padres pueden unirse."
+    detail: "Clases h├¡bridas, clubs creativos y retos donde padres pueden unirse."
   },
   {
     id: 4,
@@ -410,8 +390,8 @@ const journeySteps = [
   },
   {
     id: 5,
-    title: "Certificación y experiencias",
-    detail: "Simulacros reales, visitas culturales y acompañamiento en exámenes."
+    title: "Certificaci├│n y experiencias",
+    detail: "Simulacros reales, visitas culturales y acompa├▒amiento en ex├ímenes."
   }
 ];
 
@@ -422,11 +402,11 @@ const parentTips = [
   },
   {
     title: "Eventos family-friendly",
-    copy: "Participa en book picnics, escape rooms en inglés y meetups culinarios."
+    copy: "Participa en book picnics, escape rooms en ingl├®s y meetups culinarios."
   },
   {
     title: "Podcast para padres",
-    copy: "Audios de 5 minutos con consejos para acompañar el aprendizaje sin estrés."
+    copy: "Audios de 5 minutos con consejos para acompa├▒ar el aprendizaje sin estr├®s."
   }
 ];
 
@@ -434,7 +414,7 @@ const eventPhotos = [
   {
     id: "halloween",
     title: "Halloween 2024",
-    description: "Fiesta de Halloween con disfraces, juegos y actividades terroríficas en inglés",
+    description: "Fiesta de Halloween con disfraces, juegos y actividades terror├¡ficas en ingl├®s",
     icon: "fa-solid fa-moon",
     color: "#FF6B35",
     photos: [
@@ -449,8 +429,8 @@ const eventPhotos = [
   },
   {
     id: "sanvalentin",
-    title: "San Valentín 2025",
-    description: "Celebración del amor con actividades bilingües y manuellejes",
+    title: "San Valent├¡n 2025",
+    description: "Celebraci├│n del amor con actividades biling├╝es y manuellejes",
     icon: "fa-solid fa-heart",
     color: "#E91E63",
     photos: [
@@ -462,7 +442,7 @@ const eventPhotos = [
   {
     id: "pancakes",
     title: "Pancake Day",
-    description: "Día de los pancakes con receta en inglés y concurso de habilidades",
+    description: "D├¡a de los pancakes con receta en ingl├®s y concurso de habilidades",
     icon: "fa-solid fa-bread-slice",
     color: "#FFC107",
     photos: [
@@ -476,7 +456,7 @@ const eventPhotos = [
   {
     id: "navidad",
     title: "Navidad 2024",
-    description: "Festas navideñas con villancicos, Papa Noel y regalos",
+    description: "Festas navide├▒as con villancicos, Papa Noel y regalos",
     icon: "fa-solid fa-tree",
     color: "#4CAF50",
     photos: [
@@ -501,8 +481,8 @@ const professors = [
   {
     id: "antonio",
     name: "Antonio",
-    role: "Profesor Principal · A1 a B2",
-    bio: "Especialista en llevar a los alumnos desde cero hasta un nivel intermedio-alto con paciencia, método y mucho trato cercano. Combina libros oficiales con situaciones reales del día a día.",
+    role: "Profesor Principal ┬À A1 a B2",
+    bio: "Especialista en llevar a los alumnos desde cero hasta un nivel intermedio-alto con paciencia, m├®todo y mucho trato cercano. Combina libros oficiales con situaciones reales del d├¡a a d├¡a.",
     levels: "A1 - B2",
     color: "#2196F3",
     icon: "fa-solid fa-chalkboard-user"
@@ -510,8 +490,8 @@ const professors = [
   {
     id: "jackeline",
     name: "Jackeline",
-    role: "Profesora Principal · B2 a C2",
-    bio: "Experta en niveles avanzados. Prepara a sus alumnos para alcanzar la excelencia en inglés académico y profesional, con un enfoque práctico y personalizado.",
+    role: "Profesora Principal ┬À B2 a C2",
+    bio: "Experta en niveles avanzados. Prepara a sus alumnos para alcanzar la excelencia en ingl├®s acad├®mico y profesional, con un enfoque pr├íctico y personalizado.",
     levels: "B2 - C2",
     color: "#E91E63",
     icon: "fa-solid fa-user-graduate"
@@ -523,89 +503,89 @@ const examTypes = [
     id: "aptis",
     name: "APTIS",
     fullName: "APTIS English Testing",
-    description: "Examen del British Council que evalúa las cuatro destrezas lingüísticas. Reconocido por instituciones públicas y empresas en todo el mundo.",
+    description: "Examen del British Council que eval├║a las cuatro destrezas ling├╝├¡sticas. Reconocido por instituciones p├║blicas y empresas en todo el mundo.",
     levels: "A1 - C2",
     image: "assets/images/aptis.png",
     icon: "fa-solid fa-certificate",
     color: "#1565C0",
-    features: ["Reconocido por el British Council", "Resultados rápidos (48-72h)", "Flexible: elige qué skills examinar", "Válido para oposiciones y empleo público"]
+    features: ["Reconocido por el British Council", "Resultados r├ípidos (48-72h)", "Flexible: elige qu├® skills examinar", "V├ílido para oposiciones y empleo p├║blico"]
   },
   {
     id: "cambridge",
     name: "CAMBRIDGE",
     fullName: "Cambridge Assessment English",
-    description: "Las certificaciones más reconocidas internacionalmente. Desde Key (A2) hasta CPE (C2), con validez de por vida.",
+    description: "Las certificaciones m├ís reconocidas internacionalmente. Desde Key (A2) hasta CPE (C2), con validez de por vida.",
     levels: "A2 - C2",
     image: "assets/images/cambridge.png",
     icon: "fa-solid fa-award",
     color: "#C62828",
-    features: ["Validez de por vida", "Reconocimiento mundial", "KET, PET, FCE, CAE, CPE", "Preparación completa de las 4 skills"]
+    features: ["Validez de por vida", "Reconocimiento mundial", "KET, PET, FCE, CAE, CPE", "Preparaci├│n completa de las 4 skills"]
   },
   {
     id: "trinity",
     name: "TRINITY",
     fullName: "Trinity College London",
-    description: "Exámenes de speaking y habilidades integradas con examinadores nativos. Ideal para ganar confianza oral y obtener certificación oficial.",
+    description: "Ex├ímenes de speaking y habilidades integradas con examinadores nativos. Ideal para ganar confianza oral y obtener certificaci├│n oficial.",
     levels: "A1 - C2",
     image: "assets/images/trinity.png",
     icon: "fa-solid fa-comments",
     color: "#6A1B9A",
-    features: ["Enfoque en comunicación oral", "Examinadores nativos", "Graded Examinations (GESE)", "Integrated Skills in English (ISE)"]
+    features: ["Enfoque en comunicaci├│n oral", "Examinadores nativos", "Graded Examinations (GESE)", "Integrated Skills in English (ISE)"]
   },
   {
     id: "toefl",
     name: "TOEFL",
     fullName: "Test of English as a Foreign Language",
-    description: "El examen más aceptado por universidades de habla inglesa. Evalúa reading, listening, speaking y writing en contexto académico.",
+    description: "El examen m├ís aceptado por universidades de habla inglesa. Eval├║a reading, listening, speaking y writing en contexto acad├®mico.",
     levels: "B1 - C2",
     image: "assets/images/TOEFL.png",
     icon: "fa-solid fa-university",
     color: "#00695C",
-    features: ["Aceptado por 11.000+ universidades", "Formato iBT online", "Ideal para estudios en el extranjero", "Preparación académica completa"]
+    features: ["Aceptado por 11.000+ universidades", "Formato iBT online", "Ideal para estudios en el extranjero", "Preparaci├│n acad├®mica completa"]
   },
   {
     id: "siele",
     name: "SIELE",
-    fullName: "Servicio Internacional de Evaluación de la Lengua Española",
-    description: "Aunque evaluamos inglés, también informamos sobre SIELE para español. Certificación digital del Instituto Cervantes con validez internacional.",
+    fullName: "Servicio Internacional de Evaluaci├│n de la Lengua Espa├▒ola",
+    description: "Aunque evaluamos ingl├®s, tambi├®n informamos sobre SIELE para espa├▒ol. Certificaci├│n digital del Instituto Cervantes con validez internacional.",
     levels: "A1 - C2",
     image: "assets/images/siele.png",
     icon: "fa-solid fa-globe",
     color: "#F57F17",
-    features: ["Certificación digital del Instituto Cervantes", "Resultados en 3 semanas", "Válido 5 años", "Reconocido internacionalmente"]
+    features: ["Certificaci├│n digital del Instituto Cervantes", "Resultados en 3 semanas", "V├ílido 5 a├▒os", "Reconocido internacionalmente"]
   }
 ];
 
 const classModes = [
   {
     id: "exam-prep",
-    title: "Preparación de Exámenes",
-    description: "Programa intensivo enfocado en conseguir tu certificación. Simulacros reales, técnicas de examen y seguimiento semanal hasta el día D.",
+    title: "Preparaci├│n de Ex├ímenes",
+    description: "Programa intensivo enfocado en conseguir tu certificaci├│n. Simulacros reales, t├®cnicas de examen y seguimiento semanal hasta el d├¡a D.",
     icon: "fa-solid fa-file-circle-check",
     color: "#E91E63",
-    features: ["Simulacros de examen reales", "Técnicas y estrategias de test", "Feedback personalizado semanal", "Material oficial incluido", "Garantía de preparación completa"],
-    duration: "Según nivel objetivo",
+    features: ["Simulacros de examen reales", "T├®cnicas y estrategias de test", "Feedback personalizado semanal", "Material oficial incluido", "Garant├¡a de preparaci├│n completa"],
+    duration: "Seg├║n nivel objetivo",
     cta: "Preparar mi examen",
     ctaHref: "examenes.html"
   },
   {
     id: "monthly",
     title: "Mensualidad Continua",
-    description: "Aprende inglés a tu ritmo con clases semanales, un trato cercano y progresión constante. Sin presiones, sin fechas límite: inglés para toda la vida.",
+    description: "Aprende ingl├®s a tu ritmo con clases semanales, un trato cercano y progresi├│n constante. Sin presiones, sin fechas l├¡mite: ingl├®s para toda la vida.",
     icon: "fa-solid fa-infinity",
     color: "#2196F3",
-    features: ["Clases semanales regulares", "Ritmo personalizado", "Libros oficiales + inglés real", "Trato cercano y personalizado", "Seguimiento continuo del progreso"],
+    features: ["Clases semanales regulares", "Ritmo personalizado", "Libros oficiales + ingl├®s real", "Trato cercano y personalizado", "Seguimiento continuo del progreso"],
     duration: "Mes a mes, sin permanencia",
     cta: "Empezar ya",
-    ctaHref: WA.classModes
+    ctaHref: "contact-us.html"
   },
   {
     id: "summer",
     title: "Intensivos de Verano",
-    description: "Inmersión total en inglés durante el verano. Programas de 2 a 8 semanas con horarios intensivos, actividades lúdicas y resultados garantizados.",
+    description: "Inmersi├│n total en ingl├®s durante el verano. Programas de 2 a 8 semanas con horarios intensivos, actividades l├║dicas y resultados garantizados.",
     icon: "fa-solid fa-sun",
     color: "#FF9800",
-    features: ["2 a 8 semanas de duración", "Horarios intensivos (mañana o tarde)", "Actividades lúdicas en inglés", "Grupos reducidos", "Resultados garantizados"],
+    features: ["2 a 8 semanas de duraci├│n", "Horarios intensivos (ma├▒ana o tarde)", "Actividades l├║dicas en ingl├®s", "Grupos reducidos", "Resultados garantizados"],
     duration: "Verano 2026",
     cta: "Ver intensivos",
     ctaHref: "intensivos.html"
@@ -614,50 +594,6 @@ const classModes = [
 
 const pageConfig = window.BEONE_PAGE_CONFIG || { page: "home" };
 const currentPage = (pageConfig.page || "home").toLowerCase();
-
-
-// ---------- New Hooks ----------
-const useScrollProgress = () => {
-  const [progress, setProgress] = React.useState(0);
-  React.useEffect(() => {
-    const onScroll = () => {
-      const el = document.documentElement;
-      const total = el.scrollHeight - el.clientHeight;
-      setProgress(total > 0 ? Math.min(100, (el.scrollTop / total) * 100) : 0);
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-  return progress;
-};
-
-const useDarkMode = () => {
-  const [dark, setDark] = React.useState(() => localStorage.getItem('beone_dark') === '1');
-  React.useEffect(() => {
-    document.documentElement.classList.toggle('dark', dark);
-    localStorage.setItem('beone_dark', dark ? '1' : '0');
-  }, [dark]);
-  return [dark, setDark];
-};
-
-const useExitIntent = () => {
-  const [show, setShow] = React.useState(false);
-  const fired = React.useRef(false);
-  React.useEffect(() => {
-    const dismissed = sessionStorage.getItem('exit_popup_dismissed');
-    if (dismissed) return;
-    const onLeave = (e) => {
-      if (e.clientY <= 20 && !fired.current) {
-        fired.current = true;
-        setTimeout(() => setShow(true), 400);
-      }
-    };
-    document.addEventListener('mouseleave', onLeave);
-    return () => document.removeEventListener('mouseleave', onLeave);
-  }, []);
-  const close = () => { setShow(false); sessionStorage.setItem('exit_popup_dismissed', '1'); };
-  return [show, close];
-};
 
 // ---------- Hooks + Shared Components ----------
 const useAutoAdvance = (length, delay = 6000) => {
@@ -1050,131 +986,6 @@ const useSiteAnimations = scopeRef => {
   }, [scopeRef]);
 };
 
-
-const ScrollProgressBar = () => {
-  const progress = useScrollProgress();
-  return (
-    <div style={{
-      position: 'fixed', top: 0, left: 0, height: '3px', zIndex: 99999,
-      background: 'var(--grad-primary)', width: `${progress}%`,
-      transition: 'width 0.1s linear', pointerEvents: 'none',
-      borderRadius: '0 var(--radius-full) var(--radius-full) 0'
-    }} />
-  );
-};
-
-const PromoBanner = () => {
-  const [visible, setVisible] = React.useState(() => !sessionStorage.getItem('promo_dismissed'));
-  if (!visible) return null;
-  return (
-    <div className="promo-banner" role="banner">
-      <span>
-        <i className="fa-solid fa-star" style={{ color: 'var(--peach)' }}></i>&nbsp;
-        <strong>Intensivos 2026</strong> &mdash; Plazas limitadas. ¡Reserva la tuya ahora!&nbsp;
-        <a href="intensivos.html" className="promo-banner-cta">Ver intensivos</a>
-      </span>
-      <button aria-label="Cerrar" className="promo-banner-close"
-        onClick={() => { setVisible(false); sessionStorage.setItem('promo_dismissed','1'); }}>
-        <i className="fa-solid fa-xmark"></i>
-      </button>
-    </div>
-  );
-};
-
-const DarkModeToggle = ({ dark, setDark }) => (
-  <button className="dark-mode-toggle"
-    onClick={() => setDark(d => !d)}
-    aria-label={dark ? 'Modo claro' : 'Modo oscuro'}>
-    <i className={dark ? 'fa-solid fa-sun' : 'fa-solid fa-moon'}></i>
-  </button>
-);
-
-const TrustBadges = () => (
-  <section className="trust-badges-section" aria-label="Certificaciones reconocidas">
-    <div className="container">
-      <p className="trust-badges-label">Certificaciones que preparamos</p>
-      <div className="trust-badges-row">
-        {examTypes.map(exam => (
-          <a key={exam.id} href="examenes.html" className="trust-badge-item" title={exam.fullName}>
-            <span className="trust-badge-icon" style={{ background: `${exam.color}18`, border: `1.5px solid ${exam.color}30` }}>
-              <i className={exam.icon} style={{ color: exam.color }}></i>
-            </span>
-            <span className="trust-badge-name">{exam.name}</span>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-);
-
-const HowItWorks = () => (
-  <section className="how-section" aria-label="Cómo funciona">
-    <div className="container">
-      <div className="section-header">
-        <h2 className="section-title">Empieza en 3 pasos sencillos</h2>
-        <p className="section-subtitle">Sin burocracia ni esperas. En menos de 48 horas ya tendrás tu plan personalizado.</p>
-      </div>
-      <div className="how-grid">
-        {[
-          { step: '01', icon: 'fa-solid fa-phone', title: 'Contacta con nosotros', desc: 'Escríbenos por WhatsApp o email. Te respondemos en menos de 2 horas.' },
-          { step: '02', icon: 'fa-solid fa-clipboard-check', title: 'Prueba de nivel gratuita', desc: 'Una charla de 15 minutos para conocer tus metas y definir el mejor camino.' },
-          { step: '03', icon: 'fa-solid fa-rocket', title: '¡Empieza a aprender!', desc: 'Plan personalizado listo, materiales incluidos y tu mentor asignado. ¡Vamos!' },
-        ].map((item, i) => (
-          <article key={i} className="how-card">
-            <div className="how-step-number">{item.step}</div>
-            <div className="how-icon"><i className={item.icon}></i></div>
-            <h3 className="how-title">{item.title}</h3>
-            <p className="how-desc">{item.desc}</p>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-);
-
-const ExitIntentPopup = ({ show, onClose }) => {
-  if (!show) return null;
-  return (
-    <div className="popup-overlay" onClick={onClose}>
-      <div className="popup-card" onClick={e => e.stopPropagation()}>
-        <button className="popup-close" onClick={onClose}><i className="fa-solid fa-xmark"></i></button>
-        <div className="popup-icon"><i className="fa-solid fa-gift"></i></div>
-        <h2 className="popup-title">¡Espera! Antes de salir...</h2>
-        <p className="popup-subtitle">Consigue tu <strong>prueba de nivel gratuita</strong> con Antonio o Jackeline en 15 minutos.</p>
-        <div className="popup-actions">
-          <a href={WA.prueba} className="btn btn-primary popup-cta" target="_blank" rel="noreferrer" onClick={onClose}>
-            <i className="fa-solid fa-calendar-check"></i> Reservar prueba gratuita
-          </a>
-          <button className="popup-skip" onClick={onClose}>No gracias, seguir navegando</button>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const BottomMobileNav = () => {
-  const items = [
-    { href: 'index.html', icon: 'fa-solid fa-house', label: 'Inicio' },
-    { href: 'course-kids.html', icon: 'fa-solid fa-book-open', label: 'Cursos' },
-    { href: WA.general, icon: 'fa-brands fa-whatsapp', label: 'WhatsApp', ext: true, hl: true },
-    { href: 'examenes.html', icon: 'fa-solid fa-graduation-cap', label: 'Exámenes' },
-    { href: WA.contact, icon: 'fa-brands fa-whatsapp', label: 'Contacto', ext: true },
-  ];
-  return (
-    <nav className="bottom-mobile-nav" aria-label="Navegación rápida móvil">
-      {items.map(item => (
-        <a key={item.label} href={item.href}
-          target={item.ext ? '_blank' : undefined}
-          rel={item.ext ? 'noreferrer' : undefined}
-          className={`bottom-nav-item${item.hl ? ' bottom-nav-highlight' : ''}`}>
-          <i className={item.icon}></i>
-          <span>{item.label}</span>
-        </a>
-      ))}
-    </nav>
-  );
-};
-
 const TopBar = () => (
   <div className="top-bar">
     <div className="container top-bar-content">
@@ -1183,7 +994,7 @@ const TopBar = () => (
           <i className="fa-solid fa-map-pin" aria-hidden="true"></i>
           &nbsp;
           <TrackedLink href="https://maps.app.goo.gl/u9SaZUoZXQ5nfoiaA" trackType="map" target="_blank" rel="noreferrer">
-            Ctra. de Málaga, 44 · Granada
+            Ctra. de M├ílaga, 44 ┬À Granada
           </TrackedLink>
         </li>
         <li>
@@ -1290,7 +1101,7 @@ const Header = () => {
           <strong className="hidden-mobile">Be One English</strong>
         </a>
         
-        <nav className={`main-nav ${mobileMenuOpen ? 'open' : ''}`} aria-label="Navegación principal">
+        <nav className={`main-nav ${mobileMenuOpen ? 'open' : ''}`} aria-label="Navegaci├│n principal">
           <ul className="nav-links">
             {navLinks.map((link, index) => {
               if (link.isCourseLink) {
@@ -1388,7 +1199,7 @@ const Header = () => {
         <button 
           className="mobile-menu-toggle" 
           onClick={toggleMobileMenu}
-          aria-label={mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
+          aria-label={mobileMenuOpen ? "Cerrar men├║" : "Abrir men├║"}
           aria-expanded={mobileMenuOpen}
         >
           <span></span>
@@ -1570,9 +1381,9 @@ const Pillars = () => (
   <section className="pillars-section" aria-label="Pilares de experiencia">
     <div className="container">
       <div className="section-header">
-        <h2 className="section-title">¿Por qué las familias eligen Be One English?</h2>
+        <h2 className="section-title">┬┐Por qu├® las familias eligen Be One English?</h2>
         <p className="section-subtitle">
-          Porque no somos solo una academia. Somos el equipo que acompaña a tu familia en cada paso del camino hacia el inglés.
+          Porque no somos solo una academia. Somos el equipo que acompa├▒a a tu familia en cada paso del camino hacia el ingl├®s.
         </p>
       </div>
       <div className="pillars-grid">
@@ -1598,7 +1409,7 @@ const ProgramTabs = () => {
       <div className="container">
         <div className="section-header">
           <h2 className="section-title">Un programa pensado para cada etapa</h2>
-          <p className="section-subtitle">Selecciona el perfil para ver objetivos, dinámicas y cómo acompañamos a cada familia.</p>
+          <p className="section-subtitle">Selecciona el perfil para ver objetivos, din├ímicas y c├│mo acompa├▒amos a cada familia.</p>
         </div>
         <div className="program-tabs card">
           <div className="tab-list flex gap-sm" role="tablist">
@@ -1618,7 +1429,7 @@ const ProgramTabs = () => {
             <h3>{current.title}</h3>
             <ul>
               {current.goals.map(goal => (
-                <li key={goal}>· {goal}</li>
+                <li key={goal}>┬À {goal}</li>
               ))}
             </ul>
             <p className="text-muted mt-md">{current.support}</p>
@@ -1636,8 +1447,8 @@ const JourneyTimeline = () => {
     <section id="journey" className="pillars-section" aria-label="Recorrido familiar">
       <div className="container">
         <div className="section-header">
-          <h2 className="section-title">Así acompañamos a tu familia</h2>
-          <p className="section-subtitle">Un itinerario claro para que niños y padres sepan cada paso.</p>
+          <h2 className="section-title">As├¡ acompa├▒amos a tu familia</h2>
+          <p className="section-subtitle">Un itinerario claro para que ni├▒os y padres sepan cada paso.</p>
         </div>
         <div className="card p-lg">
           <div className="flex gap-md" style={{ flexWrap: 'wrap', justifyContent: 'center' }}>
@@ -1737,8 +1548,8 @@ const ImpactSection = () => (
   <section className="stats-section" aria-label="Impacto medible">
     <div className="container">
       <div className="section-header">
-        <h2 className="section-title">Nuestros números hablan por nosotros</h2>
-        <p className="section-subtitle">Más de una década formando familias en Granada con resultados reales y medibles.</p>
+        <h2 className="section-title">Nuestros n├║meros hablan por nosotros</h2>
+        <p className="section-subtitle">M├ís de una d├®cada formando familias en Granada con resultados reales y medibles.</p>
       </div>
       <div className="stats-grid">
         {stats.map(stat => (
@@ -1755,12 +1566,12 @@ const ImpactSection = () => (
 );
 
 const CTASection = () => (
-  <section className="cta-section" aria-label="Llamada a la acción">
+  <section className="cta-section" aria-label="Llamada a la acci├│n">
     <div className="container">
       <div className="cta-content">
-        <h2 className="cta-title">¿Listo para dar el paso?</h2>
+        <h2 className="cta-title">┬┐Listo para dar el paso?</h2>
         <p className="cta-description">
-          Reserva una sesión de descubrimiento gratuita. Incluye prueba de nivel, recomendaciones personalizadas y acceso a nuestro calendario familiar.
+          Reserva una sesi├│n de descubrimiento gratuita. Incluye prueba de nivel, recomendaciones personalizadas y acceso a nuestro calendario familiar.
         </p>
         <div className="hero-actions">
           <a className="btn btn-primary" href="contact-us.html">
@@ -1772,7 +1583,7 @@ const CTASection = () => (
             target="_blank"
             rel="noreferrer"
           >
-            <i className="fa-brands fa-whatsapp"></i> Escríbenos por WhatsApp
+            <i className="fa-brands fa-whatsapp"></i> Escr├¡benos por WhatsApp
           </a>
         </div>
       </div>
@@ -1925,7 +1736,7 @@ const ParentsResources = () => (
     <div className="container">
       <div className="section-header">
         <h2 className="section-title">Recursos para casa</h2>
-        <p className="section-subtitle">Ayudamos a padres y madres a acompañar el aprendizaje con ideas sencillas.</p>
+        <p className="section-subtitle">Ayudamos a padres y madres a acompa├▒ar el aprendizaje con ideas sencillas.</p>
       </div>
       <div className="grid grid-3">
         {parentTips.map(tip => (
@@ -1955,7 +1766,7 @@ const ContactSection = () => (
             <TrackedLink
               className="btn btn-primary"
               href={channel.href}
-              trackType={channel.label === 'Email' ? 'email' : channel.label === 'Teléfono' ? 'phone' : 'map'}
+              trackType={channel.label === 'Email' ? 'email' : channel.label === 'Tel├®fono' ? 'phone' : 'map'}
               target={channel.external ? "_blank" : "_self"}
               rel={channel.external ? "noreferrer" : undefined}
             >
@@ -1978,7 +1789,7 @@ const Footer = () => (
             <strong>Be One English</strong>
           </div>
           <p className="footer-description">
-            Tu academia de inglés en Granada. Programas para niños, adolescentes, adultos y empresas con mentores nativos y seguimiento personalizado.
+            Tu academia de ingl├®s en Granada. Programas para ni├▒os, adolescentes, adultos y empresas con mentores nativos y seguimiento personalizado.
           </p>
           <div className="footer-social">
             {socialLinks.map(link => (
@@ -1989,17 +1800,17 @@ const Footer = () => (
           </div>
         </div>
         <div>
-          <h4 className="footer-title">Accesos rápidos</h4>
+          <h4 className="footer-title">Accesos r├ípidos</h4>
           <ul className="footer-links">
             <li><a href="about-us.html">Sobre nosotros</a></li>
             <li><a href="nivel.html">Prueba de nivel gratuita</a></li>
-            <li><a href="examenes.html">Exámenes oficiales</a></li>
+            <li><a href="examenes.html">Ex├ímenes oficiales</a></li>
             <li><a href="blog.html">Actividades y eventos</a></li>
-            <li><a href={WA.general} target="_blank" rel="noreferrer">Contacto</a></li>
+            <li><a href="contact-us.html">Contacto</a></li>
           </ul>
         </div>
         <div>
-          <h4 className="footer-title">Exámenes</h4>
+          <h4 className="footer-title">Ex├ímenes</h4>
           <ul className="footer-links">
             <li><a href="examenes.html">APTIS</a></li>
             <li><a href="examenes.html">Cambridge</a></li>
@@ -2021,13 +1832,13 @@ const Footer = () => (
           <h4 className="footer-title">Horarios</h4>
           <p className="footer-description">
             Lunes a Viernes<br />
-            10:00 - 13:00 · 16:00 - 21:00<br />
-            Sábados · Clubs y eventos bilingües
+            10:00 - 13:00 ┬À 16:00 - 21:00<br />
+            S├íbados ┬À Clubs y eventos biling├╝es
           </p>
         </div>
       </div>
       <div className="footer-bottom">
-        <p>© {new Date().getFullYear()} Be One English Language Centre. Todos los derechos reservados.</p>
+        <p>┬® {new Date().getFullYear()} Be One English Language Centre. Todos los derechos reservados.</p>
       </div>
     </div>
   </footer>
@@ -2159,7 +1970,7 @@ const EventsGallery = () => {
   const current = eventPhotos[currentIndex];
 
   return (
-    <section id="eventos" className="events-section" aria-label="Galería de eventos">
+    <section id="eventos" className="events-section" aria-label="Galer├¡a de eventos">
       <div className="container">
         <div className="section-header">
           <h2 className="section-title">Nuestros eventos</h2>
@@ -2288,10 +2099,10 @@ const AdminStatsPanel = ({ visible, onClose }) => {
 
   const clickItems = [
     { key: 'whatsapp', label: 'WhatsApp', icon: 'fa-brands fa-whatsapp', color: '#25D366' },
-    { key: 'phone', label: 'Teléfono', icon: 'fa-solid fa-phone', color: '#2196F3' },
+    { key: 'phone', label: 'Tel├®fono', icon: 'fa-solid fa-phone', color: '#2196F3' },
     { key: 'email', label: 'Email', icon: 'fa-regular fa-envelope', color: '#FF9800' },
     { key: 'facebook', label: 'Facebook', icon: 'fa-brands fa-facebook-f', color: '#1877F2' },
-    { key: 'map', label: 'Mapa / Dirección', icon: 'fa-solid fa-map-location-dot', color: '#9C27B0' }
+    { key: 'map', label: 'Mapa / Direcci├│n', icon: 'fa-solid fa-map-location-dot', color: '#9C27B0' }
   ];
 
   return (
@@ -2299,7 +2110,7 @@ const AdminStatsPanel = ({ visible, onClose }) => {
       <div className="admin-stats-header">
         <div className="admin-stats-title">
           <i className="fa-solid fa-chart-line"></i>
-          <span>Panel de Estadísticas</span>
+          <span>Panel de Estad├¡sticas</span>
         </div>
         <div className="admin-stats-actions">
           <button className="btn btn-secondary btn-sm" onClick={onClose}>
@@ -2311,13 +2122,13 @@ const AdminStatsPanel = ({ visible, onClose }) => {
         {loading ? (
           <div className="admin-loading">
             <i className="fa-solid fa-spinner fa-spin"></i>
-            <p>Cargando estadísticas...</p>
+            <p>Cargando estad├¡sticas...</p>
           </div>
         ) : stats ? (
           <>
             <div className="admin-section-title">
               <i className="fa-solid fa-globe"></i>
-              <span>Estadísticas Globales (todos los visitantes)</span>
+              <span>Estad├¡sticas Globales (todos los visitantes)</span>
             </div>
 
             <div className="admin-stat-card admin-stat-card--primary">
@@ -2354,7 +2165,7 @@ const AdminStatsPanel = ({ visible, onClose }) => {
 
             <div className="admin-section-title" style={{ marginTop: 'var(--space-lg)' }}>
               <i className="fa-solid fa-laptop"></i>
-              <span>Estadísticas Locales (este navegador)</span>
+              <span>Estad├¡sticas Locales (este navegador)</span>
             </div>
 
             <div className="admin-stat-card admin-stat-card--primary">
@@ -2378,14 +2189,14 @@ const AdminStatsPanel = ({ visible, onClose }) => {
             </div>
 
             <button className="btn btn-secondary btn-sm btn-clear-stats" onClick={clearLocalStats}>
-              <i className="fa-solid fa-trash"></i> Limpiar estadísticas locales
+              <i className="fa-solid fa-trash"></i> Limpiar estad├¡sticas locales
             </button>
           </>
         ) : (
           <div className="admin-empty">
             <i className="fa-solid fa-database"></i>
             <p>No hay datos disponibles.</p>
-            <p className="admin-empty-hint">Verifica que el tracker está cargado correctamente.</p>
+            <p className="admin-empty-hint">Verifica que el tracker est├í cargado correctamente.</p>
           </div>
         )}
       </div>
@@ -2394,7 +2205,7 @@ const AdminStatsPanel = ({ visible, onClose }) => {
 };
 
 const AdminToggle = ({ onToggle }) => (
-  <button className="admin-toggle-btn" onClick={onToggle} title="Panel de estadísticas">
+  <button className="admin-toggle-btn" onClick={onToggle} title="Panel de estad├¡sticas">
     <i className="fa-solid fa-chart-line"></i>
   </button>
 );
@@ -2403,9 +2214,9 @@ const ProfessorsSection = () => (
   <section className="pillars-section" aria-label="Nuestro equipo" id="equipo">
     <div className="container">
       <div className="section-header">
-        <h2 className="section-title">Dos profesores, un objetivo: tu éxito</h2>
+        <h2 className="section-title">Dos profesores, un objetivo: tu ├®xito</h2>
         <p className="section-subtitle">
-          Antonio te lleva de A1 a B2 con paciencia y método. Jackeline te impulsa de B2 a C2 con excelencia y dedicación. Trato cercano, personalizado y con resultados.
+          Antonio te lleva de A1 a B2 con paciencia y m├®todo. Jackeline te impulsa de B2 a C2 con excelencia y dedicaci├│n. Trato cercano, personalizado y con resultados.
         </p>
       </div>
       <div className="professors-grid">
@@ -2430,10 +2241,10 @@ const ProfessorsSection = () => (
 );
 
 const ExamsGrid = () => (
-  <section className="exams-section" aria-label="Exámenes oficiales" id="examenes">
+  <section className="exams-section" aria-label="Ex├ímenes oficiales" id="examenes">
     <div className="container">
       <div className="section-header">
-        <h2 className="section-title">Preparamos los exámenes más reconocidos del mundo</h2>
+        <h2 className="section-title">Preparamos los ex├ímenes m├ís reconocidos del mundo</h2>
         <p className="section-subtitle">
           APTIS, Cambridge, Trinity, TOEFL y SIELE. Antonio prepara de A1 a B2 y Jackeline de B2 a C2. El 99% de nuestros alumnos aprueba.
         </p>
@@ -2460,8 +2271,8 @@ const ExamsGrid = () => (
                   </li>
                 ))}
               </ul>
-              <a className="btn btn-primary" href={WA.exams} target="_blank" rel="noreferrer" style={{ width: '100%' }}>
-                Más información
+              <a className="btn btn-primary" href="contact-us.html" style={{ width: '100%' }}>
+                M├ís informaci├│n
               </a>
             </div>
           </article>
@@ -2475,7 +2286,7 @@ const ClassModesSection = () => (
   <section className="class-modes-section" aria-label="Modalidades de clase" id="modalidades">
     <div className="container">
       <div className="section-header">
-        <h2 className="section-title">Elige cómo quieres estudiar</h2>
+        <h2 className="section-title">Elige c├│mo quieres estudiar</h2>
         <p className="section-subtitle">
           Tres modalidades pensadas para adaptarse a tu ritmo, tus objetivos y tu vida.
         </p>
@@ -2511,17 +2322,17 @@ const ClassModesSection = () => (
 );
 
 const AcademyMap = () => (
-  <section className="map-section" aria-label="Ubicación de la academia">
+  <section className="map-section" aria-label="Ubicaci├│n de la academia">
     <div className="container">
       <div className="section-header">
-        <h2 className="section-title">Encuéntranos en Granada</h2>
+        <h2 className="section-title">Encu├®ntranos en Granada</h2>
         <p className="section-subtitle">
-          Ctra. de Málaga, 44 · Chana · 18015 Granada. Fácil acceso y parking cercano.
+          Ctra. de M├ílaga, 44 ┬À Chana ┬À 18015 Granada. F├ícil acceso y parking cercano.
         </p>
       </div>
       <div className="map-wrapper">
         <iframe
-          title="Ubicación Be One English"
+          title="Ubicaci├│n Be One English"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3198.5!2d-3.6191813!3d37.1890551!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd71fce62d32b5c7%3A0x4b0e2e3e5e5e5e5e!2sCtra.%20de%20M%C3%A1laga%2C%2044%2C%2018015%20Granada!5e0!3m2!1ses!2ses!4v1700000000000!5m2!1ses!2ses"
           width="100%"
           height="450"
@@ -2539,9 +2350,7 @@ const AcademyMap = () => (
 const HomeLayout = () => (
   <>
     <HeroSlider />
-    <TrustBadges />
     <Pillars />
-    <HowItWorks />
     <ProfessorsSection />
     <ClassModesSection />
     <CourseGrid />
@@ -2560,12 +2369,12 @@ const AboutLayout = () => (
   <>
     <PageHero
       eyebrow="Sobre nosotros"
-      title="Dos profesores, una pasión: tu progreso"
-      description="Antonio y Jackeline forman el corazón de Be One English. Juntos cubren de A1 a C2 con trato cercano, libros oficiales y el inglés que usas en la vida real. Desde que abrimos, el 99% de nuestros alumnos ha aprobado su examen."
-      image="assets/images/slide2.webp"
+      title="Dos profesores, una pasi├│n: tu progreso"
+      description="Antonio y Jackeline forman el coraz├│n de Be One English. Juntos cubren de A1 a C2 con trato cercano, libros oficiales y el ingl├®s que usas en la vida real. Desde que abrimos, el 99% de nuestros alumnos ha aprobado su examen."
+      image="assets/images/slide2.jpg"
       ctas={[
         { label: "Descubre nuestros cursos", href: "course-kids.html", style: "primary" },
-        { label: "Hablar con nosotros 💬", href: WA.contact, style: "secondary", external: true }
+        { label: "Ver ex├ímenes oficiales", href: "examenes.html", style: "secondary" }
       ]}
     />
     <ProfessorsSection />
@@ -2578,21 +2387,9 @@ const AboutLayout = () => (
   </>
 );
 
-// ---------- Course WA helpers ----------
-const courseWA = (course) => ({
-  kids: WA.kids, teens: WA.teens, adults: WA.adults,
-  business: waLink('Hola, me interesa el programa de Inglés Corporativo para equipos.'),
-  private:  waLink('Hola, me interesa el Mentoring 1:1 personalizado. ¿Cómo funciona?'),
-  intensive: WA.intensive,
-}[course.id] || WA.moreInfo);
-
-const intensivoWA = (level) =>
-  waLink(`Hola, me interesa el Intensivo ${level} de Be One English. ¿Hay plazas para 2026?`);
-
 const CourseDetailLayout = ({ courseId }) => {
   const course = courseList.find(c => c.id === courseId) || courseList[0];
-  const waHref = courseWA(course);
-  const items = course.features || course.focus || [];
+  
   return (
     <>
       <PageHero
@@ -2601,228 +2398,284 @@ const CourseDetailLayout = ({ courseId }) => {
         description={course.description}
         image={course.image}
         ctas={[
-          { label: `Apuntarme a ${course.title} 💬`, href: waHref, style: 'primary', external: true },
-          { label: 'Prueba de nivel gratis', href: WA.prueba, style: 'secondary', external: true }
+          { label: "Hablar con un asesor", href: "contact-us.html", style: "primary" },
+          { label: "Ver intensivos", href: "intensivos.html", style: "secondary" }
         ]}
       />
-      <section className="course-detail-section" aria-label="Detalle del curso">
+      <section aria-label="Detalle del curso" className="pillars-section">
         <div className="container">
-          <div className="cd-hero-card" style={{ '--course-color': course.color }}>
-            <div className="cd-hero-visual">
-              <div className="cd-icon-wrap"><i className={course.icon}></i></div>
-              <span className="cd-level-badge">{course.badge}</span>
-            </div>
-            <div className="cd-hero-body">
-              <h2 className="cd-title">{course.title}</h2>
-              <p className="cd-desc">{course.description}</p>
-              <div className="cd-stats">
-                <div className="cd-stat"><i className="fa-solid fa-clock"></i><strong>{course.duration}</strong><span>Duración</span></div>
-                <div className="cd-stat"><i className="fa-solid fa-calendar-days"></i><strong>{course.schedule}</strong><span>Horario</span></div>
-                <div className="cd-stat"><i className="fa-solid fa-location-dot"></i><strong>{course.mode}</strong><span>Modalidad</span></div>
+          <div className="course-grid" style={{ maxWidth: '800px', margin: '0 auto' }}>
+            <article className="card" style={{ borderTop: `4px solid ${course.color}`, textAlign: 'center', padding: 'var(--space-xl)' }}>
+              <div style={{ 
+                width: '120px', 
+                height: '120px', 
+                borderRadius: '50%', 
+                background: `linear-gradient(135deg, ${course.color}15, ${course.color}30)`,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: '0 auto var(--space-lg)',
+                border: `3px solid ${course.color}`
+              }}>
+                <i className={course.icon} style={{ fontSize: '50px', color: course.color }}></i>
               </div>
-              {items.length > 0 && (
-                <ul className="cd-features">
-                  {items.map((f, i) => (
-                    <li key={i}><span className="cd-check"><i className="fa-solid fa-check"></i></span>{f}</li>
+              <span className="badge" style={{ backgroundColor: course.color, display: 'inline-block', marginBottom: 'var(--space-md)' }}>
+                <i className="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+                {course.badge}
+              </span>
+              <h3 style={{ fontSize: 'var(--font-size-xl)', marginBottom: 'var(--space-md)' }}>{course.title}</h3>
+              <p style={{ fontSize: 'var(--font-size-lg)', color: 'var(--text-light)', marginBottom: 'var(--space-lg)' }}>{course.description}</p>
+              
+              <div style={{ display: 'flex', justifyContent: 'center', gap: 'var(--space-xl)', marginBottom: 'var(--space-lg)', flexWrap: 'wrap' }}>
+                <div style={{ textAlign: 'center' }}>
+                  <i className="fa-solid fa-clock" style={{ color: course.color, fontSize: '24px', marginBottom: 'var(--space-xs)' }}></i>
+                  <p style={{ margin: 0, fontWeight: '600' }}>{course.duration}</p>
+                  <p style={{ margin: 0, fontSize: 'var(--font-size-sm)', color: 'var(--text-light)' }}>Duraci├│n</p>
+                </div>
+                <div style={{ textAlign: 'center' }}>
+                  <i className="fa-solid fa-calendar" style={{ color: course.color, fontSize: '24px', marginBottom: 'var(--space-xs)' }}></i>
+                  <p style={{ margin: 0, fontWeight: '600' }}>{course.schedule}</p>
+                  <p style={{ margin: 0, fontSize: 'var(--font-size-sm)', color: 'var(--text-light)' }}>Horario</p>
+                </div>
+              </div>
+              
+              {course.features && (
+                <ul className="intensive-features" style={{ textAlign: 'left', maxWidth: '400px', margin: '0 auto var(--space-lg)' }}>
+                  {course.features.map((feature, idx) => (
+                    <li key={idx}><i className="fa-solid fa-check" style={{ color: course.color }}></i> {feature}</li>
                   ))}
                 </ul>
               )}
-              <div className="cd-actions">
-                <a className="btn btn-primary cd-cta" href={waHref} target="_blank" rel="noreferrer">
-                  <i className="fa-brands fa-whatsapp"></i> Quiero apuntarme
+              
+              {course.focus && (
+                <ul className="intensive-features" style={{ textAlign: 'left', maxWidth: '400px', margin: '0 auto var(--space-lg)' }}>
+                  {course.focus.map((item, idx) => (
+                    <li key={idx}><i className="fa-solid fa-check" style={{ color: course.color }}></i> {item}</li>
+                  ))}
+                </ul>
+              )}
+              
+              <div className="hero-actions mt-lg" style={{ justifyContent: 'center' }}>
+                <a className="btn btn-primary" href="contact-us.html">
+                  Solicitar informaci├│n
                 </a>
-                <a className="btn btn-secondary" href={WA.prueba} target="_blank" rel="noreferrer">
-                  Prueba de nivel gratis
+                <a className="btn btn-secondary" href="nivel.html">
+                  Hacer prueba gratuita
                 </a>
               </div>
-            </div>
-          </div>
-          <div className="cd-other-courses">
-            <h3 className="cd-other-title">También puede interesarte</h3>
-            <div className="cd-other-grid">
-              {courseList.filter(c => c.id !== course.id).slice(0, 3).map(c => (
-                <a key={c.id} href={c.link} className="cd-other-card">
-                  <div className="cd-other-icon" style={{ background: `${c.color}18`, border: `1.5px solid ${c.color}30` }}>
-                    <i className={c.icon} style={{ color: c.color }}></i>
-                  </div>
-                  <div><strong>{c.title}</strong><span>{c.mode}</span></div>
-                  <i className="fa-solid fa-arrow-right cd-other-arrow"></i>
-                </a>
-              ))}
-            </div>
+            </article>
           </div>
         </div>
       </section>
-      <ImpactSection /><Testimonials /><CTASection />
+      <ImpactSection />
+      <CTASection />
+      <Testimonials />
+      <ContactSection />
     </>
   );
 };
 
-
 const BlogLayout = () => (
   <>
-    <PageHero eyebrow="Actividades y eventos" title="Más que clases: experiencias que unen a la familia"
-      description="Book picnics, escape rooms, meetups culinarios y retos semanales para practicar inglés de forma divertida."
-      image="assets/images/slide3.webp"
+    <PageHero
+      eyebrow="Actividades y eventos"
+      title="M├ís que clases: experiencias que unen a la familia"
+      description="Book picnics, escape rooms, meetups culinarios y retos semanales para practicar ingl├®s de forma divertida y en comunidad."
+      image="assets/images/slide3.png"
       ctas={[
-        { label: 'Apúntate al próximo evento 💬', href: WA.event, style: 'primary', external: true },
-        { label: 'Suscríbete al boletín', href: 'mailto:beoneenglish@gmail.com', style: 'secondary' }
-      ]} />
-    <EventsGallery /><ParentsResources /><AcademyMap /><CTASection /><Testimonials />
+        { label: "Ap├║ntate al pr├│ximo evento", href: "contact-us.html", style: "primary" },
+        { label: "Suscr├¡bete al bolet├¡n", href: "mailto:beoneenglish@gmail.com", style: "secondary" }
+      ]}
+    />
+    <EventsGallery />
+    <ParentsResources />
+    <AcademyMap />
+    <CTASection />
+    <Testimonials />
+    <ContactSection />
   </>
 );
 
 const ContactLayout = () => (
   <>
-    <PageHero eyebrow="Contacto" title="Hablemos sobre tu próximo paso en inglés"
-      description="Nuestro equipo responde en menos de 2 horas. Elige el canal que prefieras: email, teléfono o WhatsApp."
-      image="assets/images/slide1.webp"
+    <PageHero
+      eyebrow="Contacto"
+      title="Hablemos sobre tu pr├│ximo paso en ingl├®s"
+      description="Nuestro equipo responde en menos de 2 horas. Elige el canal que prefieras: email, tel├®fono o WhatsApp."
+      image="assets/images/slide1.jpg"
       ctas={[
-        { label: 'Enviar email', href: 'mailto:beoneenglish@gmail.com', style: 'primary' },
-        { label: 'WhatsApp directo 💬', href: WA.general, style: 'secondary', external: true }
-      ]} />
-    <ContactSection /><AcademyMap /><CTASection />
+        { label: "Enviar email", href: "mailto:beoneenglish@gmail.com", style: "primary" },
+        { label: "WhatsApp directo", href: "https://wa.me/34622854358", style: "secondary", external: true }
+      ]}
+    />
+    <ContactSection />
+    <AcademyMap />
+    <CTASection />
   </>
 );
 
 const LevelLayout = () => (
   <>
-    <PageHero eyebrow="Prueba de nivel gratuita" title="Descubre tu nivel y recibe un plan a tu medida"
-      description="Antonio y Jackeline te evalúan en 15 minutos y te entregan un itinerario personalizado. Sin compromiso."
-      image="assets/images/slide2.webp"
+    <PageHero
+      eyebrow="Prueba de nivel gratuita"
+      title="Descubre tu nivel y recibe un plan a tu medida"
+      description="Antonio y Jackeline te eval├║an en 15 minutos, definen tus objetivos y te entregan un itinerario personalizado. Sin compromiso."
+      image="assets/images/slide2.jpg"
       ctas={[
-        { label: 'Agendar llamada gratuita 💬', href: WA.agendar, style: 'primary', external: true },
-        { label: 'Ver todos los cursos', href: 'course-kids.html', style: 'secondary' }
-      ]} />
-    <ClassModesSection /><CTASection /><Testimonials />
+        { label: "Agendar llamada gratuita", href: "contact-us.html", style: "primary" },
+        { label: "Ver todos los cursos", href: "course-kids.html", style: "secondary" }
+      ]}
+    />
+    <ClassModesSection />
+    <CTASection />
+    <Testimonials />
   </>
 );
 
 const ExamsLayout = () => (
   <>
-    <PageHero eyebrow="Exámenes oficiales" title="APTIS, Cambridge, Trinity, TOEFL y SIELE: elige tu meta"
-      description="Antonio te prepara de A1 a B2. Jackeline de B2 a C2. Simulacros reales y un 99% de aprobados."
-      image="assets/images/slide2.webp"
+    <PageHero
+      eyebrow="Ex├ímenes oficiales"
+      title="APTIS, Cambridge, Trinity, TOEFL y SIELE: elige tu meta"
+      description="Antonio te prepara de A1 a B2. Jackeline de B2 a C2. Simulacros reales, t├®cnicas de examen y un 99% de aprobados desde que abrimos."
+      image="assets/images/slide2.jpg"
       ctas={[
-        { label: 'Hablar con Antonio o Jackeline 💬', href: WA.contact, style: 'primary', external: true },
-        { label: 'Prueba de nivel gratis', href: WA.prueba, style: 'secondary', external: true }
-      ]} />
-    <ExamsGrid /><ImpactSection /><ClassModesSection /><AcademyMap /><CTASection />
+        { label: "Hablar con Antonio o Jackeline", href: "contact-us.html", style: "primary" },
+        { label: "Prueba de nivel gratis", href: "nivel.html", style: "secondary" }
+      ]}
+    />
+    <ExamsGrid />
+    <ImpactSection />
+    <ClassModesSection />
+    <AcademyMap />
+    <CTASection />
   </>
 );
 
 const IntensiveLayout = ({ courseId }) => {
   const course = intensivoCourses.find(c => c.id === courseId);
+  
   if (course) {
-    const waHref = intensivoWA(course.level);
     return (
       <>
-        <PageHero eyebrow={`Intensivo ${course.level} — ${course.duration}`}
-          title={course.title} description={course.description}
-          image="assets/images/Intensivos2025.webp"
+        <PageHero
+          eyebrow={`Intensivo ${course.level}`}
+          title={course.title}
+          description={course.description}
+          image="assets/images/Intensivos2025.jpg"
           ctas={[
-            { label: `Reservar plaza ${course.level} 💬`, href: waHref, style: 'primary', external: true },
-            { label: 'Ver todos los intensivos', href: 'intensivos.html', style: 'secondary' }
-          ]} />
-        <section className="course-detail-section" aria-label="Detalle intensivo">
+            { label: "Reservar plaza", href: "nivel.html", style: "primary" },
+            { label: "Ver todos los intensivos", href: "intensivos.html", style: "secondary" }
+          ]}
+        />
+        <section aria-label="Detalle del curso">
           <div className="container">
-            <div className="cd-hero-card" style={{ '--course-color': course.color }}>
-              <div className="cd-hero-visual">
-                <div className="cd-icon-wrap"><i className={course.icon}></i></div>
-                <span className="cd-level-badge">Nivel {course.level}</span>
-              </div>
-              <div className="cd-hero-body">
-                <h2 className="cd-title">{course.title}</h2>
-                <p className="cd-desc">{course.description}</p>
-                <div className="cd-stats">
-                  <div className="cd-stat"><i className="fa-solid fa-hourglass-half"></i><strong>{course.duration}</strong><span>Duración</span></div>
-                  <div className="cd-stat"><i className="fa-solid fa-calendar-days"></i><strong>{course.schedule}</strong><span>Horario</span></div>
-                  <div className="cd-stat"><i className="fa-solid fa-trophy"></i><strong>Certificación</strong><span>Objetivo</span></div>
+            <div className="course-grid" style={{ maxWidth: '700px', margin: '0 auto' }}>
+              <article className="card course-card highlight" style={{ borderTop: `4px solid ${course.color}`, textAlign: 'center' }}>
+                <div style={{ 
+                  width: '100px', 
+                  height: '100px', 
+                  borderRadius: '50%', 
+                  background: `linear-gradient(135deg, ${course.color}20, ${course.color}40)`,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: '0 auto var(--space-lg)',
+                  border: `3px solid ${course.color}`
+                }}>
+                  <i className={course.icon} style={{ fontSize: '40px', color: course.color }}></i>
                 </div>
-                <ul className="cd-features">
-                  {course.features.map((f, i) => (
-                    <li key={i}><span className="cd-check"><i className="fa-solid fa-check"></i></span>{f}</li>
+                <span className="badge" style={{ backgroundColor: course.color, display: 'inline-block', marginBottom: 'var(--space-md)' }}>
+                  <i className="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+                  Nivel {course.level}
+                </span>
+                <h3>{course.title}</h3>
+                <p>{course.description}</p>
+                <div className="course-meta" style={{ justifyContent: 'center' }}>
+                  <i className="fa-solid fa-clock"></i>
+                  <span>Duraci├│n: {course.duration}</span>
+                </div>
+                <div className="course-meta" style={{ justifyContent: 'center' }}>
+                  <i className="fa-solid fa-calendar"></i>
+                  <span>Horario: {course.schedule}</span>
+                </div>
+                <ul className="intensive-features">
+                  {course.features.map((feature, idx) => (
+                    <li key={idx}><i className="fa-solid fa-check" style={{ color: course.color }}></i> {feature}</li>
                   ))}
                 </ul>
-                <div className="cd-actions">
-                  <a className="btn btn-primary cd-cta" href={waHref} target="_blank" rel="noreferrer">
-                    <i className="fa-brands fa-whatsapp"></i> Reservar mi plaza {course.level}
+                <div className="hero-actions mt-lg" style={{ justifyContent: 'center' }}>
+                  <a className="btn btn-primary" href="contact-us.html">
+                    Solicitar informaci├│n
                   </a>
-                  <a className="btn btn-secondary" href="intensivos.html">Ver todos los niveles</a>
+                  <a className="btn btn-secondary" href="nivel.html">
+                    Hacer prueba gratuita
+                  </a>
                 </div>
-              </div>
+              </article>
             </div>
           </div>
         </section>
-        <CTASection /><Testimonials />
+        <CTASection />
+        <Testimonials />
+        <ContactSection />
       </>
     );
   }
+  
   return (
     <>
-      <PageHero eyebrow="Cursos intensivos 2026" title="De 4 a 8 semanas hacia tu certificación"
-        description="Domina el inglés con simulacros diarios, tutores expertos y seguimiento personalizado."
-        image="assets/images/Intensivos2025.webp"
+      <PageHero
+        eyebrow="Cursos intensivos 2026"
+        title="De 4 a 8 semanas hacia tu certificaci├│n"
+        description="Domina el ingl├®s con simulacros diarios, tutores nativos y seguimiento personalizado. De B1 a C2, elige tu ritmo."
+        image="assets/images/Intensivos2025.jpg"
         ctas={[
-          { label: 'Reservar plaza 💬', href: WA.intensive, style: 'primary', external: true },
-          { label: 'Hablar con un asesor', href: WA.contact, style: 'secondary', external: true }
-        ]} />
-      <section className="intensive-list-section" aria-label="Cursos intensivos">
+          { label: "Reservar plaza", href: "nivel.html", style: "primary" },
+          { label: "Hablar con un asesor", href: "contact-us.html", style: "secondary" }
+        ]}
+      />
+      <section className="courses-section" aria-label="Cursos intensivos">
         <div className="container">
           <div className="section-header">
             <h2 className="section-title">Elige tu nivel intensivo</h2>
-            <p className="section-subtitle">Cada nivel tiene su propio ritmo, materiales y tutor asignado.</p>
+            <p className="section-subtitle">Programa de inmersi├│n total con simulacros diarios y soporte continuo.</p>
           </div>
-          <div className="level-track">
-            {intensivoCourses.map((c, i) => (
-              <div key={c.id} className="level-track-step">
-                <div className="level-track-dot" style={{ background: c.color, boxShadow: `0 0 0 4px ${c.color}30` }}>
-                  <i className={c.icon}></i>
+          <div className="courses-grid">
+            {intensivoCourses.map(course => (
+              <article className="course-card" key={course.id} style={{ borderTop: `4px solid ${course.color}` }}>
+                <div className="course-image" style={{ height: '120px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: `linear-gradient(135deg, ${course.color}15, ${course.color}30)` }}>
+                  <i className={course.icon} style={{ fontSize: '50px', color: course.color }}></i>
                 </div>
-                <span className="level-track-label" style={{ color: c.color }}>{c.level}</span>
-                {i < intensivoCourses.length - 1 && (
-                  <div className="level-track-line" style={{ background: `linear-gradient(90deg, ${c.color}, ${intensivoCourses[i+1].color})` }} />
-                )}
-              </div>
-            ))}
-          </div>
-          <div className="intensive-cards-grid">
-            {intensivoCourses.map(c => {
-              const levelWA = intensivoWA(c.level);
-              return (
-                <article key={c.id} className="intensive-card" style={{ '--level-color': c.color }}>
-                  <div className="intensive-card-header">
-                    <div className="intensive-card-icon"><i className={c.icon}></i></div>
-                    <div>
-                      <span className="intensive-level-pill" style={{ background: c.color }}>{c.level}</span>
-                      <h3 className="intensive-card-title">{c.title}</h3>
-                    </div>
+                <span className="course-badge" style={{ backgroundColor: course.color }}>{course.level}</span>
+                <div className="course-content">
+                  <h3 className="course-title">{course.title}</h3>
+                  <p className="course-description">{course.description}</p>
+                  <div className="course-meta">
+                    <i className="fa-solid fa-clock"></i>
+                    <span>{course.duration}</span>
                   </div>
-                  <p className="intensive-card-desc">{c.description}</p>
-                  <div className="intensive-card-meta">
-                    <span><i className="fa-solid fa-hourglass-half"></i> {c.duration}</span>
-                    <span><i className="fa-solid fa-calendar"></i> {c.schedule}</span>
+                  <div className="course-meta">
+                    <i className="fa-solid fa-calendar"></i>
+                    <span>{course.schedule}</span>
                   </div>
-                  <ul className="intensive-card-features">
-                    {c.features.map((f, i) => (
-                      <li key={i}><i className="fa-solid fa-circle-check"></i>{f}</li>
+                  <ul className="intensive-features">
+                    {course.features.map((feature, idx) => (
+                      <li key={idx}><i className="fa-solid fa-check" style={{ color: course.color }}></i> {feature}</li>
                     ))}
                   </ul>
-                  <div className="intensive-card-actions">
-                    <a className="btn btn-primary intensive-wa-btn" href={levelWA} target="_blank" rel="noreferrer">
-                      <i className="fa-brands fa-whatsapp"></i> Reservar nivel {c.level}
-                    </a>
-                    <a href={c.link} className="intensive-detail-link">
-                      Ver detalles <i className="fa-solid fa-arrow-right"></i>
-                    </a>
+                  <div className="hero-actions mt-md">
+                    <a className="btn btn-primary" href={course.link}>Ver detalles</a>
                   </div>
-                </article>
-              );
-            })}
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
-      <ImpactSection /><CTASection /><Testimonials />
+      <CTASection />
+      <Testimonials />
+      <ContactSection />
     </>
   );
 };
@@ -2846,7 +2699,7 @@ const EventGalleryLayout = ({ eventId }) => {
               <p>{event.description}</p>
               <div className="hero-actions">
                 <a className="btn btn-primary" href="blog.html">Volver a actividades</a>
-                <a className="btn btn-secondary" href={WA.event} target="_blank" rel="noreferrer">Próximo evento 💬</a>
+                <a className="btn btn-secondary" href="contact-us.html">Pr├│ximo evento</a>
               </div>
             </div>
           </article>
@@ -2872,26 +2725,19 @@ const pageLayouts = {
 const App = () => {
   const appRef = useRef(null);
   const [adminOpen, setAdminOpen] = useState(false);
-  const [dark, setDark] = useDarkMode();
-  const [showExit, closeExit] = useExitIntent();
 
   useSiteAnimations(appRef);
 
   return (
     <div className="app-wrapper" ref={appRef}>
-      <ScrollProgressBar />
-      <PromoBanner />
-      <Header dark={dark} setDark={setDark} />
+      <Header />
       <main className="page-content">
         {pageLayouts[currentPage] || <HomeLayout />}
       </main>
       <Footer />
       <WhatsAppButton />
-      <BottomMobileNav />
       <AdminToggle onToggle={() => setAdminOpen(true)} />
       <AdminStatsPanel visible={adminOpen} onClose={() => setAdminOpen(false)} />
-      <ExitIntentPopup show={showExit} onClose={closeExit} />
-      <DarkModeToggle dark={dark} setDark={setDark} />
     </div>
   );
 };
